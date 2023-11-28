@@ -28,7 +28,6 @@ Partial Class Start
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnCreate = New System.Windows.Forms.Button()
-        Me.btnVisitor = New System.Windows.Forms.Button()
         Me.btnLogin = New System.Windows.Forms.Button()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -53,9 +52,9 @@ Partial Class Start
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
         Me.Panel2.Controls.Add(Me.BtnExit)
-        Me.Panel2.Location = New System.Drawing.Point(1, 368)
+        Me.Panel2.Location = New System.Drawing.Point(-7, 369)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(647, 30)
+        Me.Panel2.Size = New System.Drawing.Size(661, 34)
         Me.Panel2.TabIndex = 2
         '
         'PictureBox1
@@ -74,7 +73,6 @@ Partial Class Start
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
         Me.Panel1.Controls.Add(Me.btnCreate)
-        Me.Panel1.Controls.Add(Me.btnVisitor)
         Me.Panel1.Controls.Add(Me.btnLogin)
         Me.Panel1.Location = New System.Drawing.Point(122, 184)
         Me.Panel1.Name = "Panel1"
@@ -86,31 +84,19 @@ Partial Class Start
         Me.btnCreate.BackColor = System.Drawing.Color.White
         Me.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCreate.Font = New System.Drawing.Font("Bernard MT Condensed", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCreate.Location = New System.Drawing.Point(129, 103)
+        Me.btnCreate.Location = New System.Drawing.Point(129, 96)
         Me.btnCreate.Name = "btnCreate"
         Me.btnCreate.Size = New System.Drawing.Size(166, 28)
         Me.btnCreate.TabIndex = 1
-        Me.btnCreate.Text = "Create Account"
+        Me.btnCreate.Text = "REGISTRATION"
         Me.btnCreate.UseVisualStyleBackColor = False
-        '
-        'btnVisitor
-        '
-        Me.btnVisitor.BackColor = System.Drawing.Color.White
-        Me.btnVisitor.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnVisitor.Font = New System.Drawing.Font("Bernard MT Condensed", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnVisitor.Location = New System.Drawing.Point(129, 55)
-        Me.btnVisitor.Name = "btnVisitor"
-        Me.btnVisitor.Size = New System.Drawing.Size(166, 28)
-        Me.btnVisitor.TabIndex = 2
-        Me.btnVisitor.Text = "Use As Visitor"
-        Me.btnVisitor.UseVisualStyleBackColor = False
         '
         'btnLogin
         '
         Me.btnLogin.BackColor = System.Drawing.Color.White
         Me.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLogin.Font = New System.Drawing.Font("Bernard MT Condensed", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLogin.Location = New System.Drawing.Point(129, 12)
+        Me.btnLogin.Location = New System.Drawing.Point(129, 45)
         Me.btnLogin.Name = "btnLogin"
         Me.btnLogin.Size = New System.Drawing.Size(166, 28)
         Me.btnLogin.TabIndex = 0
@@ -142,6 +128,5 @@ Partial Class Start
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnCreate As Button
-    Friend WithEvents btnVisitor As Button
     Friend WithEvents btnLogin As Button
 End Class

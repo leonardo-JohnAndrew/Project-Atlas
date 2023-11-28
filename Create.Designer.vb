@@ -23,54 +23,43 @@ Partial Class Create
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.BtnExit2 = New System.Windows.Forms.Button()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.txtFirstName = New System.Windows.Forms.TextBox()
-        Me.txtLastName = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
+        Me.txtFB = New System.Windows.Forms.TextBox()
+        Me.txtcon = New System.Windows.Forms.TextBox()
+        Me.txtadd = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.cbotype = New System.Windows.Forms.ComboBox()
+        Me.txtMiddle = New System.Windows.Forms.TextBox()
+        Me.txtFirstName = New System.Windows.Forms.TextBox()
+        Me.txtLastName = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblid = New System.Windows.Forms.Label()
-        Me.txtMiddle = New System.Windows.Forms.TextBox()
-        Me.cboPosition = New System.Windows.Forms.ComboBox()
-        Me.cbograde = New System.Windows.Forms.ComboBox()
-        Me.cboDepartment = New System.Windows.Forms.ComboBox()
+        Me.btnReg = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Controls.Add(Me.Button2)
         Me.Panel1.Controls.Add(Me.BtnExit2)
         Me.Panel1.Location = New System.Drawing.Point(0, 362)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(650, 38)
         Me.Panel1.TabIndex = 1
-        '
-        'Button1
-        '
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button1.Location = New System.Drawing.Point(508, 3)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(130, 33)
-        Me.Button1.TabIndex = 3
-        Me.Button1.Text = "&Next"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'BtnExit2
         '
@@ -86,52 +75,116 @@ Partial Class Create
         Me.BtnExit2.Text = "&Exit"
         Me.BtnExit2.UseVisualStyleBackColor = True
         '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
-        Me.Panel2.Controls.Add(Me.Label2)
-        Me.Panel2.Location = New System.Drawing.Point(12, 12)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(161, 40)
-        Me.Panel2.TabIndex = 2
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Bernard MT Condensed", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label2.Location = New System.Drawing.Point(14, 9)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(138, 22)
-        Me.Label2.TabIndex = 0
-        Me.Label2.Text = "CREATE ACCOUNT :"
-        '
         'Panel3
         '
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Panel3.Controls.Add(Me.cboDepartment)
-        Me.Panel3.Controls.Add(Me.cbograde)
-        Me.Panel3.Controls.Add(Me.cboPosition)
-        Me.Panel3.Controls.Add(Me.txtMiddle)
-        Me.Panel3.Controls.Add(Me.txtFirstName)
-        Me.Panel3.Controls.Add(Me.txtLastName)
         Me.Panel3.Controls.Add(Me.Label9)
-        Me.Panel3.Controls.Add(Me.Label8)
+        Me.Panel3.Controls.Add(Me.txtFB)
+        Me.Panel3.Controls.Add(Me.txtcon)
+        Me.Panel3.Controls.Add(Me.txtadd)
         Me.Panel3.Controls.Add(Me.Label7)
         Me.Panel3.Controls.Add(Me.Label6)
         Me.Panel3.Controls.Add(Me.Label5)
+        Me.Panel3.Controls.Add(Me.Label2)
+        Me.Panel3.Controls.Add(Me.cbotype)
+        Me.Panel3.Controls.Add(Me.txtMiddle)
+        Me.Panel3.Controls.Add(Me.txtFirstName)
+        Me.Panel3.Controls.Add(Me.txtLastName)
+        Me.Panel3.Controls.Add(Me.Label8)
         Me.Panel3.Controls.Add(Me.Label4)
         Me.Panel3.Controls.Add(Me.Label3)
         Me.Panel3.Font = New System.Drawing.Font("Bernard MT Condensed", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
         Me.Panel3.Location = New System.Drawing.Point(63, 71)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(529, 277)
+        Me.Panel3.Size = New System.Drawing.Size(529, 276)
         Me.Panel3.TabIndex = 9
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(30, 163)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(85, 16)
+        Me.Label9.TabIndex = 28
+        Me.Label9.Text = "Contact Number"
+        '
+        'txtFB
+        '
+        Me.txtFB.Location = New System.Drawing.Point(132, 203)
+        Me.txtFB.Name = "txtFB"
+        Me.txtFB.Size = New System.Drawing.Size(136, 23)
+        Me.txtFB.TabIndex = 27
+        '
+        'txtcon
+        '
+        Me.txtcon.Location = New System.Drawing.Point(132, 160)
+        Me.txtcon.Name = "txtcon"
+        Me.txtcon.Size = New System.Drawing.Size(136, 23)
+        Me.txtcon.TabIndex = 26
+        '
+        'txtadd
+        '
+        Me.txtadd.Location = New System.Drawing.Point(132, 118)
+        Me.txtadd.Name = "txtadd"
+        Me.txtadd.Size = New System.Drawing.Size(136, 23)
+        Me.txtadd.TabIndex = 25
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(30, 206)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(96, 16)
+        Me.Label7.TabIndex = 24
+        Me.Label7.Text = "Facebook Account"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(30, 160)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(0, 16)
+        Me.Label6.TabIndex = 23
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(30, 121)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(45, 16)
+        Me.Label5.TabIndex = 22
+        Me.Label5.Text = "Address"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(30, 12)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(53, 16)
+        Me.Label2.TabIndex = 21
+        Me.Label2.Text = "User type"
+        '
+        'cbotype
+        '
+        Me.cbotype.FormattingEnabled = True
+        Me.cbotype.Items.AddRange(New Object() {"Student", "Employee", "Teacher", "Professor", "Administrator", "Visitor"})
+        Me.cbotype.Location = New System.Drawing.Point(132, 12)
+        Me.cbotype.Name = "cbotype"
+        Me.cbotype.Size = New System.Drawing.Size(121, 24)
+        Me.cbotype.TabIndex = 20
+        '
+        'txtMiddle
+        '
+        Me.txtMiddle.Location = New System.Drawing.Point(385, 70)
+        Me.txtMiddle.Multiline = True
+        Me.txtMiddle.Name = "txtMiddle"
+        Me.txtMiddle.Size = New System.Drawing.Size(91, 21)
+        Me.txtMiddle.TabIndex = 19
         '
         'txtFirstName
         '
-        Me.txtFirstName.Location = New System.Drawing.Point(204, 33)
+        Me.txtFirstName.Location = New System.Drawing.Point(195, 70)
         Me.txtFirstName.Multiline = True
         Me.txtFirstName.Name = "txtFirstName"
         Me.txtFirstName.Size = New System.Drawing.Size(139, 21)
@@ -139,62 +192,25 @@ Partial Class Create
         '
         'txtLastName
         '
-        Me.txtLastName.Location = New System.Drawing.Point(17, 33)
+        Me.txtLastName.Location = New System.Drawing.Point(16, 70)
         Me.txtLastName.Multiline = True
         Me.txtLastName.Name = "txtLastName"
         Me.txtLastName.Size = New System.Drawing.Size(139, 21)
         Me.txtLastName.TabIndex = 17
         '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(14, 203)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(67, 16)
-        Me.Label9.TabIndex = 16
-        Me.Label9.Text = "Department"
-        '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(244, 14)
+        Me.Label8.Location = New System.Drawing.Point(209, 51)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(59, 16)
         Me.Label8.TabIndex = 15
         Me.Label8.Text = "First Name"
         '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(14, 166)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(66, 16)
-        Me.Label7.TabIndex = 14
-        Me.Label7.Text = "Grade Level"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.ForeColor = System.Drawing.Color.Maroon
-        Me.Label6.Location = New System.Drawing.Point(14, 123)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(271, 16)
-        Me.Label6.TabIndex = 13
-        Me.Label6.Text = "* Fill up  if position is teacher / professor or a student"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(14, 87)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(93, 16)
-        Me.Label5.TabIndex = 12
-        Me.Label5.Text = "Position in School"
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(404, 14)
+        Me.Label4.Location = New System.Drawing.Point(394, 51)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(72, 16)
         Me.Label4.TabIndex = 11
@@ -203,7 +219,7 @@ Partial Class Create
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(51, 14)
+        Me.Label3.Location = New System.Drawing.Point(27, 51)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(57, 16)
         Me.Label3.TabIndex = 10
@@ -216,7 +232,7 @@ Partial Class Create
         Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label1.Font = New System.Drawing.Font("Bernard MT Condensed", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label1.Location = New System.Drawing.Point(449, 28)
+        Me.Label1.Location = New System.Drawing.Point(161, 22)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(59, 20)
         Me.Label1.TabIndex = 9
@@ -227,45 +243,59 @@ Partial Class Create
         Me.lblid.AutoSize = True
         Me.lblid.BackColor = System.Drawing.Color.White
         Me.lblid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblid.Location = New System.Drawing.Point(519, 32)
+        Me.lblid.Location = New System.Drawing.Point(239, 22)
         Me.lblid.Name = "lblid"
         Me.lblid.Size = New System.Drawing.Size(2, 15)
         Me.lblid.TabIndex = 10
         '
-        'txtMiddle
+        'btnReg
         '
-        Me.txtMiddle.Location = New System.Drawing.Point(397, 33)
-        Me.txtMiddle.Multiline = True
-        Me.txtMiddle.Name = "txtMiddle"
-        Me.txtMiddle.Size = New System.Drawing.Size(91, 21)
-        Me.txtMiddle.TabIndex = 19
+        Me.btnReg.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
+        Me.btnReg.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReg.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btnReg.Location = New System.Drawing.Point(13, 13)
+        Me.btnReg.Name = "btnReg"
+        Me.btnReg.Size = New System.Drawing.Size(124, 35)
+        Me.btnReg.TabIndex = 11
+        Me.btnReg.Text = "&REGISTER"
+        Me.btnReg.UseVisualStyleBackColor = False
         '
-        'cboPosition
+        'PictureBox1
         '
-        Me.cboPosition.FormattingEnabled = True
-        Me.cboPosition.Items.AddRange(New Object() {"Administrator", "Professor ", "Teacher ", "Student", "Employee"})
-        Me.cboPosition.Location = New System.Drawing.Point(149, 79)
-        Me.cboPosition.Name = "cboPosition"
-        Me.cboPosition.Size = New System.Drawing.Size(121, 24)
-        Me.cboPosition.TabIndex = 20
+        Me.PictureBox1.Location = New System.Drawing.Point(509, 13)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(76, 50)
+        Me.PictureBox1.TabIndex = 12
+        Me.PictureBox1.TabStop = False
         '
-        'cbograde
+        'Button2
         '
-        Me.cbograde.FormattingEnabled = True
-        Me.cbograde.Items.AddRange(New Object() {"Grade 7", "Grade 8", "Grade 10", "Grade 11", "Grade 12"})
-        Me.cbograde.Location = New System.Drawing.Point(149, 158)
-        Me.cbograde.Name = "cbograde"
-        Me.cbograde.Size = New System.Drawing.Size(121, 24)
-        Me.cbograde.TabIndex = 21
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Button2.Location = New System.Drawing.Point(524, 3)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(109, 28)
+        Me.Button2.TabIndex = 15
+        Me.Button2.Text = "&SAVE"
+        Me.Button2.UseVisualStyleBackColor = True
         '
-        'cboDepartment
+        'Button1
         '
-        Me.cboDepartment.FormattingEnabled = True
-        Me.cboDepartment.Items.AddRange(New Object() {"Junior High School", "Senior High School", "College "})
-        Me.cboDepartment.Location = New System.Drawing.Point(149, 195)
-        Me.cboDepartment.Name = "cboDepartment"
-        Me.cboDepartment.Size = New System.Drawing.Size(121, 24)
-        Me.cboDepartment.TabIndex = 22
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.White
+        Me.Button1.Location = New System.Drawing.Point(394, 22)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(109, 28)
+        Me.Button1.TabIndex = 16
+        Me.Button1.Text = "Upload Picture"
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'Create
         '
@@ -274,9 +304,11 @@ Partial Class Create
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(183, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(650, 400)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.btnReg)
         Me.Controls.Add(Me.lblid)
         Me.Controls.Add(Me.Panel3)
-        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -284,34 +316,36 @@ Partial Class Create
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Create"
         Me.Panel1.ResumeLayout(False)
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents Button1 As Button
     Friend WithEvents BtnExit2 As Button
-    Friend WithEvents Panel2 As Panel
-    Friend WithEvents Label2 As Label
     Friend WithEvents Panel3 As Panel
     Friend WithEvents txtFirstName As TextBox
     Friend WithEvents txtLastName As TextBox
-    Friend WithEvents Label9 As Label
     Friend WithEvents Label8 As Label
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents lblid As Label
-    Friend WithEvents cboDepartment As ComboBox
-    Friend WithEvents cbograde As ComboBox
-    Friend WithEvents cboPosition As ComboBox
     Friend WithEvents txtMiddle As TextBox
+    Friend WithEvents cbotype As ComboBox
+    Friend WithEvents btnReg As Button
+    Friend WithEvents txtFB As TextBox
+    Friend WithEvents txtcon As TextBox
+    Friend WithEvents txtadd As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button1 As Button
 End Class
