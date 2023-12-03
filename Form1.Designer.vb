@@ -41,7 +41,7 @@ Partial Class Start
         Me.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnExit.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnExit.Location = New System.Drawing.Point(522, 3)
+        Me.BtnExit.Location = New System.Drawing.Point(686, 3)
         Me.BtnExit.Name = "BtnExit"
         Me.BtnExit.Size = New System.Drawing.Size(109, 28)
         Me.BtnExit.TabIndex = 1
@@ -52,9 +52,9 @@ Partial Class Start
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
         Me.Panel2.Controls.Add(Me.BtnExit)
-        Me.Panel2.Location = New System.Drawing.Point(-7, 369)
+        Me.Panel2.Location = New System.Drawing.Point(-7, 363)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(661, 34)
+        Me.Panel2.Size = New System.Drawing.Size(807, 40)
         Me.Panel2.TabIndex = 2
         '
         'PictureBox1
@@ -64,7 +64,7 @@ Partial Class Start
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
         Me.PictureBox1.Location = New System.Drawing.Point(-7, -9)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(661, 223)
+        Me.PictureBox1.Size = New System.Drawing.Size(807, 375)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 5
         Me.PictureBox1.TabStop = False
@@ -74,9 +74,9 @@ Partial Class Start
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
         Me.Panel1.Controls.Add(Me.btnCreate)
         Me.Panel1.Controls.Add(Me.btnLogin)
-        Me.Panel1.Location = New System.Drawing.Point(122, 184)
+        Me.Panel1.Location = New System.Drawing.Point(183, 226)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(419, 163)
+        Me.Panel1.Size = New System.Drawing.Size(440, 105)
         Me.Panel1.TabIndex = 6
         '
         'btnCreate
@@ -84,7 +84,7 @@ Partial Class Start
         Me.btnCreate.BackColor = System.Drawing.Color.White
         Me.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCreate.Font = New System.Drawing.Font("Bernard MT Condensed", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCreate.Location = New System.Drawing.Point(129, 96)
+        Me.btnCreate.Location = New System.Drawing.Point(140, 66)
         Me.btnCreate.Name = "btnCreate"
         Me.btnCreate.Size = New System.Drawing.Size(166, 28)
         Me.btnCreate.TabIndex = 1
@@ -96,7 +96,7 @@ Partial Class Start
         Me.btnLogin.BackColor = System.Drawing.Color.White
         Me.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLogin.Font = New System.Drawing.Font("Bernard MT Condensed", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLogin.Location = New System.Drawing.Point(129, 45)
+        Me.btnLogin.Location = New System.Drawing.Point(140, 19)
         Me.btnLogin.Name = "btnLogin"
         Me.btnLogin.Size = New System.Drawing.Size(166, 28)
         Me.btnLogin.TabIndex = 0
@@ -108,7 +108,7 @@ Partial Class Start
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(183, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(650, 400)
+        Me.ClientSize = New System.Drawing.Size(800, 400)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Panel2)
