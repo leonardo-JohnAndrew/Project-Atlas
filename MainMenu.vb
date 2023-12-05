@@ -8,5 +8,13 @@
         txtDate.Text = Date.Now.ToString("yyyy - MM - dd")
     End Sub
 
-
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles pbpf.Click
+        Create.Show()
+        dis()
+        Me.Hide()
+        LOGIN.Hide()
+        Start.Hide()
+        Create.btnUpdate.Visible = True
+        Create.Button2.Visible = False
+    End Sub
 End Class

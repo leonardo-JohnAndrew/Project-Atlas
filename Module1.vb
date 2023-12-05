@@ -4,6 +4,12 @@ Imports System.Drawing
 
 
 Module Module1
+    Dim fname, lname, mid, type, address, contact, fb As String
+    Dim profile As New MemoryStream
+    Dim uid As Integer
+    Dim num As New Random
+    Dim ms As New System.IO.MemoryStream
+    Dim arry() As Byte
     Dim con As New MySqlConnection
     Dim cmd As New MySqlCommand
     Dim read As MySqlDataReader
@@ -28,12 +34,10 @@ Module Module1
         End If
     End Sub
     Public Sub Log_in()
-        Dim arry() As Byte
-        Dim id As Integer
-        id = LOGIN.txtID.Text
+        uid = LOGIN.txtID.Text
         query = ("Select * from accounts where user_id  = @id")
         cmd = New MySqlCommand(query, con)
-        cmd.Parameters.AddWithValue("@id", id)
+        cmd.Parameters.AddWithValue("@id", uid)
 
         Try
             read = cmd.ExecuteReader
@@ -46,9 +50,11 @@ Module Module1
                 arry = read.Item("pic")
                 Dim ms As New System.IO.MemoryStream(arry)
                 LOGIN.pbpic.Image = System.Drawing.Image.FromStream(ms)
+                MainMenu.pbpf.Image = System.Drawing.Image.FromStream(ms)
                 MessageBox.Show("Success Login")
                 LOGIN.btnLOGIN.Visible = False
                 LOGIN.BtnNext.Visible = True
+
             Else
                 MsgBox("INVALID ID")
             End If
@@ -61,15 +67,12 @@ Module Module1
 
     End Sub
     Public Sub Register()
-        Dim fname, lname, mid, type, address, contact, fb As String
-        Dim profile As New MemoryStream
-        Dim id As Integer
-        Dim num As New Random
+
         fname = Create.txtFirstName.Text
         lname = Create.txtLastName.Text
         mid = Create.txtMiddle.Text
         type = Create.cbotype.GetItemText(Create.cbotype)
-        id = Create.lblid.Text
+        uid = Create.lblid.Text
         address = Create.txtadd.Text
         contact = Create.txtcon.Text
         fb = Create.txtFB.Text
@@ -81,7 +84,7 @@ Module Module1
         '   add the parameter value
         With cmd
             .Parameters.AddWithValue("@type", type)
-            .Parameters.AddWithValue("@id", id)
+            .Parameters.AddWithValue("@id", uid)
             .Parameters.AddWithValue("@lname", lname)
             .Parameters.AddWithValue("@fname", fname)
             .Parameters.AddWithValue("@m", mid)
@@ -89,6 +92,7 @@ Module Module1
             .Parameters.AddWithValue("@con", contact)
             .Parameters.AddWithValue("@fb", fb)
             .Parameters.AddWithValue("@pic", profile.ToArray)
+
         End With
         Try
             'execute query command
@@ -98,6 +102,50 @@ Module Module1
             MessageBox.Show("Error" & ex.Message)
         End Try
     End Sub
+    Public Sub Modify()
+        fname = Create.txtFirstName.Text
+        lname = Create.txtLastName.Text
+        mid = Create.txtMiddle.Text
+        type = Create.cbotype.GetItemText(Create.cbotype)
+        address = Create.txtadd.Text
+        contact = Create.txtcon.Text
+        fb = Create.txtFB.Text
 
+        query = "UPDATE accounts set usertype = @type, lastname = @lt, firstname = @ft, middle = @m , address = @add, contact = @con, fbaccount = @fb, pic = @pic where  user_id = @id"
+        cmd = New MySqlCommand(query, con)
+        Try
+            With cmd
+                .Parameters.AddWithValue("@type", type)
+                .Parameters.AddWithValue("@lt", lname)
+                .Parameters.AddWithValue("@ft", fname)
+                .Parameters.AddWithValue("@m", mid)
+                .Parameters.AddWithValue("@add", address)
+                .Parameters.AddWithValue("@con", contact)
+                .Parameters.AddWithValue("@fb", fb)
+                .Parameters.AddWithValue("@id", uid)
+                .Parameters.AddWithValue("@pic", profile.ToArray)
+                .ExecuteNonQuery()
+            End With
 
+        Catch ex As Exception
+            MsgBox("Error" & ex.Message)
+        Finally
+
+        End Try
+    End Sub
+
+    Public Sub dis()
+        Create.LABEL.Text = "UPDATE PROFILE"
+        Create.lblid.Text = uid
+        Create.lblid.Enabled = False
+    End Sub
+    Public Sub clear()
+        Create.cbotype.Items.Remove(Create.cbotype.SelectedItem)
+        Create.txtFirstName.Text = ""
+        Create.txtLastName.Text = ""
+        Create.txtadd.Text = ""
+        Create.txtcon.Text = ""
+        Create.txtFB.Text = ""
+
+    End Sub
 End Module

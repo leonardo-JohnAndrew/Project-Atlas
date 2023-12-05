@@ -23,7 +23,7 @@ Partial Class Create
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.btnedit = New System.Windows.Forms.Button()
+        Me.btnUpdate = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.BtnExit2 = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
@@ -44,7 +44,7 @@ Partial Class Create
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblid = New System.Windows.Forms.Label()
-        Me.btnReg = New System.Windows.Forms.Button()
+        Me.LABEL = New System.Windows.Forms.Button()
         Me.pbpic = New System.Windows.Forms.PictureBox()
         Me.btnup = New System.Windows.Forms.Button()
         Me.ofdup = New System.Windows.Forms.OpenFileDialog()
@@ -57,7 +57,7 @@ Partial Class Create
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.btnedit)
+        Me.Panel1.Controls.Add(Me.btnUpdate)
         Me.Panel1.Controls.Add(Me.Button2)
         Me.Panel1.Controls.Add(Me.BtnExit2)
         Me.Panel1.Location = New System.Drawing.Point(0, 362)
@@ -65,19 +65,19 @@ Partial Class Create
         Me.Panel1.Size = New System.Drawing.Size(650, 38)
         Me.Panel1.TabIndex = 1
         '
-        'btnedit
+        'btnUpdate
         '
-        Me.btnedit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnedit.FlatAppearance.BorderSize = 0
-        Me.btnedit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnedit.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnedit.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btnedit.Location = New System.Drawing.Point(432, 3)
-        Me.btnedit.Name = "btnedit"
-        Me.btnedit.Size = New System.Drawing.Size(109, 28)
-        Me.btnedit.TabIndex = 16
-        Me.btnedit.Text = "&EDIT"
-        Me.btnedit.UseVisualStyleBackColor = True
+        Me.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnUpdate.FlatAppearance.BorderSize = 0
+        Me.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnUpdate.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUpdate.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btnUpdate.Location = New System.Drawing.Point(538, 3)
+        Me.btnUpdate.Name = "btnUpdate"
+        Me.btnUpdate.Size = New System.Drawing.Size(109, 28)
+        Me.btnUpdate.TabIndex = 17
+        Me.btnUpdate.Text = "&UPDATE"
+        Me.btnUpdate.UseVisualStyleBackColor = True
         '
         'Button2
         '
@@ -86,7 +86,7 @@ Partial Class Create
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button2.Location = New System.Drawing.Point(524, 3)
+        Me.Button2.Location = New System.Drawing.Point(529, 3)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(109, 28)
         Me.Button2.TabIndex = 15
@@ -279,20 +279,20 @@ Partial Class Create
         Me.lblid.Size = New System.Drawing.Size(2, 15)
         Me.lblid.TabIndex = 10
         '
-        'btnReg
+        'LABEL
         '
-        Me.btnReg.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(183, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.btnReg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnReg.FlatAppearance.BorderSize = 0
-        Me.btnReg.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnReg.Font = New System.Drawing.Font("Bernard MT Condensed", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReg.ForeColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
-        Me.btnReg.Location = New System.Drawing.Point(7, 13)
-        Me.btnReg.Name = "btnReg"
-        Me.btnReg.Size = New System.Drawing.Size(142, 35)
-        Me.btnReg.TabIndex = 11
-        Me.btnReg.Text = "REGISTRATION"
-        Me.btnReg.UseVisualStyleBackColor = False
+        Me.LABEL.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(183, Byte), Integer), CType(CType(49, Byte), Integer))
+        Me.LABEL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.LABEL.FlatAppearance.BorderSize = 0
+        Me.LABEL.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.LABEL.Font = New System.Drawing.Font("Bernard MT Condensed", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LABEL.ForeColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
+        Me.LABEL.Location = New System.Drawing.Point(7, 13)
+        Me.LABEL.Name = "LABEL"
+        Me.LABEL.Size = New System.Drawing.Size(142, 35)
+        Me.LABEL.TabIndex = 11
+        Me.LABEL.Text = "REGISTRATION"
+        Me.LABEL.UseVisualStyleBackColor = False
         '
         'pbpic
         '
@@ -348,7 +348,7 @@ Partial Class Create
         Me.Controls.Add(Me.Btngen)
         Me.Controls.Add(Me.btnup)
         Me.Controls.Add(Me.pbpic)
-        Me.Controls.Add(Me.btnReg)
+        Me.Controls.Add(Me.LABEL)
         Me.Controls.Add(Me.lblid)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel1)
@@ -378,7 +378,7 @@ Partial Class Create
     Friend WithEvents lblid As Label
     Friend WithEvents txtMiddle As TextBox
     Friend WithEvents cbotype As ComboBox
-    Friend WithEvents btnReg As Button
+    Friend WithEvents LABEL As Button
     Friend WithEvents txtFB As TextBox
     Friend WithEvents txtcon As TextBox
     Friend WithEvents txtadd As TextBox
@@ -390,7 +390,7 @@ Partial Class Create
     Friend WithEvents pbpic As PictureBox
     Friend WithEvents Button2 As Button
     Friend WithEvents btnup As Button
-    Friend WithEvents btnedit As Button
     Friend WithEvents ofdup As OpenFileDialog
     Friend WithEvents Btngen As Button
+    Friend WithEvents btnUpdate As Button
 End Class

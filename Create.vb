@@ -1,7 +1,4 @@
 ﻿Public Class Create
-    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles txtFirstName.TextChanged
-
-    End Sub
 
     Private Sub BtnExit2_Click(sender As Object, e As EventArgs) Handles BtnExit2.Click
         Start.Show()
@@ -12,11 +9,10 @@
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Register()
-
     End Sub
 
     Private Sub btnup_Click(sender As Object, e As EventArgs) Handles btnup.Click
-        
+
 
         ofdup.ShowDialog()
         pbpic.ImageLocation = ofdup.FileName
@@ -30,9 +26,20 @@
         lblid.Text = id
     End Sub
 
-    Private Sub btnedit_Click(sender As Object, e As EventArgs) Handles btnedit.Click
-        Log_in()
 
 
+    Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
+        Dim ANS As DialogResult = MessageBox.Show("Do you want to save changes?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If ANS = DialogResult.Yes Then
+            Modify()
+
+            MsgBox("Update successfull!")
+        Else
+            MsgBox("Update Cancelled! ")
+        End If
+    End Sub
+
+    Private Sub Create_Load(sender As Object, e As EventArgs) Handles Me.Load
+        btnUpdate.Visible = False
     End Sub
 End Class

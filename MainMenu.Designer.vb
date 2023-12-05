@@ -43,13 +43,13 @@ Partial Class MainMenu
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.pbpf = New System.Windows.Forms.PictureBox()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbpf, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel2
@@ -250,13 +250,14 @@ Partial Class MainMenu
         Me.PictureBox2.TabIndex = 0
         Me.PictureBox2.TabStop = False
         '
-        'PictureBox1
+        'pbpf
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(565, 9)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(73, 30)
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
+        Me.pbpf.Location = New System.Drawing.Point(715, 12)
+        Me.pbpf.Name = "pbpf"
+        Me.pbpf.Size = New System.Drawing.Size(73, 30)
+        Me.pbpf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbpf.TabIndex = 0
+        Me.pbpf.TabStop = False
         '
         'MainMenu
         '
@@ -267,7 +268,7 @@ Partial Class MainMenu
         Me.ClientSize = New System.Drawing.Size(800, 400)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel3)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.pbpf)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel2)
@@ -282,7 +283,7 @@ Partial Class MainMenu
         Me.Panel3.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbpf, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -291,7 +292,7 @@ Partial Class MainMenu
     Friend WithEvents Panel2 As Panel
     Friend WithEvents BtnExit As Button
     Friend WithEvents Label2 As Label
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents pbpf As PictureBox
     Friend WithEvents Button3 As Button
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label1 As Label

@@ -17,8 +17,8 @@
 
     End Sub
 
-
     Private Sub BtnNext_Click_1(sender As Object, e As EventArgs) Handles BtnNext.Click
+        MainMenu.Show()
 
     End Sub
 End Class
