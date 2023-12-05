@@ -5,9 +5,8 @@ Imports System.Drawing
 
 Module Module1
     Dim fname, lname, mid, type, address, contact, fb As String
-    Dim profile As New MemoryStream
-    Dim uid As Integer
-    Dim num As New Random
+    Dim profile As New System.IO.MemoryStream
+    Dim uid As String
     Dim ms As New System.IO.MemoryStream
     Dim arry() As Byte
     Dim con As New MySqlConnection
@@ -42,18 +41,31 @@ Module Module1
         Try
             read = cmd.ExecuteReader
             If read.Read() Then
-                Dim last, first, m As String
-                last = read("lastname")
-                first = read("firstname")
-                m = read("middle")
-                LOGIN.lblfullname.Text = (last & ", " & first & ", " & m).ToString
-                arry = read.Item("pic")
-                Dim ms As New System.IO.MemoryStream(arry)
-                LOGIN.pbpic.Image = System.Drawing.Image.FromStream(ms)
-                MainMenu.pbpf.Image = System.Drawing.Image.FromStream(ms)
+                '   Dim last, first, m As String
+                lname = read("lastname")
+                fname = read("firstname")
+                mid = read("middle")
+                address = read("address")
+                fb = read("fbaccount")
+                type = read("usertype")
+                Dim ty = type
+                contact = read("contact")
+                Create.lblid.Text = LOGIN.txtID.Text
+                Create.txtFirstName.Text = fname
+                Create.txtLastName.Text = lname
+                Create.txtMiddle.Text = mid
+                Create.cbotype.Text = type
+                Create.txtadd.Text = address
+                Create.txtcon.Text = contact
+                Create.txtFB.Text = fb
+                LOGIN.lblfullname.Text = (lname & ", " & fname & ", " & mid).ToString
+                LOGIN.lbltime.Text = Date.Now.ToLongTimeString
+                LOGIN.lbldate.Text = Date.Now.ToString("yyyy-MM-dd")
+
                 MessageBox.Show("Success Login")
                 LOGIN.btnLOGIN.Visible = False
                 LOGIN.BtnNext.Visible = True
+                LOGIN.BtnEdit.Visible = True
 
             Else
                 MsgBox("INVALID ID")
@@ -63,25 +75,43 @@ Module Module1
         Finally
             read.Close()
         End Try
+        query = "Insert Into usermonitor (usertype,user_id, lastname, firstname, middle,selc,date,time)VALUES(@type,@uid,@ln,@fn,@m,@sel,@date,@time)"
+        cmd = New MySqlCommand(query, con)
+        With cmd
+            .Parameters.AddWithValue("@type", type)
+            .Parameters.AddWithValue("@uid", uid)
+            .Parameters.AddWithValue("@ln", lname)
+            .Parameters.AddWithValue("@fn", fname)
+            .Parameters.AddWithValue("@m", mid)
+            .Parameters.AddWithValue("@time", LOGIN.lbltime.Text)
+            .Parameters.AddWithValue("@date", LOGIN.lbldate.Text)
+            .Parameters.AddWithValue("@sel", "None")
+            .ExecuteNonQuery()
+            '.Parameters.AddWithValue("@pic", profile.ToArray)
+
+        End With
+
 
 
     End Sub
     Public Sub Register()
-
         fname = Create.txtFirstName.Text
         lname = Create.txtLastName.Text
         mid = Create.txtMiddle.Text
-        type = Create.cbotype.GetItemText(Create.cbotype)
+        type = Create.cbotype.Text
         uid = Create.lblid.Text
         address = Create.txtadd.Text
         contact = Create.txtcon.Text
         fb = Create.txtFB.Text
-        Create.pbpic.Image.Save(profile, Create.pbpic.Image.RawFormat)
+        'Dim profile As New MemoryStream
 
         ' INSERT INPUTED DATA AND PERFORM QUERY USING CMD 
-        query = "INSERT INTO accounts(usertype,user_id,lastname,firstname,middle,address,contact,fbaccount,pic ) values(@type,@id, @lname,@fname,@m,@add,@con,@fb,@pic)"
+        query = "INSERT INTO accounts(usertype,user_id,lastname,firstname,middle,address,contact,fbaccount ) values(@type,@id, @lname,@fname,@m,@add,@con,@fb)"
         cmd = New MySqlCommand(query, con)
         '   add the parameter value
+
+
+
         With cmd
             .Parameters.AddWithValue("@type", type)
             .Parameters.AddWithValue("@id", uid)
@@ -91,29 +121,46 @@ Module Module1
             .Parameters.AddWithValue("@add", address)
             .Parameters.AddWithValue("@con", contact)
             .Parameters.AddWithValue("@fb", fb)
-            .Parameters.AddWithValue("@pic", profile.ToArray)
+            '.Parameters.AddWithValue("@pic", profile.ToArray)
 
         End With
         Try
             'execute query command
-            cmd.ExecuteNonQuery()
-            MsgBox("Record save  successfully!")
+            If Create.txtFirstName.Text = " " Or Create.txtLastName.Text = "" Or Create.txtMiddle.Text = " " Or
+           Create.txtadd.Text = " " Or Create.txtcon.Text = " " Or String.IsNullOrEmpty(Create.cbotype.SelectedItem) Or Create.lblid.Text = "" Or
+           Create.txtFB.Text = " " Then
+                Dim dialogResult = MessageBox.Show("Input all information ")
+            Else
+
+                cmd.ExecuteNonQuery()
+
+                MsgBox("Record save  successfully!")
+            End If
         Catch ex As Exception
             MessageBox.Show("Error" & ex.Message)
+
         End Try
     End Sub
     Public Sub Modify()
         fname = Create.txtFirstName.Text
         lname = Create.txtLastName.Text
         mid = Create.txtMiddle.Text
-        type = Create.cbotype.GetItemText(Create.cbotype)
+        type = Create.cbotype.Text
         address = Create.txtadd.Text
         contact = Create.txtcon.Text
         fb = Create.txtFB.Text
+        query = "UPDATE accounts set usertype = @type, lastname = @lt, firstname = @ft, middle = @m , address = @add, contact = @con, fbaccount = @fb where  user_id = @id"
 
-        query = "UPDATE accounts set usertype = @type, lastname = @lt, firstname = @ft, middle = @m , address = @add, contact = @con, fbaccount = @fb, pic = @pic where  user_id = @id"
         cmd = New MySqlCommand(query, con)
         Try
+            'execute query command
+            If Create.txtFirstName.Text = " " Or Create.txtLastName.Text = "" Or Create.txtMiddle.Text = " " Or
+           Create.txtadd.Text = " " Or Create.txtcon.Text = " " Or String.IsNullOrEmpty(Create.cbotype.SelectedItem) Or
+           Create.txtFB.Text = " " Then
+                Dim dialogResult = MessageBox.Show("Input all information ")
+            Else
+
+            End If
             With cmd
                 .Parameters.AddWithValue("@type", type)
                 .Parameters.AddWithValue("@lt", lname)
@@ -123,13 +170,15 @@ Module Module1
                 .Parameters.AddWithValue("@con", contact)
                 .Parameters.AddWithValue("@fb", fb)
                 .Parameters.AddWithValue("@id", uid)
-                .Parameters.AddWithValue("@pic", profile.ToArray)
+                ' .Parameters.AddWithValue("@pic", profile.ToArray)
                 .ExecuteNonQuery()
+                'MsgBox("Update success")
             End With
 
         Catch ex As Exception
             MsgBox("Error" & ex.Message)
         Finally
+            clear()
 
         End Try
     End Sub

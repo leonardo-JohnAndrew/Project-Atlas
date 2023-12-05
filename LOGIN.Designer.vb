@@ -33,8 +33,14 @@ Partial Class LOGIN
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lblName = New System.Windows.Forms.Label()
         Me.pbpic = New System.Windows.Forms.PictureBox()
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.lblfullname = New System.Windows.Forms.Label()
+        Me.BtnEdit = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.lbltime = New System.Windows.Forms.Label()
+        Me.lbldate = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
         CType(Me.pbpic, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -42,12 +48,13 @@ Partial Class LOGIN
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.BtnEdit)
         Me.Panel1.Controls.Add(Me.BtnNext)
         Me.Panel1.Controls.Add(Me.btnLOGIN)
         Me.Panel1.Controls.Add(Me.BtnExit2)
-        Me.Panel1.Location = New System.Drawing.Point(-1, 194)
+        Me.Panel1.Location = New System.Drawing.Point(4, 174)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(533, 40)
+        Me.Panel1.Size = New System.Drawing.Size(533, 32)
         Me.Panel1.TabIndex = 0
         '
         'BtnNext
@@ -57,7 +64,7 @@ Partial Class LOGIN
         Me.BtnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnNext.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnNext.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnNext.Location = New System.Drawing.Point(403, 0)
+        Me.BtnNext.Location = New System.Drawing.Point(403, -4)
         Me.BtnNext.Name = "BtnNext"
         Me.BtnNext.Size = New System.Drawing.Size(130, 33)
         Me.BtnNext.TabIndex = 4
@@ -85,7 +92,7 @@ Partial Class LOGIN
         Me.BtnExit2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnExit2.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnExit2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnExit2.Location = New System.Drawing.Point(0, 3)
+        Me.BtnExit2.Location = New System.Drawing.Point(3, 0)
         Me.BtnExit2.Name = "BtnExit2"
         Me.BtnExit2.Size = New System.Drawing.Size(109, 28)
         Me.BtnExit2.TabIndex = 2
@@ -94,7 +101,7 @@ Partial Class LOGIN
         '
         'txtID
         '
-        Me.txtID.Location = New System.Drawing.Point(151, 31)
+        Me.txtID.Location = New System.Drawing.Point(162, 31)
         Me.txtID.Name = "txtID"
         Me.txtID.Size = New System.Drawing.Size(207, 20)
         Me.txtID.TabIndex = 4
@@ -104,7 +111,7 @@ Partial Class LOGIN
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(220, 9)
+        Me.Label1.Location = New System.Drawing.Point(240, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(56, 19)
         Me.Label1.TabIndex = 6
@@ -123,7 +130,7 @@ Partial Class LOGIN
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(224, 54)
+        Me.Label3.Location = New System.Drawing.Point(240, 54)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(51, 19)
         Me.Label3.TabIndex = 8
@@ -140,17 +147,12 @@ Partial Class LOGIN
         '
         'pbpic
         '
-        Me.pbpic.Location = New System.Drawing.Point(181, 108)
+        Me.pbpic.Location = New System.Drawing.Point(4, 12)
         Me.pbpic.Name = "pbpic"
-        Me.pbpic.Size = New System.Drawing.Size(154, 80)
+        Me.pbpic.Size = New System.Drawing.Size(154, 10)
         Me.pbpic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pbpic.TabIndex = 11
         Me.pbpic.TabStop = False
-        '
-        'ContextMenuStrip1
-        '
-        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
         '
         'lblfullname
         '
@@ -161,13 +163,90 @@ Partial Class LOGIN
         Me.lblfullname.Size = New System.Drawing.Size(0, 19)
         Me.lblfullname.TabIndex = 14
         '
+        'BtnEdit
+        '
+        Me.BtnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BtnEdit.FlatAppearance.BorderSize = 0
+        Me.BtnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnEdit.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnEdit.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.BtnEdit.Location = New System.Drawing.Point(308, -2)
+        Me.BtnEdit.Name = "BtnEdit"
+        Me.BtnEdit.Size = New System.Drawing.Size(109, 28)
+        Me.BtnEdit.TabIndex = 5
+        Me.BtnEdit.Text = "&Edit Profile"
+        Me.BtnEdit.UseVisualStyleBackColor = True
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
+        Me.Label4.Location = New System.Drawing.Point(203, 108)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(37, 19)
+        Me.Label4.TabIndex = 15
+        Me.Label4.Text = "Date"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
+        Me.Label5.Location = New System.Drawing.Point(246, 108)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(33, 19)
+        Me.Label5.TabIndex = 16
+        Me.Label5.Text = "And"
+        '
+        'lbltime
+        '
+        Me.lbltime.AutoSize = True
+        Me.lbltime.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbltime.ForeColor = System.Drawing.Color.Black
+        Me.lbltime.Location = New System.Drawing.Point(308, 140)
+        Me.lbltime.Name = "lbltime"
+        Me.lbltime.Size = New System.Drawing.Size(0, 19)
+        Me.lbltime.TabIndex = 17
+        '
+        'lbldate
+        '
+        Me.lbldate.AutoSize = True
+        Me.lbldate.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbldate.ForeColor = System.Drawing.Color.Black
+        Me.lbldate.Location = New System.Drawing.Point(181, 140)
+        Me.lbldate.Name = "lbldate"
+        Me.lbldate.Size = New System.Drawing.Size(0, 19)
+        Me.lbldate.TabIndex = 18
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
+        Me.Label8.Location = New System.Drawing.Point(289, 108)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(40, 19)
+        Me.Label8.TabIndex = 19
+        Me.Label8.Text = "Time"
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 1000
+        '
         'LOGIN
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(183, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ClientSize = New System.Drawing.Size(532, 229)
+        Me.ClientSize = New System.Drawing.Size(532, 205)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.lbldate)
+        Me.Controls.Add(Me.lbltime)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.lblfullname)
         Me.Controls.Add(Me.pbpic)
         Me.Controls.Add(Me.lblName)
@@ -198,7 +277,13 @@ Partial Class LOGIN
     Friend WithEvents Label3 As Label
     Friend WithEvents lblName As Label
     Friend WithEvents pbpic As PictureBox
-    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents lblfullname As Label
     Friend WithEvents BtnNext As Button
+    Friend WithEvents BtnEdit As Button
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents lbltime As Label
+    Friend WithEvents lbldate As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Timer1 As Timer
 End Class

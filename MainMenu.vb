@@ -4,8 +4,8 @@
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        txtTime.Text = Date.Now.ToLongTimeString
-        txtDate.Text = Date.Now.ToString("yyyy - MM - dd")
+        txtDate.Text = Format(Date.Now)
+        txtDate.Text = Date.Now.ToString("yyyy-MM-dd")
     End Sub
 
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles pbpf.Click
@@ -16,5 +16,9 @@
         Start.Hide()
         Create.btnUpdate.Visible = True
         Create.Button2.Visible = False
+    End Sub
+
+    Private Sub BtnExit_Click(sender As Object, e As EventArgs)
+
     End Sub
 End Class

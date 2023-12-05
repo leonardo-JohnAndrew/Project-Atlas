@@ -45,13 +45,10 @@ Partial Class Create
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblid = New System.Windows.Forms.Label()
         Me.LABEL = New System.Windows.Forms.Button()
-        Me.pbpic = New System.Windows.Forms.PictureBox()
-        Me.btnup = New System.Windows.Forms.Button()
         Me.ofdup = New System.Windows.Forms.OpenFileDialog()
         Me.Btngen = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
-        CType(Me.pbpic, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -294,30 +291,6 @@ Partial Class Create
         Me.LABEL.Text = "REGISTRATION"
         Me.LABEL.UseVisualStyleBackColor = False
         '
-        'pbpic
-        '
-        Me.pbpic.Location = New System.Drawing.Point(509, 13)
-        Me.pbpic.Name = "pbpic"
-        Me.pbpic.Size = New System.Drawing.Size(76, 50)
-        Me.pbpic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pbpic.TabIndex = 12
-        Me.pbpic.TabStop = False
-        '
-        'btnup
-        '
-        Me.btnup.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
-        Me.btnup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnup.FlatAppearance.BorderSize = 0
-        Me.btnup.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnup.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnup.ForeColor = System.Drawing.Color.White
-        Me.btnup.Location = New System.Drawing.Point(394, 22)
-        Me.btnup.Name = "btnup"
-        Me.btnup.Size = New System.Drawing.Size(109, 28)
-        Me.btnup.TabIndex = 16
-        Me.btnup.Text = "Upload Picture"
-        Me.btnup.UseVisualStyleBackColor = False
-        '
         'ofdup
         '
         Me.ofdup.FileName = "Upload Picture"
@@ -346,8 +319,6 @@ Partial Class Create
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(650, 400)
         Me.Controls.Add(Me.Btngen)
-        Me.Controls.Add(Me.btnup)
-        Me.Controls.Add(Me.pbpic)
         Me.Controls.Add(Me.LABEL)
         Me.Controls.Add(Me.lblid)
         Me.Controls.Add(Me.Panel3)
@@ -360,7 +331,6 @@ Partial Class Create
         Me.Panel1.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        CType(Me.pbpic, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -387,9 +357,7 @@ Partial Class Create
     Friend WithEvents Label5 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label9 As Label
-    Friend WithEvents pbpic As PictureBox
     Friend WithEvents Button2 As Button
-    Friend WithEvents btnup As Button
     Friend WithEvents ofdup As OpenFileDialog
     Friend WithEvents Btngen As Button
     Friend WithEvents btnUpdate As Button

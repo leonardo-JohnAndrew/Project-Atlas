@@ -26,8 +26,6 @@ Partial Class MainMenu
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainMenu))
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.txtTime = New System.Windows.Forms.TextBox()
         Me.txtDate = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.BtnExit = New System.Windows.Forms.Button()
@@ -44,6 +42,8 @@ Partial Class MainMenu
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.pbpf = New System.Windows.Forms.PictureBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtTime = New System.Windows.Forms.TextBox()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -79,24 +79,6 @@ Partial Class MainMenu
         Me.Button1.TabIndex = 14
         Me.Button1.Text = "&SAVE"
         Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label5.Location = New System.Drawing.Point(156, 8)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(48, 19)
-        Me.Label5.TabIndex = 14
-        Me.Label5.Text = "Time :"
-        '
-        'txtTime
-        '
-        Me.txtTime.Location = New System.Drawing.Point(207, 7)
-        Me.txtTime.Name = "txtTime"
-        Me.txtTime.Size = New System.Drawing.Size(60, 20)
-        Me.txtTime.TabIndex = 13
         '
         'txtDate
         '
@@ -259,6 +241,24 @@ Partial Class MainMenu
         Me.pbpf.TabIndex = 0
         Me.pbpf.TabStop = False
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label5.Location = New System.Drawing.Point(156, 8)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(48, 19)
+        Me.Label5.TabIndex = 14
+        Me.Label5.Text = "Time :"
+        '
+        'txtTime
+        '
+        Me.txtTime.Location = New System.Drawing.Point(207, 7)
+        Me.txtTime.Name = "txtTime"
+        Me.txtTime.Size = New System.Drawing.Size(60, 20)
+        Me.txtTime.TabIndex = 13
+        '
         'MainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -304,9 +304,9 @@ Partial Class MainMenu
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents txtDate As TextBox
     Friend WithEvents Timer1 As Timer
-    Friend WithEvents Label5 As Label
-    Friend WithEvents txtTime As TextBox
     Friend WithEvents Panel4 As Panel
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Button1 As Button
+    Friend WithEvents Label5 As Label
+    Friend WithEvents txtTime As TextBox
 End Class
