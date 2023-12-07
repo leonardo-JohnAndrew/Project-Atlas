@@ -23,6 +23,7 @@ Partial Class Create
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btndelete = New System.Windows.Forms.Button()
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.BtnExit2 = New System.Windows.Forms.Button()
@@ -54,13 +55,28 @@ Partial Class Create
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.btndelete)
         Me.Panel1.Controls.Add(Me.btnUpdate)
         Me.Panel1.Controls.Add(Me.Button2)
         Me.Panel1.Controls.Add(Me.BtnExit2)
-        Me.Panel1.Location = New System.Drawing.Point(0, 362)
+        Me.Panel1.Location = New System.Drawing.Point(0, 370)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(650, 38)
+        Me.Panel1.Size = New System.Drawing.Size(637, 37)
         Me.Panel1.TabIndex = 1
+        '
+        'btndelete
+        '
+        Me.btndelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btndelete.FlatAppearance.BorderSize = 0
+        Me.btndelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btndelete.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btndelete.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btndelete.Location = New System.Drawing.Point(422, 0)
+        Me.btndelete.Name = "btndelete"
+        Me.btndelete.Size = New System.Drawing.Size(109, 28)
+        Me.btndelete.TabIndex = 18
+        Me.btndelete.Text = "&DELETE"
+        Me.btndelete.UseVisualStyleBackColor = True
         '
         'btnUpdate
         '
@@ -69,7 +85,7 @@ Partial Class Create
         Me.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnUpdate.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnUpdate.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btnUpdate.Location = New System.Drawing.Point(538, 3)
+        Me.btnUpdate.Location = New System.Drawing.Point(514, 0)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(109, 28)
         Me.btnUpdate.TabIndex = 17
@@ -83,7 +99,7 @@ Partial Class Create
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button2.Location = New System.Drawing.Point(529, 3)
+        Me.Button2.Location = New System.Drawing.Point(514, 0)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(109, 28)
         Me.Button2.TabIndex = 15
@@ -101,7 +117,7 @@ Partial Class Create
         Me.BtnExit2.Name = "BtnExit2"
         Me.BtnExit2.Size = New System.Drawing.Size(109, 28)
         Me.BtnExit2.TabIndex = 2
-        Me.BtnExit2.Text = "&Exit"
+        Me.BtnExit2.Text = "&EXIT"
         Me.BtnExit2.UseVisualStyleBackColor = True
         '
         'Panel3
@@ -126,7 +142,7 @@ Partial Class Create
         Me.Panel3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
         Me.Panel3.Location = New System.Drawing.Point(63, 71)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(529, 276)
+        Me.Panel3.Size = New System.Drawing.Size(506, 278)
         Me.Panel3.TabIndex = 9
         '
         'Label9
@@ -142,21 +158,21 @@ Partial Class Create
         '
         Me.txtFB.Location = New System.Drawing.Point(132, 203)
         Me.txtFB.Name = "txtFB"
-        Me.txtFB.Size = New System.Drawing.Size(136, 23)
+        Me.txtFB.Size = New System.Drawing.Size(236, 23)
         Me.txtFB.TabIndex = 27
         '
         'txtcon
         '
         Me.txtcon.Location = New System.Drawing.Point(132, 160)
         Me.txtcon.Name = "txtcon"
-        Me.txtcon.Size = New System.Drawing.Size(136, 23)
+        Me.txtcon.Size = New System.Drawing.Size(236, 23)
         Me.txtcon.TabIndex = 26
         '
         'txtadd
         '
         Me.txtadd.Location = New System.Drawing.Point(132, 118)
         Me.txtadd.Name = "txtadd"
-        Me.txtadd.Size = New System.Drawing.Size(136, 23)
+        Me.txtadd.Size = New System.Drawing.Size(236, 23)
         Me.txtadd.TabIndex = 25
         '
         'Label7
@@ -196,7 +212,8 @@ Partial Class Create
         '
         'cbotype
         '
-        Me.cbotype.FormattingEnabled = True
+        Me.cbotype.AccessibleRole = System.Windows.Forms.AccessibleRole.ComboBox
+        Me.cbotype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbotype.Items.AddRange(New Object() {"Student", "Employee", "Teacher", "Professor", "Administrator", "Visitor"})
         Me.cbotype.Location = New System.Drawing.Point(132, 12)
         Me.cbotype.Name = "cbotype"
@@ -317,7 +334,7 @@ Partial Class Create
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(183, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ClientSize = New System.Drawing.Size(650, 400)
+        Me.ClientSize = New System.Drawing.Size(635, 400)
         Me.Controls.Add(Me.Btngen)
         Me.Controls.Add(Me.LABEL)
         Me.Controls.Add(Me.lblid)
@@ -361,4 +378,5 @@ Partial Class Create
     Friend WithEvents ofdup As OpenFileDialog
     Friend WithEvents Btngen As Button
     Friend WithEvents btnUpdate As Button
+    Friend WithEvents btndelete As Button
 End Class

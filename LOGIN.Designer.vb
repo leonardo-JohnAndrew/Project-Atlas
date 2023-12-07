@@ -24,7 +24,8 @@ Partial Class LOGIN
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.BtnNext = New System.Windows.Forms.Button()
+        Me.Btnview = New System.Windows.Forms.Button()
+        Me.BtnEdit = New System.Windows.Forms.Button()
         Me.btnLOGIN = New System.Windows.Forms.Button()
         Me.BtnExit2 = New System.Windows.Forms.Button()
         Me.txtID = New System.Windows.Forms.TextBox()
@@ -32,9 +33,7 @@ Partial Class LOGIN
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lblName = New System.Windows.Forms.Label()
-        Me.pbpic = New System.Windows.Forms.PictureBox()
         Me.lblfullname = New System.Windows.Forms.Label()
-        Me.BtnEdit = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.lbltime = New System.Windows.Forms.Label()
@@ -42,14 +41,13 @@ Partial Class LOGIN
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
-        CType(Me.pbpic, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.Btnview)
         Me.Panel1.Controls.Add(Me.BtnEdit)
-        Me.Panel1.Controls.Add(Me.BtnNext)
         Me.Panel1.Controls.Add(Me.btnLOGIN)
         Me.Panel1.Controls.Add(Me.BtnExit2)
         Me.Panel1.Location = New System.Drawing.Point(4, 174)
@@ -57,19 +55,33 @@ Partial Class LOGIN
         Me.Panel1.Size = New System.Drawing.Size(533, 32)
         Me.Panel1.TabIndex = 0
         '
-        'BtnNext
+        'Btnview
         '
-        Me.BtnNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.BtnNext.FlatAppearance.BorderSize = 0
-        Me.BtnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnNext.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnNext.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnNext.Location = New System.Drawing.Point(403, -4)
-        Me.BtnNext.Name = "BtnNext"
-        Me.BtnNext.Size = New System.Drawing.Size(130, 33)
-        Me.BtnNext.TabIndex = 4
-        Me.BtnNext.Text = "&Next"
-        Me.BtnNext.UseVisualStyleBackColor = True
+        Me.Btnview.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Btnview.FlatAppearance.BorderSize = 0
+        Me.Btnview.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Btnview.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btnview.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Btnview.Location = New System.Drawing.Point(216, 1)
+        Me.Btnview.Name = "Btnview"
+        Me.Btnview.Size = New System.Drawing.Size(109, 28)
+        Me.Btnview.TabIndex = 6
+        Me.Btnview.Text = "View Records"
+        Me.Btnview.UseVisualStyleBackColor = True
+        '
+        'BtnEdit
+        '
+        Me.BtnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BtnEdit.FlatAppearance.BorderSize = 0
+        Me.BtnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnEdit.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnEdit.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.BtnEdit.Location = New System.Drawing.Point(327, 1)
+        Me.BtnEdit.Name = "BtnEdit"
+        Me.BtnEdit.Size = New System.Drawing.Size(109, 28)
+        Me.BtnEdit.TabIndex = 5
+        Me.BtnEdit.Text = "&Edit Profile"
+        Me.BtnEdit.UseVisualStyleBackColor = True
         '
         'btnLOGIN
         '
@@ -145,15 +157,6 @@ Partial Class LOGIN
         Me.lblName.Size = New System.Drawing.Size(0, 19)
         Me.lblName.TabIndex = 9
         '
-        'pbpic
-        '
-        Me.pbpic.Location = New System.Drawing.Point(4, 12)
-        Me.pbpic.Name = "pbpic"
-        Me.pbpic.Size = New System.Drawing.Size(154, 10)
-        Me.pbpic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pbpic.TabIndex = 11
-        Me.pbpic.TabStop = False
-        '
         'lblfullname
         '
         Me.lblfullname.AutoSize = True
@@ -162,20 +165,6 @@ Partial Class LOGIN
         Me.lblfullname.Name = "lblfullname"
         Me.lblfullname.Size = New System.Drawing.Size(0, 19)
         Me.lblfullname.TabIndex = 14
-        '
-        'BtnEdit
-        '
-        Me.BtnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.BtnEdit.FlatAppearance.BorderSize = 0
-        Me.BtnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnEdit.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnEdit.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnEdit.Location = New System.Drawing.Point(308, -2)
-        Me.BtnEdit.Name = "BtnEdit"
-        Me.BtnEdit.Size = New System.Drawing.Size(109, 28)
-        Me.BtnEdit.TabIndex = 5
-        Me.BtnEdit.Text = "&Edit Profile"
-        Me.BtnEdit.UseVisualStyleBackColor = True
         '
         'Label4
         '
@@ -248,7 +237,6 @@ Partial Class LOGIN
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.lblfullname)
-        Me.Controls.Add(Me.pbpic)
         Me.Controls.Add(Me.lblName)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -262,7 +250,6 @@ Partial Class LOGIN
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "LOGIN"
         Me.Panel1.ResumeLayout(False)
-        CType(Me.pbpic, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -276,9 +263,7 @@ Partial Class LOGIN
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents lblName As Label
-    Friend WithEvents pbpic As PictureBox
     Friend WithEvents lblfullname As Label
-    Friend WithEvents BtnNext As Button
     Friend WithEvents BtnEdit As Button
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
@@ -286,4 +271,5 @@ Partial Class LOGIN
     Friend WithEvents lbldate As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents Btnview As Button
 End Class

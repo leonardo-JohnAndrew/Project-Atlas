@@ -27,7 +27,6 @@
         If ANS = DialogResult.Yes Then
             Modify()
 
-            MsgBox("Update successfull!")
         Else
             MsgBox("Update Cancelled! ")
         End If
@@ -37,5 +36,13 @@
 
     End Sub
 
+    Private Sub btndelete_Click(sender As Object, e As EventArgs) Handles btndelete.Click
+        Dim ANS As DialogResult = MessageBox.Show("Do you want to delete records ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If ANS = DialogResult.Yes Then
+            delete()
 
+        Else
+            MsgBox("Delete Cancelled! ")
+        End If
+    End Sub
 End Class

@@ -25,12 +25,12 @@ Partial Class MainMenu
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainMenu))
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtTime = New System.Windows.Forms.TextBox()
         Me.txtDate = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.BtnExit = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -41,21 +41,16 @@ Partial Class MainMenu
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.pbpf = New System.Windows.Forms.PictureBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.txtTime = New System.Windows.Forms.TextBox()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pbpf, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
-        Me.Panel2.Controls.Add(Me.Button1)
         Me.Panel2.Controls.Add(Me.Label5)
         Me.Panel2.Controls.Add(Me.txtTime)
         Me.Panel2.Controls.Add(Me.txtDate)
@@ -66,19 +61,23 @@ Partial Class MainMenu
         Me.Panel2.Size = New System.Drawing.Size(799, 34)
         Me.Panel2.TabIndex = 3
         '
-        'Button1
+        'Label5
         '
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button1.Location = New System.Drawing.Point(354, 3)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(109, 28)
-        Me.Button1.TabIndex = 14
-        Me.Button1.Text = "&SAVE"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label5.Location = New System.Drawing.Point(156, 8)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(48, 19)
+        Me.Label5.TabIndex = 14
+        Me.Label5.Text = "Time :"
+        '
+        'txtTime
+        '
+        Me.txtTime.Location = New System.Drawing.Point(207, 7)
+        Me.txtTime.Name = "txtTime"
+        Me.txtTime.Size = New System.Drawing.Size(60, 20)
+        Me.txtTime.TabIndex = 13
         '
         'txtDate
         '
@@ -124,23 +123,11 @@ Partial Class MainMenu
         Me.Label2.TabIndex = 11
         Me.Label2.Text = "DYCI CAMPUS MAP" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
-        'Button3
-        '
-        Me.Button3.BackColor = System.Drawing.Color.White
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.Button3.Font = New System.Drawing.Font("Bernard MT Condensed", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(609, 6)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(82, 23)
-        Me.Button3.TabIndex = 8
-        Me.Button3.Text = "Update"
-        Me.Button3.UseVisualStyleBackColor = False
-        '
         'TextBox1
         '
         Me.TextBox1.Location = New System.Drawing.Point(170, 11)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(151, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(204, 20)
         Me.TextBox1.TabIndex = 9
         '
         'Label1
@@ -161,7 +148,6 @@ Partial Class MainMenu
         Me.Panel1.Controls.Add(Me.ComboBox1)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.TextBox1)
-        Me.Panel1.Controls.Add(Me.Button3)
         Me.Panel1.Location = New System.Drawing.Point(0, 51)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(799, 41)
@@ -172,7 +158,7 @@ Partial Class MainMenu
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label3.Location = New System.Drawing.Point(350, 6)
+        Me.Label3.Location = New System.Drawing.Point(427, 9)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(145, 19)
         Me.Label3.TabIndex = 12
@@ -182,9 +168,9 @@ Partial Class MainMenu
         '
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18"})
-        Me.ComboBox1.Location = New System.Drawing.Point(501, 6)
+        Me.ComboBox1.Location = New System.Drawing.Point(589, 7)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(91, 21)
+        Me.ComboBox1.Size = New System.Drawing.Size(199, 21)
         Me.ComboBox1.TabIndex = 11
         '
         'Panel3
@@ -192,7 +178,7 @@ Partial Class MainMenu
         Me.Panel3.AutoScroll = True
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Panel3.Controls.Add(Me.TextBox2)
-        Me.Panel3.Location = New System.Drawing.Point(354, 98)
+        Me.Panel3.Location = New System.Drawing.Point(504, 98)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(284, 263)
         Me.Panel3.TabIndex = 12
@@ -203,7 +189,7 @@ Partial Class MainMenu
         Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox2.Font = New System.Drawing.Font("Bell MT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox2.ForeColor = System.Drawing.Color.White
-        Me.TextBox2.Location = New System.Drawing.Point(0, 3)
+        Me.TextBox2.Location = New System.Drawing.Point(15, 3)
         Me.TextBox2.Multiline = True
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(266, 2063)
@@ -221,43 +207,16 @@ Partial Class MainMenu
         Me.Panel4.Controls.Add(Me.PictureBox2)
         Me.Panel4.Location = New System.Drawing.Point(12, 99)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(336, 262)
+        Me.Panel4.Size = New System.Drawing.Size(486, 262)
         Me.Panel4.TabIndex = 13
         '
         'PictureBox2
         '
         Me.PictureBox2.Location = New System.Drawing.Point(12, 0)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(436, 339)
+        Me.PictureBox2.Size = New System.Drawing.Size(638, 302)
         Me.PictureBox2.TabIndex = 0
         Me.PictureBox2.TabStop = False
-        '
-        'pbpf
-        '
-        Me.pbpf.Location = New System.Drawing.Point(715, 12)
-        Me.pbpf.Name = "pbpf"
-        Me.pbpf.Size = New System.Drawing.Size(73, 30)
-        Me.pbpf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.pbpf.TabIndex = 0
-        Me.pbpf.TabStop = False
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label5.Location = New System.Drawing.Point(156, 8)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(48, 19)
-        Me.Label5.TabIndex = 14
-        Me.Label5.Text = "Time :"
-        '
-        'txtTime
-        '
-        Me.txtTime.Location = New System.Drawing.Point(207, 7)
-        Me.txtTime.Name = "txtTime"
-        Me.txtTime.Size = New System.Drawing.Size(60, 20)
-        Me.txtTime.TabIndex = 13
         '
         'MainMenu
         '
@@ -268,7 +227,6 @@ Partial Class MainMenu
         Me.ClientSize = New System.Drawing.Size(800, 400)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel3)
-        Me.Controls.Add(Me.pbpf)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel2)
@@ -283,7 +241,6 @@ Partial Class MainMenu
         Me.Panel3.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pbpf, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -292,8 +249,6 @@ Partial Class MainMenu
     Friend WithEvents Panel2 As Panel
     Friend WithEvents BtnExit As Button
     Friend WithEvents Label2 As Label
-    Friend WithEvents pbpf As PictureBox
-    Friend WithEvents Button3 As Button
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel1 As Panel
@@ -306,7 +261,6 @@ Partial Class MainMenu
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Panel4 As Panel
     Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents Button1 As Button
     Friend WithEvents Label5 As Label
     Friend WithEvents txtTime As TextBox
 End Class

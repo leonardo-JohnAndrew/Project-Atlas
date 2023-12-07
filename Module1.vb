@@ -6,14 +6,14 @@ Imports System.Drawing
 Module Module1
     Dim fname, lname, mid, type, address, contact, fb As String
     Dim profile As New System.IO.MemoryStream
-    Dim uid As String
+    Dim uid, sort, sel As String
     Dim ms As New System.IO.MemoryStream
     Dim arry() As Byte
     Dim con As New MySqlConnection
     Dim cmd As New MySqlCommand
     Dim read As MySqlDataReader
     Dim adpter As New MySqlDataAdapter
-
+    Dim table As New DataTable
     Dim host, uname, pwd, dbname, query As String
     Public Sub connection()
         host = "127.0.0.1"
@@ -23,7 +23,7 @@ Module Module1
         If con IsNot Nothing Then
             con.Close() ' connection close 
             'connection signature
-            con.ConnectionString = "server =" & host & ";userid=" & uname & ";password=" & pwd & ";database =" & dbname & ""
+            con.ConnectionString = "server =" & host & ";userid=" & uname & ";password=" & pwd & ";database =" & dbname & ";Convert Zero Datetime = true"
             Try
                 con.Open() 'connection is open
 
@@ -61,10 +61,9 @@ Module Module1
                 LOGIN.lblfullname.Text = (lname & ", " & fname & ", " & mid).ToString
                 LOGIN.lbltime.Text = Date.Now.ToLongTimeString
                 LOGIN.lbldate.Text = Date.Now.ToString("yyyy-MM-dd")
-
-                MessageBox.Show("Success Login")
-                LOGIN.btnLOGIN.Visible = False
-                LOGIN.BtnNext.Visible = True
+                If type = "Administrator" Then
+                    LOGIN.Btnview.Visible = True
+                End If
                 LOGIN.BtnEdit.Visible = True
 
             Else
@@ -197,4 +196,84 @@ Module Module1
         Create.txtFB.Text = ""
 
     End Sub
+    Public Sub delete()
+        archive()
+        query = "DELETE from accounts where user_id = @id "
+        Try
+            Using CMD As New MySqlCommand(query, con)
+                CMD.Parameters.AddWithValue("@id", uid)
+                CMD.ExecuteNonQuery()
+
+            End Using
+            MsgBox("DELETION Successfull!", vbInformation, "DELETE MESSAGE")
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Message, vbInformation, "ERROR MESSAGE")
+        Finally
+            clear()
+        End Try
+
+    End Sub
+    Public Sub archive()
+        query = "Insert Into archiveaccount (usertype,user_id, lastname, firstname, middle,address,contact,fbaccount)VALUES(@type,@uid,@ln,@fn,@m,@add,@con,@fb)"
+        cmd = New MySqlCommand(query, con)
+        With cmd
+            .Parameters.AddWithValue("@type", type)
+            .Parameters.AddWithValue("@uid", uid)
+            .Parameters.AddWithValue("@ln", lname)
+            .Parameters.AddWithValue("@fn", fname)
+            .Parameters.AddWithValue("@m", mid)
+            .Parameters.AddWithValue("@add", address)
+            .Parameters.AddWithValue("@con", contact)
+            .Parameters.AddWithValue("@fb", fb)
+            .ExecuteNonQuery()
+            '.Parameters.AddWithValue("@pic", profile.ToArray)
+
+        End With
+    End Sub
+    Public Sub dgv(tbl As String)
+
+        query = "Select *from " & tbl
+        adpter = New MySqlDataAdapter(query, con) 'dISPLAY ALL Data in data grid
+        Try
+            table.Clear()
+            adpter.Fill(table) ' pass the record from mysql to table
+            DisplayData.Dgvtbl.DataSource = table
+            DisplayData.Dgvtbl.AllowUserToResizeRows = False
+            DisplayData.Dgvtbl.AutoResizeColumns()
+            ' DisplayData.txtCount.Text = DisplayData.Dgvtbl.Rows.Count
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            con.Close()
+        End Try
+    End Sub
+    Public Sub dgvtype(types As String, tbl As String)
+        query = "Select * from " & tbl & " Where usertype = " & "'" & types & "'"
+        adpter = New MySqlDataAdapter(query, con) 'dISPLAY ALL Data in data grid
+        Try
+            table.Clear()
+            adpter.Fill(table) ' pass the record from mysql to table
+            DisplayData.Dgvtbl.DataSource = table
+            DisplayData.Dgvtbl.AllowUserToResizeRows = False
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            con.Close()
+        End Try
+    End Sub
+    Public Sub dgvdate(enddate As String, startdate As String)
+        query = "Select * from usermonitor where date between '" & startdate & "' And '" & enddate & "'"
+        adpter = New MySqlDataAdapter(query, con) 'dISPLAY ALL Data in data grid
+        Try
+            table.Clear()
+            adpter.Fill(table) ' pass the record from mysql to table
+            DisplayData.Dgvtbl.DataSource = table
+            DisplayData.Dgvtbl.AllowUserToResizeRows = False
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
 End Module
