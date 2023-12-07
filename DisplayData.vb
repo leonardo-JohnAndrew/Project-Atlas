@@ -1,6 +1,13 @@
 ﻿
 Public Class DisplayData
-    Dim tbl As String
+    Dim uid, type, ln, fn, m, add, con, fb As String
+
+    Private Sub btndel_Click(sender As Object, e As EventArgs) Handles btndel.Click
+        connection()
+        archiveacc(uid, type, ln, fn, m, add, con, fb)
+        delteaccount(uid)
+    End Sub
+
     Private Sub DisplayData_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         connection()
         Btndate.Visible = False
@@ -27,9 +34,12 @@ Public Class DisplayData
                 dgv("accounts")
             End If
 
+
         ElseIf cborec.SelectedItem = "Monitor User" Then
             dgv("usermonitor")
             Btndate.Visible = True
+            btnadd.Visible = False
+            btnUpdate.Visible = False
 
             If cbosel.SelectedItem = "Student" Then
                 dgvtype("Student", "usermonitor")
@@ -52,6 +62,7 @@ Public Class DisplayData
         End If
         txtCount.Text = Dgvtbl.Rows.Count
 
+
     End Sub
 
     Private Sub Btndate_Click(sender As Object, e As EventArgs) Handles Btndate.Click
@@ -62,4 +73,49 @@ Public Class DisplayData
             dgvdate(Calendar.Label3.Text, Calendar.Label1.Text)
         End If
     End Sub
+
+    Private Sub btnadd_Click(sender As Object, e As EventArgs) Handles btnadd.Click
+        Create.Show()
+        Create.LABEL.Text = "REGISTRATION"
+        clear()
+        Create.lblid.Text = ""
+        Create.Button2.Visible = True
+        Create.btndelete.Visible = False
+        Create.btnUpdate.Visible = False
+        Me.Hide()
+
+
+    End Sub
+
+    Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
+        connection()
+        updateaccount(uid, type, ln, fn, m, add, con, fb)
+        '   Modify()
+
+    End Sub
+
+    Private Sub Dgvtbl_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles Dgvtbl.CellClick
+        If cborec.SelectedItem = "Accounts" Then
+            Try
+                Dim index As Integer
+                index = e.RowIndex
+                Dim row As DataGridViewRow
+                row = Dgvtbl.Rows(index)
+                uid = row.Cells(0).Value
+                type = row.Cells(1).Value
+                ln = row.Cells(2).Value
+                fn = row.Cells(3).Value
+                m = row.Cells(4).Value
+                add = row.Cells(5).Value
+                con = row.Cells(6).Value
+                fb = row.Cells(7).Value
+
+
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End If
+
+    End Sub
+
 End Class

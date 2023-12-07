@@ -15,13 +15,7 @@
 
     Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnLOGIN.Click
         Log_in()
-        Dim ANS As DialogResult = MessageBox.Show("Do you want to go next?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-        If ANS = DialogResult.Yes Then
-            MainMenu.Show()
-            Me.Hide()
-        Else
-            MsgBox("login Cancel ")
-        End If
+
     End Sub
 
     Private Sub BtnNext_Click_1(sender As Object, e As EventArgs)

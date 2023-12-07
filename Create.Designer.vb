@@ -48,6 +48,7 @@ Partial Class Create
         Me.LABEL = New System.Windows.Forms.Button()
         Me.ofdup = New System.Windows.Forms.OpenFileDialog()
         Me.Btngen = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
@@ -55,6 +56,7 @@ Partial Class Create
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Controls.Add(Me.btndelete)
         Me.Panel1.Controls.Add(Me.btnUpdate)
         Me.Panel1.Controls.Add(Me.Button2)
@@ -328,6 +330,20 @@ Partial Class Create
         Me.Btngen.Text = "Generate"
         Me.Btngen.UseVisualStyleBackColor = False
         '
+        'Button1
+        '
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Button1.Location = New System.Drawing.Point(3, 0)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(109, 28)
+        Me.Button1.TabIndex = 19
+        Me.Button1.Text = "&EXIT"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'Create
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -379,4 +395,5 @@ Partial Class Create
     Friend WithEvents Btngen As Button
     Friend WithEvents btnUpdate As Button
     Friend WithEvents btndelete As Button
+    Friend WithEvents Button1 As Button
 End Class

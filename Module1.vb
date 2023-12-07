@@ -58,14 +58,29 @@ Module Module1
                 Create.txtadd.Text = address
                 Create.txtcon.Text = contact
                 Create.txtFB.Text = fb
-                LOGIN.lblfullname.Text = (lname & ", " & fname & ", " & mid).ToString
-                LOGIN.lbltime.Text = Date.Now.ToLongTimeString
-                LOGIN.lbldate.Text = Date.Now.ToString("yyyy-MM-dd")
+                With LOGIN
+                    .lblfullname.Text = (lname & ", " & fname & ", " & mid).ToString
+                    .lbltime.Text = Date.Now.ToLongTimeString
+                    .lbldate.Text = Date.Now.ToString("yyyy-MM-dd")
+                End With
+
                 If type = "Administrator" Then
                     LOGIN.Btnview.Visible = True
                 End If
                 LOGIN.BtnEdit.Visible = True
+                Dim ANS As DialogResult = MessageBox.Show("Do you want to go next ? " & LOGIN.lblfullname.Text, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                If ANS = DialogResult.Yes Then
+                    MainMenu.Show()
 
+                    LOGIN.Hide()
+                Else
+
+                End If
+                With LOGIN
+                    .lblfullname.Text = ""
+                    .lbldate.Text = ""
+                    .lbltime.Text = ""
+                End With
             Else
                 MsgBox("INVALID ID")
             End If
@@ -171,7 +186,7 @@ Module Module1
                 .Parameters.AddWithValue("@id", uid)
                 ' .Parameters.AddWithValue("@pic", profile.ToArray)
                 .ExecuteNonQuery()
-                'MsgBox("Update success")
+                MsgBox("Update success")
             End With
 
         Catch ex As Exception
@@ -191,13 +206,13 @@ Module Module1
         Create.cbotype.Items.Remove(Create.cbotype.SelectedItem)
         Create.txtFirstName.Text = ""
         Create.txtLastName.Text = ""
+        Create.txtMiddle.Text = ""
         Create.txtadd.Text = ""
         Create.txtcon.Text = ""
         Create.txtFB.Text = ""
 
     End Sub
     Public Sub delete()
-        archive()
         query = "DELETE from accounts where user_id = @id "
         Try
             Using CMD As New MySqlCommand(query, con)
@@ -276,4 +291,61 @@ Module Module1
         End Try
     End Sub
 
+    Public Sub updateaccount(id As String, usertype As String, ln As String, fn As String, m As String, ad As String, cot As String, FB As String)
+        query = "UPDATE accounts set user_id = @id ,usertype = @type, lastname = @lt, firstname = @ft, middle = @m , address = @add, contact = @con, fbaccount = @fb where ( user_id = @id)"
+        cmd = New MySqlCommand(query, con)
+        Try
+            With cmd
+                .Parameters.AddWithValue("@type", usertype)
+                .Parameters.AddWithValue("@lt", ln)
+                .Parameters.AddWithValue("@ft", fn)
+                .Parameters.AddWithValue("@m", m)
+                .Parameters.AddWithValue("@add", ad)
+                .Parameters.AddWithValue("@con", cot)
+                .Parameters.AddWithValue("@fb", FB)
+                .Parameters.AddWithValue("@id", id)
+                ' .Parameters.AddWithValue("@pic", profile.ToArray)
+                .ExecuteNonQuery()
+                MsgBox("Update success")
+            End With
+
+        Catch ex As Exception
+            MsgBox("Error" & ex.Message)
+        Finally
+            clear()
+
+        End Try
+    End Sub
+    Public Sub delteaccount(id As String)
+        query = "DELETE from accounts where user_id = @id "
+        Try
+            Using CMD As New MySqlCommand(query, con)
+                CMD.Parameters.AddWithValue("@id", id)
+                CMD.ExecuteNonQuery()
+
+            End Using
+            MsgBox("DELETION Successfull!", vbInformation, "DELETE MESSAGE")
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Message, vbInformation, "ERROR MESSAGE")
+        Finally
+            clear()
+        End Try
+    End Sub
+    Public Sub archiveacc(id As String, usertype As String, ln As String, fn As String, m As String, ad As String, cot As String, FB As String)
+        query = "Insert Into archiveaccount (usertype,user_id, lastname, firstname, middle,address,contact,fbaccount)VALUES(@type,@uid,@ln,@fn,@m,@add,@con,@fb)"
+        cmd = New MySqlCommand(query, con)
+        With cmd
+            .Parameters.AddWithValue("@type", usertype)
+            .Parameters.AddWithValue("@uid", id)
+            .Parameters.AddWithValue("@ln", ln)
+            .Parameters.AddWithValue("@fn", fn)
+            .Parameters.AddWithValue("@m", m)
+            .Parameters.AddWithValue("@add", ad)
+            .Parameters.AddWithValue("@con", cot)
+            .Parameters.AddWithValue("@fb", FB)
+            .ExecuteNonQuery()
+            '.Parameters.AddWithValue("@pic", profile.ToArray)
+
+        End With
+    End Sub
 End Module

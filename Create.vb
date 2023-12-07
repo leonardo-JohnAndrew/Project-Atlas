@@ -33,7 +33,7 @@
     End Sub
 
     Private Sub Create_Load(sender As Object, e As EventArgs) Handles Me.Load
-
+        connection()
     End Sub
 
     Private Sub btndelete_Click(sender As Object, e As EventArgs) Handles btndelete.Click
@@ -44,5 +44,12 @@
         Else
             MsgBox("Delete Cancelled! ")
         End If
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        clear()
+        DisplayData.Show()
+        Me.Hide()
+
     End Sub
 End Class
