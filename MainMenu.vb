@@ -2,6 +2,7 @@
     Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         connection()
         selection()
+        Search()
 
     End Sub
 

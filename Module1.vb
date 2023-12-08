@@ -14,6 +14,7 @@ Module Module1
     Dim read As MySqlDataReader
     Dim adpter As New MySqlDataAdapter
     Dim table, table2 As New DataTable
+    Dim data As New AutoCompleteStringCollection
     Dim host, uname, pwd, dbname, query As String
     Public Sub connection()
         host = "127.0.0.1"
@@ -394,6 +395,19 @@ Module Module1
             .DataSource = table
             .DisplayMember = "room_building"
         End With
+    End Sub
+
+    Public Sub Search()
+        query = "Select room_building from room_building "
+        cmd = New MySqlCommand(query, con)
+        read = cmd.ExecuteReader()
+        data = New AutoCompleteStringCollection()
+        While read.Read()
+            data.Add(read.GetString(0))
+        End While
+        DYCIMAP.TextBox1.AutoCompleteCustomSource = data
+        con.Close()
+
     End Sub
 End Module
 
