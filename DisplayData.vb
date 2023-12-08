@@ -1,11 +1,23 @@
 ﻿
 Public Class DisplayData
-    Dim uid, type, ln, fn, m, add, con, fb As String
+    Dim uid, type, ln, fn, m, add, con, fb, sel, dates, times, tbl As String
+    Dim index As Integer
+
 
     Private Sub btndel_Click(sender As Object, e As EventArgs) Handles btndel.Click
         connection()
+        If cborec.SelectedItem = "Monitor Use" Then
+            archivehistory(Calendar.Label1.Text, Calendar.Label2.Text, type, uid, ln, fn, m, sel, dates, times)
+
+        End If
         archiveacc(uid, type, ln, fn, m, add, con, fb)
-        delteaccount(uid)
+        If cborec.SelectedItem = "Accounts" Then
+            tbl = "accounts"
+        ElseIf cborec.SelectedItem = "Monitor Use" Then
+            tbl = "usermonitor"
+        End If
+        delteaccount(tbl, uid)
+
     End Sub
 
     Private Sub DisplayData_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -15,8 +27,8 @@ Public Class DisplayData
     End Sub
 
     Private Sub btnShow_Click(sender As Object, e As EventArgs) Handles btnShow.Click
+
         If cborec.SelectedItem = "Accounts" Then
-            dgv("accounts")
             Btndate.Visible = False
             If cbosel.SelectedItem = "Student" Then
                 dgvtype("Student", "accounts")
@@ -35,11 +47,12 @@ Public Class DisplayData
             End If
 
 
-        ElseIf cborec.SelectedItem = "Monitor User" Then
-            dgv("usermonitor")
+        ElseIf cborec.SelectedItem = "Monitor Use" Then
             Btndate.Visible = True
             btnadd.Visible = False
             btnUpdate.Visible = False
+            btndel.Location = New Point(498, 3)
+            Dgvtbl.ClearSelection()
 
             If cbosel.SelectedItem = "Student" Then
                 dgvtype("Student", "usermonitor")
@@ -67,10 +80,10 @@ Public Class DisplayData
 
     Private Sub Btndate_Click(sender As Object, e As EventArgs) Handles Btndate.Click
         Calendar.Show()
-        If Calendar.Label1.Text = " " And Calendar.Label3.Text = " " Then
-            dgv("usermonitor")
+        If Calendar.Label1.Text = " " And Calendar.Label2.Text = " " Then
+
         Else
-            dgvdate(Calendar.Label3.Text, Calendar.Label1.Text)
+            dgvdate(Calendar.Label2.Text, Calendar.Label1.Text)
         End If
     End Sub
 
@@ -97,8 +110,8 @@ Public Class DisplayData
     Private Sub Dgvtbl_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles Dgvtbl.CellClick
         If cborec.SelectedItem = "Accounts" Then
             Try
-                Dim index As Integer
-                index = e.RowIndex
+
+                Index = e.RowIndex
                 Dim row As DataGridViewRow
                 row = Dgvtbl.Rows(index)
                 uid = row.Cells(0).Value
@@ -110,10 +123,10 @@ Public Class DisplayData
                 con = row.Cells(6).Value
                 fb = row.Cells(7).Value
 
-
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
+
         End If
 
     End Sub

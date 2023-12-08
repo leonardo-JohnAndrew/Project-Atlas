@@ -25,6 +25,7 @@ Partial Class DisplayData
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btndel = New System.Windows.Forms.Button()
         Me.btnadd = New System.Windows.Forms.Button()
         Me.btnShow = New System.Windows.Forms.Button()
         Me.btnUpdate = New System.Windows.Forms.Button()
@@ -38,7 +39,6 @@ Partial Class DisplayData
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtCount = New System.Windows.Forms.TextBox()
         Me.Btndate = New System.Windows.Forms.Button()
-        Me.btndel = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.Dgvtbl, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -46,16 +46,31 @@ Partial Class DisplayData
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.Btndate)
         Me.Panel1.Controls.Add(Me.btndel)
         Me.Panel1.Controls.Add(Me.btnadd)
         Me.Panel1.Controls.Add(Me.btnShow)
         Me.Panel1.Controls.Add(Me.btnUpdate)
         Me.Panel1.Controls.Add(Me.BtnExit2)
         Me.Panel1.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Panel1.Location = New System.Drawing.Point(1, 311)
+        Me.Panel1.Location = New System.Drawing.Point(-3, 311)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(784, 38)
+        Me.Panel1.Size = New System.Drawing.Size(788, 46)
         Me.Panel1.TabIndex = 2
+        '
+        'btndel
+        '
+        Me.btndel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btndel.FlatAppearance.BorderSize = 0
+        Me.btndel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btndel.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btndel.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.btndel.Location = New System.Drawing.Point(585, 3)
+        Me.btndel.Name = "btndel"
+        Me.btndel.Size = New System.Drawing.Size(109, 28)
+        Me.btndel.TabIndex = 20
+        Me.btndel.Text = "&DELETE"
+        Me.btndel.UseVisualStyleBackColor = True
         '
         'btnadd
         '
@@ -118,7 +133,7 @@ Partial Class DisplayData
         Me.cborec.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cborec.Font = New System.Drawing.Font("Bernard MT Condensed", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cborec.FormattingEnabled = True
-        Me.cborec.Items.AddRange(New Object() {"Accounts", "Monitor User"})
+        Me.cborec.Items.AddRange(New Object() {"Accounts", "Monitor Use"})
         Me.cborec.Location = New System.Drawing.Point(148, 34)
         Me.cborec.Name = "cborec"
         Me.cborec.Size = New System.Drawing.Size(110, 24)
@@ -149,11 +164,11 @@ Partial Class DisplayData
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Bernard MT Condensed", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(320, 37)
+        Me.Label2.Location = New System.Drawing.Point(312, 37)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(82, 16)
+        Me.Label2.Size = New System.Drawing.Size(90, 16)
         Me.Label2.TabIndex = 7
-        Me.Label2.Text = "Select Usertype"
+        Me.Label2.Text = "Sort By UserType"
         '
         'Label3
         '
@@ -186,9 +201,9 @@ Partial Class DisplayData
         Me.Dgvtbl.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
         Me.Dgvtbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Dgvtbl.GridColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Dgvtbl.Location = New System.Drawing.Point(66, 68)
+        Me.Dgvtbl.Location = New System.Drawing.Point(48, 74)
         Me.Dgvtbl.Name = "Dgvtbl"
-        Me.Dgvtbl.Size = New System.Drawing.Size(655, 222)
+        Me.Dgvtbl.Size = New System.Drawing.Size(695, 222)
         Me.Dgvtbl.TabIndex = 3
         '
         'Label4
@@ -217,26 +232,12 @@ Partial Class DisplayData
         Me.Btndate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btndate.Font = New System.Drawing.Font("Bernard MT Condensed", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Btndate.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Btndate.Location = New System.Drawing.Point(660, 2)
+        Me.Btndate.Location = New System.Drawing.Point(585, 3)
         Me.Btndate.Name = "Btndate"
         Me.Btndate.Size = New System.Drawing.Size(109, 28)
         Me.Btndate.TabIndex = 20
-        Me.Btndate.Text = "&Show  Calendar"
+        Me.Btndate.Text = "&SORT BY DATE"
         Me.Btndate.UseVisualStyleBackColor = False
-        '
-        'btndel
-        '
-        Me.btndel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btndel.FlatAppearance.BorderSize = 0
-        Me.btndel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btndel.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btndel.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btndel.Location = New System.Drawing.Point(585, 3)
-        Me.btndel.Name = "btndel"
-        Me.btndel.Size = New System.Drawing.Size(109, 28)
-        Me.btndel.TabIndex = 20
-        Me.btndel.Text = "&DELETE"
-        Me.btndel.UseVisualStyleBackColor = True
         '
         'DisplayData
         '
@@ -246,7 +247,6 @@ Partial Class DisplayData
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(183, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(784, 348)
-        Me.Controls.Add(Me.Btndate)
         Me.Controls.Add(Me.txtCount)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)

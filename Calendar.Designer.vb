@@ -69,7 +69,7 @@ Partial Class Calendar
         '
         Me.Label3.AutoSize = True
         Me.Label3.Enabled = False
-        Me.Label3.Location = New System.Drawing.Point(149, 203)
+        Me.Label3.Location = New System.Drawing.Point(148, 203)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(10, 13)
         Me.Label3.TabIndex = 27
@@ -83,7 +83,7 @@ Partial Class Calendar
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button1.Location = New System.Drawing.Point(111, 235)
+        Me.Button1.Location = New System.Drawing.Point(118, 235)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(69, 24)
         Me.Button1.TabIndex = 28
@@ -94,6 +94,7 @@ Partial Class Calendar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(183, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(311, 261)
@@ -105,6 +106,7 @@ Partial Class Calendar
         Me.Controls.Add(Me.MonthCalendar1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Calendar"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Calendar"
         Me.ResumeLayout(False)
         Me.PerformLayout()

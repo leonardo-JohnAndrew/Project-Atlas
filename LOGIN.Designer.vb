@@ -50,9 +50,9 @@ Partial Class LOGIN
         Me.Panel1.Controls.Add(Me.BtnEdit)
         Me.Panel1.Controls.Add(Me.btnLOGIN)
         Me.Panel1.Controls.Add(Me.BtnExit2)
-        Me.Panel1.Location = New System.Drawing.Point(4, 174)
+        Me.Panel1.Location = New System.Drawing.Point(0, 174)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(533, 32)
+        Me.Panel1.Size = New System.Drawing.Size(537, 32)
         Me.Panel1.TabIndex = 0
         '
         'Btnview
@@ -80,7 +80,7 @@ Partial Class LOGIN
         Me.BtnEdit.Name = "BtnEdit"
         Me.BtnEdit.Size = New System.Drawing.Size(109, 28)
         Me.BtnEdit.TabIndex = 5
-        Me.BtnEdit.Text = "&Edit Profile"
+        Me.BtnEdit.Text = "&View Profile"
         Me.BtnEdit.UseVisualStyleBackColor = True
         '
         'btnLOGIN
@@ -123,7 +123,7 @@ Partial Class LOGIN
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(240, 9)
+        Me.Label1.Location = New System.Drawing.Point(235, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(56, 19)
         Me.Label1.TabIndex = 6

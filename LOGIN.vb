@@ -19,7 +19,7 @@
     End Sub
 
     Private Sub BtnNext_Click_1(sender As Object, e As EventArgs)
-        MainMenu.Show()
+        DYCIMAP.Show()
         btnLOGIN.Visible = True
     End Sub
 

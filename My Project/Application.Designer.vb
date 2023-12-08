@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.Project_Atlas.DisplayData
+            Me.MainForm = Global.Project_Atlas.DYCIMAP
         End Sub
     End Class
 End Namespace

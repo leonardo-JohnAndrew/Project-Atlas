@@ -1,14 +1,16 @@
-﻿Public Class MainMenu
+﻿Public Class DYCIMAP
     Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        connection()
+        selection()
 
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        txtDate.Text = Format(Date.Now)
-        txtTime.Text = Date.Now.ToString("yyyy-MM-dd")
+        txtTime.Text = Date.Now.ToLongTimeString
+        txtDate.Text = Date.Now.ToString("yyyy-MM-dd")
     End Sub
 
-    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) 
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs)
         Create.Show()
         dis()
         Me.Hide()
@@ -21,4 +23,10 @@
     Private Sub BtnExit_Click(sender As Object, e As EventArgs)
 
     End Sub
+
+    Private Sub BtnExit_Click_1(sender As Object, e As EventArgs) Handles BtnExit.Click
+
+    End Sub
+
+
 End Class
