@@ -1,4 +1,6 @@
 ﻿Public Class DYCIMAP
+    Dim Sel As String
+
     Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         connection()
         selection()
@@ -64,8 +66,24 @@
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        If String.IsNullOrEmpty(TextBox1.Text) = False Then
+            ComboBox1.Text = ""
+            Sel = TextBox1.Text
+            Direction_guide.TextBox1.Text = Sel
+        ElseIf String.IsNullOrEmpty(ComboBox1.Text) = False Then
+            TextBox1.Text = ""
+            Sel = ComboBox1.Text
+            Direction_guide.TextBox1.Text = Sel
+        Else
+            Sel = TextBox1.Text
+            Direction_guide.TextBox1.Text = Sel
+        End If
         Direction_guide.Show()
         Me.Hide()
+
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
 
     End Sub
 End Class

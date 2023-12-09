@@ -1,6 +1,13 @@
 ﻿
 Public Class DisplayData
     Dim uid, type, ln, fn, m, add, con, fb, sel, dates, times, tbl As String
+
+    Private Sub BtnExit2_Click(sender As Object, e As EventArgs) Handles BtnExit2.Click
+        Me.Hide()
+        LOGIN.Show()
+
+    End Sub
+
     Dim index As Integer
 
 

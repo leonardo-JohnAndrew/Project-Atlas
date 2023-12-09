@@ -6,7 +6,7 @@ Imports System.Drawing
 Module Module1
     Dim fname, lname, mid, type, address, contact, fb As String
     Dim profile As New System.IO.MemoryStream
-    Dim uid, sort, sel As String
+    Dim uid, sort, sel, events As String
     Dim ms As New System.IO.MemoryStream
     Dim arry() As Byte
     Dim con As New MySqlConnection
@@ -24,11 +24,11 @@ Module Module1
         uname = "root"
         pwd = ""
         If con IsNot Nothing Then
-            con.Close() ' connection close 
-            'connection signature
+            con.Close()
+
             con.ConnectionString = "server =" & host & ";userid=" & uname & ";password=" & pwd & ";database =" & dbname & ";Convert Zero Datetime = true"
             Try
-                con.Open() 'connection is open
+                con.Open()
 
             Catch ex As Exception
 
@@ -44,7 +44,6 @@ Module Module1
         Try
             read = cmd.ExecuteReader
             If read.Read() Then
-                '   Dim last, first, m As String
                 lname = read("lastname")
                 fname = read("firstname")
                 mid = read("middle")
@@ -70,6 +69,9 @@ Module Module1
                 If type = "Administrator" Then
                     LOGIN.Btnview.Visible = True
                     DYCIMAP.Button1.Visible = True
+                    Direction_guide.Button23.Visible = True
+                    Direction_guide.Button1.Visible = True
+                    Direction_guide.Enabled = True
 
                 End If
                 LOGIN.BtnEdit.Visible = True
@@ -110,7 +112,7 @@ Module Module1
             .Parameters.AddWithValue("@m", mid)
             .Parameters.AddWithValue("@time", LOGIN.lbltime.Text)
             .Parameters.AddWithValue("@date", LOGIN.lbldate.Text)
-            .Parameters.AddWithValue("@sel", DYCIMAP.TextBox1.Text)
+            .Parameters.AddWithValue("@sel", Direction_guide.TextBox1.Text)
             .ExecuteNonQuery()
 
 
@@ -125,12 +127,8 @@ Module Module1
         address = Create.txtadd.Text
         contact = Create.txtcon.Text
         fb = Create.txtFB.Text
-        'Dim profile As New MemoryStream
-
-        ' INSERT INPUTED DATA AND PERFORM QUERY USING CMD 
         query = "INSERT INTO accounts(usertype,user_id,lastname,firstname,middle,address,contact,fbaccount ) values(@type,@id, @lname,@fname,@m,@add,@con,@fb)"
         cmd = New MySqlCommand(query, con)
-        '   add the parameter value
 
 
 
@@ -175,7 +173,6 @@ Module Module1
 
         cmd = New MySqlCommand(query, con)
         Try
-            'execute query command
             If Create.txtFirstName.Text = " " Or Create.txtLastName.Text = "" Or Create.txtMiddle.Text = " " Or
            Create.txtadd.Text = " " Or Create.txtcon.Text = " " Or String.IsNullOrEmpty(Create.cbotype.SelectedItem) Or
            Create.txtFB.Text = " " Then
@@ -192,7 +189,7 @@ Module Module1
                 .Parameters.AddWithValue("@con", contact)
                 .Parameters.AddWithValue("@fb", fb)
                 .Parameters.AddWithValue("@id", uid)
-                ' .Parameters.AddWithValue("@pic", profile.ToArray)
+
                 .ExecuteNonQuery()
                 MsgBox("Update success")
             End With
@@ -250,21 +247,19 @@ Module Module1
             .Parameters.AddWithValue("@con", contact)
             .Parameters.AddWithValue("@fb", fb)
             .ExecuteNonQuery()
-            '.Parameters.AddWithValue("@pic", profile.ToArray)
+
 
         End With
     End Sub
     Public Sub dgv(tbl As String)
         Try
             query = "Select * from " & tbl
-            adpter = New MySqlDataAdapter(query, con) 'dISPLAY ALL Data in data grid
+            adpter = New MySqlDataAdapter(query, con)
 
             table = New DataTable
-            adpter.Fill(table) ' pass the record from mysql to table
+            adpter.Fill(table)
             DisplayData.Dgvtbl.DataSource = table
-            '  DisplayData.Dgvtbl.AllowUserToResizeRows = False
             DisplayData.Dgvtbl.AutoResizeColumns()
-            ' DisplayData.txtCount.Text = DisplayData.Dgvtbl.Rows.Count
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
@@ -274,7 +269,7 @@ Module Module1
     End Sub
     Public Sub dgvtype(types As String, tbl As String)
         query = "Select * from " & tbl & " Where usertype = " & "'" & types & "'"
-        adpter = New MySqlDataAdapter(query, con) 'dISPLAY ALL Data in data grid
+        adpter = New MySqlDataAdapter(query, con)
         Try
             With DisplayData.Dgvtbl
                 .Columns.Clear()
@@ -282,9 +277,8 @@ Module Module1
 
             End With
             table = New DataTable
-            adpter.Fill(table) ' pass the record from mysql to table
+            adpter.Fill(table)
             DisplayData.Dgvtbl.DataSource = table
-            '   DisplayData.Dgvtbl.AllowUserToResizeRows = False
             DisplayData.Dgvtbl.AutoResizeColumns()
 
         Catch ex As Exception
@@ -295,10 +289,10 @@ Module Module1
     End Sub
     Public Sub dgvdate(enddate As String, startdate As String)
         query = "Select * from usermonitor where date between '" & startdate & "' And '" & enddate & "'"
-        adpter = New MySqlDataAdapter(query, con) 'dISPLAY ALL Data in data grid
+        adpter = New MySqlDataAdapter(query, con)
         Try
             table = New DataTable
-            adpter.Fill(table) ' pass the record from mysql to table
+            adpter.Fill(table)
             DisplayData.Dgvtbl.DataSource = table
             DisplayData.Dgvtbl.AllowUserToResizeRows = False
         Catch ex As Exception
@@ -321,7 +315,6 @@ Module Module1
                 .Parameters.AddWithValue("@con", cot)
                 .Parameters.AddWithValue("@fb", FB)
                 .Parameters.AddWithValue("@id", id)
-                ' .Parameters.AddWithValue("@pic", profile.ToArray)
                 .ExecuteNonQuery()
                 MsgBox("Update success")
             End With
@@ -338,7 +331,6 @@ Module Module1
         Try
             Using CMD As New MySqlCommand(query, con)
                 CMD.Parameters.AddWithValue("@id", id)
-                ' CMD.Parameters.AddWithValue("@table", tbl)
                 CMD.ExecuteNonQuery()
 
             End Using
@@ -362,7 +354,6 @@ Module Module1
             .Parameters.AddWithValue("@con", cot)
             .Parameters.AddWithValue("@fb", FB)
             .ExecuteNonQuery()
-            '.Parameters.AddWithValue("@pic", profile.ToArray)
 
         End With
     End Sub
@@ -414,7 +405,7 @@ Module Module1
             data.Add(read.GetString(0))
             DYCIMAP.TextBox1.AutoCompleteCustomSource = data
             DYCIMAP.txtadd.AutoCompleteCustomSource = data
-
+            Direction_guide.TextBox1.AutoCompleteCustomSource = data
         End While
         con.Close()
 
@@ -463,12 +454,112 @@ Module Module1
         query = "Delete from room_building where room_building = '" & DYCIMAP.txtadd.Text & ""
         cmd = New MySqlCommand(query, con)
         Try
-            '   cmd.Parameters.AddWithValue("@del", DYCIMAP.txtadd)
+
             cmd.ExecuteNonQuery()
+            Direction_guide.PictureBox1.Image = Nothing
             MsgBox("Delete Success")
         Catch e As Exception
             MsgBox(e.Message)
         End Try
+
+    End Sub
+
+    Public Sub eventdis()
+        con.Open()
+        query = "Select event_warning from room_building where room_building = '" & Direction_guide.TextBox1.Text & "'"
+        cmd = New MySqlCommand(query, con)
+        Try
+            read = cmd.ExecuteReader
+            If read.Read Then
+                events = read("event_warning")
+                Direction_guide.TextBox2.Text = events
+                read.Close()
+            End If
+        Catch ex As Exception
+            Direction_guide.TextBox2.Text = "None"
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    Public Sub adevent()
+        con.Open()
+        query = "Update room_building set event_warning = '" & Addevent.TextBox1.Text & Direction_guide.TextBox2.Text & "'"
+        cmd = New MySqlCommand(query, con)
+        cmd.ExecuteNonQuery()
+
+    End Sub
+    Public Sub upevent()
+        con.Open()
+        query = "Update room_building set event_warning = '" & Addevent.TextBox1.Text & "'"
+        cmd = New MySqlCommand(query, con)
+        cmd.ExecuteNonQuery()
+    End Sub
+    Public Sub delevent()
+        con.Open()
+        query = "Delete event_warning  room_building WHere event_warning = '" & Addevent.TextBox1.Text & "'"
+        cmd = New MySqlCommand(query, con)
+        cmd.ExecuteNonQuery()
+
+    End Sub
+    Public Sub saveimage()
+
+        query = "Insert into images  (image,NAME) values(@image , @name)"
+        ms = New System.IO.MemoryStream()
+        Direction_guide.PictureBox1.Image.Save(ms, Direction_guide.PictureBox1.Image.RawFormat)
+
+        ms.Close()
+        Try
+            cmd = New MySqlCommand(query, con)
+            cmd.Parameters.Add("@image", MySqlDbType.LongBlob).Value = ms.ToArray()
+            cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = Direction_guide.TextBox1.Text
+            cmd.ExecuteNonQuery()
+            MsgBox("Add Success ")
+        Catch EX As Exception
+            MsgBox(EX.Message)
+
+        End Try
+
+
+    End Sub
+    Public Sub deletimage()
+        query = "Delete from images where NAME = '" & Direction_guide.TextBox1.Text & "'"
+
+        Try
+            cmd = New MySqlCommand(query, con)
+            cmd.ExecuteNonQuery()
+            MsgBox("Delete Success ")
+        Catch EX As Exception
+            MsgBox(EX.Message)
+
+        End Try
+
+    End Sub
+
+    Public Sub upimage()
+        con.Open()
+        query = "Update images set @images where NAME = '" & Direction_guide.TextBox1.Text & "'"
+        Try
+            cmd = New MySqlCommand(query, con)
+            cmd.ExecuteNonQuery()
+            MsgBox("Update Success ")
+        Catch EX As Exception
+            MsgBox(EX.Message)
+
+        End Try
+    End Sub
+    Public Sub display()
+
+        query = "Select * from images where NAME = '" & Direction_guide.TextBox1.Text & "'"
+        cmd = New MySqlCommand(query, con)
+        read = cmd.ExecuteReader
+
+        If Not read Is Nothing Then
+            read.Read()
+            arry = DirectCast(read("image"), Byte())
+            ms = New MemoryStream(arry)
+            Direction_guide.PictureBox1.Image = Image.FromStream(ms)
+            read.Close()
+
+        End If
 
     End Sub
 End Module

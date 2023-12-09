@@ -125,6 +125,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Addevent.Designer.vb">
+      <DependentUpon>Addevent.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Addevent.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Calendar.Designer.vb">
       <DependentUpon>Calendar.vb</DependentUpon>
     </Compile>
@@ -193,6 +199,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Addevent.resx">
+      <DependentUpon>Addevent.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Calendar.resx">
       <DependentUpon>Calendar.vb</DependentUpon>
     </EmbeddedResource>
@@ -239,7 +248,16 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\" />
+    <None Include="Images\Assigned ATLAS\2.2%29 College of Business and Accountancy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1%29 Frontline.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\385529872_3560089800931388_1600794123392506079_n.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Assigned ATLAS\2.1%29 Guidance and Counseling Center.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
