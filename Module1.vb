@@ -16,6 +16,8 @@ Module Module1
     Dim table, table2 As New DataTable
     Dim data As New AutoCompleteStringCollection
     Dim host, uname, pwd, dbname, query As String
+    Dim filepath As String = "C:\\Users\\GADGETCORE\\source\\repos\\Project-Atlas\\info.txt"
+
     Public Sub connection()
         host = "127.0.0.1"
         dbname = "atlas_system"
@@ -67,6 +69,8 @@ Module Module1
 
                 If type = "Administrator" Then
                     LOGIN.Btnview.Visible = True
+                    DYCIMAP.Button1.Visible = True
+
                 End If
                 LOGIN.BtnEdit.Visible = True
                 Dim ANS As DialogResult = MessageBox.Show("Do you want to go next ? " & LOGIN.lblfullname.Text, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
@@ -90,6 +94,12 @@ Module Module1
         Finally
             read.Close()
         End Try
+
+
+
+
+    End Sub
+    Public Sub monitor()
         query = "Insert Into usermonitor (usertype,user_id, lastname, firstname, middle,selc,date,time)VALUES(@type,@uid,@ln,@fn,@m,@sel,@date,@time)"
         cmd = New MySqlCommand(query, con)
         With cmd
@@ -100,14 +110,11 @@ Module Module1
             .Parameters.AddWithValue("@m", mid)
             .Parameters.AddWithValue("@time", LOGIN.lbltime.Text)
             .Parameters.AddWithValue("@date", LOGIN.lbldate.Text)
-            .Parameters.AddWithValue("@sel", "None")
+            .Parameters.AddWithValue("@sel", DYCIMAP.TextBox1.Text)
             .ExecuteNonQuery()
-            '.Parameters.AddWithValue("@pic", profile.ToArray)
+
 
         End With
-
-
-
     End Sub
     Public Sub Register()
         fname = Create.txtFirstName.Text
@@ -386,7 +393,7 @@ Module Module1
         End Try
     End Sub
     Public Sub selection()
-        query = "Select * From room_building "
+        query = "Select * From room_building order by room_building asc "
         cmd = New MySqlCommand(query, con)
         adpter = New MySqlDataAdapter(cmd)
         table = New DataTable
@@ -402,11 +409,66 @@ Module Module1
         cmd = New MySqlCommand(query, con)
         read = cmd.ExecuteReader()
         data = New AutoCompleteStringCollection()
+
         While read.Read()
             data.Add(read.GetString(0))
+            DYCIMAP.TextBox1.AutoCompleteCustomSource = data
+            DYCIMAP.txtadd.AutoCompleteCustomSource = data
+
         End While
-        DYCIMAP.TextBox1.AutoCompleteCustomSource = data
         con.Close()
+
+    End Sub
+    Public Sub Info()
+        Dim file As String
+        Using reader As StreamReader = New StreamReader(filepath)
+            file = reader.ReadToEnd()
+        End Using
+        DYCIMAP.TextBox2.Text = file
+    End Sub
+    Public Sub saveinfo()
+        'Write filE
+        System.IO.File.WriteAllText(filepath, "")
+        Dim write As System.IO.StreamWriter = New System.IO.StreamWriter(filepath)
+        write.Write(DYCIMAP.TextBox2.Text)
+        write.Close()
+
+    End Sub
+    Public Sub addname()
+        con.Open()
+        query = "Insert into room_building (room_building) values(@Added)"
+        cmd = New MySqlCommand(query, con)
+        With cmd
+            .Parameters.AddWithValue("@Added", DYCIMAP.txtadd.Text)
+            .ExecuteNonQuery()
+            MsgBox("Add Success")
+        End With
+    End Sub
+    Public Sub nameupdate()
+        con.Open()
+        query = "Update room_building set room_building  = '" & DYCIMAP.txtadd.Text & "' " & " Where room_building = '" & DYCIMAP.TextBox1.Text & "'"
+        cmd = New MySqlCommand(query, con)
+        Try
+            With cmd
+                .ExecuteNonQuery()
+                MsgBox("Update Success")
+            End With
+        Catch e As Exception
+            MsgBox(e.Message)
+        End Try
+
+    End Sub
+    Public Sub deletename()
+        con.Open()
+        query = "Delete from room_building where room_building = '" & DYCIMAP.txtadd.Text & ""
+        cmd = New MySqlCommand(query, con)
+        Try
+            '   cmd.Parameters.AddWithValue("@del", DYCIMAP.txtadd)
+            cmd.ExecuteNonQuery()
+            MsgBox("Delete Success")
+        Catch e As Exception
+            MsgBox(e.Message)
+        End Try
 
     End Sub
 End Module

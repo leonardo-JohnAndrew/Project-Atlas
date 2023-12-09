@@ -1,0 +1,54 @@
+package task;
+import java.io.*;
+import java.util.Arrays;
+/**
+ *
+ * @author John Andrew Leonardo
+ */
+public class Task_3 {
+    public static void main (String[]args) throws IOException{
+        BufferedReader Enter = new BufferedReader(new InputStreamReader(System.in));
+        int [] jar = new int[5]; /// 5 elements
+        int indexposition;
+        int value ;/// new value
+        //Design
+        for(int a = 0 ; a<=20;a++){
+           System.out.print("--");
+        }
+        System.out.println("\nEnter 5 Integer ");
+        for(int a = 0 ; a<=20;a++){
+           System.out.print("--");
+        }
+          System.out.print("\n");
+          /// Enter by looping
+        for (int dta = 0 ; dta <jar.length;dta ++){
+            System.out.print("Array "+dta+" = ");
+            jar[dta] = Integer.parseInt(Enter.readLine());
+        }// end for
+         for(int a = 0 ; a<=20;a++){
+           System.out.print("--");
+        }
+         // printing
+          System.out.print("\nOriginal Array : ");
+        for (int a = 0 ;a< jar.length;a++){
+               System.out.print(jar[a]+"  ");                     
+          }
+        /// input the index position  and the new Item
+        System.out.print("\nEnter index Position: ");              
+        indexposition = Integer.parseInt(Enter.readLine());
+        System.out.print("Enter New Value: ");              
+        value = Integer.parseInt(Enter.readLine());
+        /// inserting and reading  the new value
+        for (int dta = jar.length -1; dta>indexposition ; dta--){
+             jar[dta] = jar[dta-1];
+        }
+        for(int a = 0 ; a<=20;a++){
+             System.out.print("--");
+        }
+         jar[indexposition] = value;
+         System.out.println("\nNew Array "+ Arrays.toString(jar));
+        for(int a = 0 ; a<=20;a++){
+            System.out.print("--");
+        }
+    }/// END MAIN11
+}//  END CLASS
