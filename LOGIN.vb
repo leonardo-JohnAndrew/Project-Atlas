@@ -9,6 +9,7 @@
     End Sub
 
     Private Sub LOGIN_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        connection()
         BtnEdit.Visible = False
         Btnview.Visible = False
     End Sub

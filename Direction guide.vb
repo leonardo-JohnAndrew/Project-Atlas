@@ -2,6 +2,7 @@
 
 
     Private Sub Direction_guide_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        connection()
         eventdis()
         display()
 

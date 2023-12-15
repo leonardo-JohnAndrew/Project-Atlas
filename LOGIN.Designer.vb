@@ -62,7 +62,7 @@ Partial Class LOGIN
         Me.Btnview.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btnview.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Btnview.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Btnview.Location = New System.Drawing.Point(216, 1)
+        Me.Btnview.Location = New System.Drawing.Point(186, 1)
         Me.Btnview.Name = "Btnview"
         Me.Btnview.Size = New System.Drawing.Size(109, 28)
         Me.Btnview.TabIndex = 6
@@ -76,7 +76,7 @@ Partial Class LOGIN
         Me.BtnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnEdit.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnEdit.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnEdit.Location = New System.Drawing.Point(327, 1)
+        Me.BtnEdit.Location = New System.Drawing.Point(323, 1)
         Me.BtnEdit.Name = "BtnEdit"
         Me.BtnEdit.Size = New System.Drawing.Size(109, 28)
         Me.BtnEdit.TabIndex = 5

@@ -92,31 +92,37 @@ Module Module1
                 MsgBox("INVALID ID")
             End If
         Catch x As Exception
-            MsgBox(x.Message)
+            MsgBox(x.Message, query)
         Finally
-            read.Close()
-        End Try
+            con.Open()
 
+            read.Close()
+            query = "Insert Into usermonitor (usertype,user_id, lastname, firstname, middle,selc,date,time)VALUES(@type,@uid,@ln,@fn,@m,@sel,@date,@time)"
+            cmd = New MySqlCommand(query, con)
+            With cmd
+                .Parameters.AddWithValue("@type", type)
+                .Parameters.AddWithValue("@uid", uid)
+                .Parameters.AddWithValue("@ln", lname)
+                .Parameters.AddWithValue("@fn", fname)
+                .Parameters.AddWithValue("@m", mid)
+                .Parameters.AddWithValue("@date", Date.Now.ToString("yyyy-MM-dd"))
+                .Parameters.AddWithValue("@time", Date.Now.ToLongTimeString)
+                .Parameters.AddWithValue("@sel", Direction_guide.TextBox1.Text)
+                .ExecuteNonQuery()
+            End With
+            con.Close()
+
+        End Try
 
 
 
     End Sub
     Public Sub monitor()
-        query = "Insert Into usermonitor (usertype,user_id, lastname, firstname, middle,selc,date,time)VALUES(@type,@uid,@ln,@fn,@m,@sel,@date,@time)"
+
+        query = "Update usermonitor set selc = '" & Direction_guide.TextBox1.Text & "' where user_id = " & LOGIN.txtID.Text
         cmd = New MySqlCommand(query, con)
-        With cmd
-            .Parameters.AddWithValue("@type", type)
-            .Parameters.AddWithValue("@uid", uid)
-            .Parameters.AddWithValue("@ln", lname)
-            .Parameters.AddWithValue("@fn", fname)
-            .Parameters.AddWithValue("@m", mid)
-            .Parameters.AddWithValue("@time", LOGIN.lbltime.Text)
-            .Parameters.AddWithValue("@date", LOGIN.lbldate.Text)
-            .Parameters.AddWithValue("@sel", Direction_guide.TextBox1.Text)
-            .ExecuteNonQuery()
+        cmd.ExecuteNonQuery()
 
-
-        End With
     End Sub
     Public Sub Register()
         fname = Create.txtFirstName.Text
@@ -406,6 +412,7 @@ Module Module1
             DYCIMAP.TextBox1.AutoCompleteCustomSource = data
             DYCIMAP.txtadd.AutoCompleteCustomSource = data
             Direction_guide.TextBox1.AutoCompleteCustomSource = data
+
         End While
         con.Close()
 
@@ -426,7 +433,7 @@ Module Module1
 
     End Sub
     Public Sub addname()
-        con.Open()
+        ' con.Open()
         query = "Insert into room_building (room_building) values(@Added)"
         cmd = New MySqlCommand(query, con)
         With cmd
@@ -436,7 +443,7 @@ Module Module1
         End With
     End Sub
     Public Sub nameupdate()
-        con.Open()
+        ' con.Open()
         query = "Update room_building set room_building  = '" & DYCIMAP.txtadd.Text & "' " & " Where room_building = '" & DYCIMAP.TextBox1.Text & "'"
         cmd = New MySqlCommand(query, con)
         Try
@@ -450,7 +457,7 @@ Module Module1
 
     End Sub
     Public Sub deletename()
-        con.Open()
+        '  con.Open()
         query = "Delete from room_building where room_building = '" & DYCIMAP.txtadd.Text & ""
         cmd = New MySqlCommand(query, con)
         Try
@@ -465,7 +472,7 @@ Module Module1
     End Sub
 
     Public Sub eventdis()
-        con.Open()
+        '  con.Open()
         query = "Select event_warning from room_building where room_building = '" & Direction_guide.TextBox1.Text & "'"
         cmd = New MySqlCommand(query, con)
         Try
@@ -481,20 +488,20 @@ Module Module1
         End Try
     End Sub
     Public Sub adevent()
-        con.Open()
+        '  con.Open()
         query = "Update room_building set event_warning = '" & Addevent.TextBox1.Text & Direction_guide.TextBox2.Text & "'"
         cmd = New MySqlCommand(query, con)
         cmd.ExecuteNonQuery()
 
     End Sub
     Public Sub upevent()
-        con.Open()
+        ' con.Open()
         query = "Update room_building set event_warning = '" & Addevent.TextBox1.Text & "'"
         cmd = New MySqlCommand(query, con)
         cmd.ExecuteNonQuery()
     End Sub
     Public Sub delevent()
-        con.Open()
+        '  con.Open()
         query = "Delete event_warning  room_building WHere event_warning = '" & Addevent.TextBox1.Text & "'"
         cmd = New MySqlCommand(query, con)
         cmd.ExecuteNonQuery()
@@ -535,7 +542,7 @@ Module Module1
     End Sub
 
     Public Sub upimage()
-        con.Open()
+        '   con.Open()
         query = "Update images set @images where NAME = '" & Direction_guide.TextBox1.Text & "'"
         Try
             cmd = New MySqlCommand(query, con)
@@ -547,19 +554,27 @@ Module Module1
         End Try
     End Sub
     Public Sub display()
+        Try
 
-        query = "Select * from images where NAME = '" & Direction_guide.TextBox1.Text & "'"
-        cmd = New MySqlCommand(query, con)
-        read = cmd.ExecuteReader
+            query = "Select image from images where NAME = '" & Direction_guide.TextBox1.Text & "'"
+            cmd = New MySqlCommand(query, con)
+            adpter = New MySqlDataAdapter(cmd)
+            Dim tabl As New DataTable()
 
-        If Not read Is Nothing Then
-            read.Read()
-            arry = DirectCast(read("image"), Byte())
-            ms = New MemoryStream(arry)
+            adpter.Fill(tabl)
+            arry = table.Rows(0)(2)
+            ms = New SSY MemoryStream(arry)
             Direction_guide.PictureBox1.Image = Image.FromStream(ms)
+
+        Catch e As Exception
+            MsgBox(e.Message & query)
+        Finally
             read.Close()
 
-        End If
+
+        End Try
+
+
 
     End Sub
 End Module
