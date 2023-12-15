@@ -1,7 +1,10 @@
 ﻿Public Class DYCIMAP
-    Dim Sel As String
+    Dim Sel, PATH As String
 
     Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If PictureBox2.Image Is Nothing Then
+            PictureBox2.ImageLocation = PATH
+        End If
         connection()
         selection()
         Search()
@@ -32,16 +35,15 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Button2.Visible = True
+
         TextBox2.ReadOnly = False
         Button3.Visible = True
-        Button5.Visible = True
-        Button4.Visible = True
+
         TextBox2.Visible = True
         MsgBox("Search First On Search box before update name ")
         ComboBox1.Visible = False
         Label3.Visible = False
-        txtadd.Visible = True
+
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -72,5 +74,24 @@
     Private Sub Btnview_Click(sender As Object, e As EventArgs) Handles Btnview.Click
         DisplayData.Show()
         Me.Hide()
+    End Sub
+
+    Private Sub BtnEdit_Click(sender As Object, e As EventArgs) Handles BtnEdit.Click
+        dis()
+        Create.Button2.Visible = False
+        Create.btnUpdate.Visible = True
+        Create.btndelete.Visible = True
+        Create.Show()
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        'add
+        OpenFileDialog1.Filter = "Picture (* .jpg; * .png) | * .jpg; * .png"
+        OpenFileDialog1.ShowDialog()
+        PictureBox2.ImageLocation = OpenFileDialog1.FileName
+        'save
+        PATH = "C:\\Users\\GADGETCORE\\source\\repos\\Project-Atlas\\image.png"
+        PictureBox2.Image.Save(PATH)
+
     End Sub
 End Class

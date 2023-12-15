@@ -15,6 +15,7 @@ Module Module1
     Dim table, table2 As New DataTable
     Dim data As New AutoCompleteStringCollection
     Dim host, uname, pwd, dbname, query As String
+    Dim ans As DialogResult
     Dim filepath As String = "C:\\Users\\GADGETCORE\\source\\repos\\Project-Atlas\\info.txt"
 
     Public Sub connection()
@@ -71,10 +72,13 @@ Module Module1
                     Direction_guide.Button23.Visible = True
                     DYCIMAP.Btnview.Visible = True
                     DYCIMAP.Button7.Visible = True
-                    Direction_guide.Enabled = True
-
+                    Direction_guide.TextBox1.Enabled = True
+                    DYCIMAP.Btnview.Visible = True
+                    DYCIMAP.BtnEdit.Visible = False
+                Else
+                    DYCIMAP.BtnEdit.Visible = True
+                    DYCIMAP.Btnview.Visible = False
                 End If
-                LOGIN.BtnEdit.Visible = True
                 Dim ANS As DialogResult = MessageBox.Show("Do you want to go next ? " & LOGIN.lblfullname.Text, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 If ANS = DialogResult.Yes Then
                     DYCIMAP.Show()
@@ -87,31 +91,34 @@ Module Module1
                     .lblfullname.Text = ""
                     .lbldate.Text = ""
                     .lbltime.Text = ""
+
                 End With
+                If con.State = ConnectionState.Closed Then
+                    con.Open()
+                End If
+
+                query = "Insert Into usermonitor (usertype,user_id, lastname, firstname, middle,selc,date,time)VALUES(@type,@uid,@ln,@fn,@m,@sel,@date,@time)"
+                cmd = New MySqlCommand(query, con)
+                With cmd
+                    .Parameters.AddWithValue("@type", type)
+                    .Parameters.AddWithValue("@uid", uid)
+                    .Parameters.AddWithValue("@ln", lname)
+                    .Parameters.AddWithValue("@fn", fname)
+                    .Parameters.AddWithValue("@m", mid)
+                    .Parameters.AddWithValue("@date", Date.Now.ToString("yyyy-MM-dd"))
+                    .Parameters.AddWithValue("@time", Date.Now.ToLongTimeString)
+                    .Parameters.AddWithValue("@sel", Direction_guide.TextBox1.Text)
+                    .ExecuteNonQuery()
+                End With
+                con.Close()
+
             Else
                 MsgBox("INVALID ID")
             End If
         Catch x As Exception
-            MsgBox(x.Message, query)
+            MsgBox(x.Message)
         Finally
-            If con.State = ConnectionState.Closed Then
-                con.Open()
-            End If
-
             read.Close()
-            query = "Insert Into usermonitor (usertype,user_id, lastname, firstname, middle,selc,date,time)VALUES(@type,@uid,@ln,@fn,@m,@sel,@date,@time)"
-            cmd = New MySqlCommand(query, con)
-            With cmd
-                .Parameters.AddWithValue("@type", type)
-                .Parameters.AddWithValue("@uid", uid)
-                .Parameters.AddWithValue("@ln", lname)
-                .Parameters.AddWithValue("@fn", fname)
-                .Parameters.AddWithValue("@m", mid)
-                .Parameters.AddWithValue("@date", Date.Now.ToString("yyyy-MM-dd"))
-                .Parameters.AddWithValue("@time", Date.Now.ToLongTimeString)
-                .Parameters.AddWithValue("@sel", Direction_guide.TextBox1.Text)
-                .ExecuteNonQuery()
-            End With
             con.Close()
 
         End Try
@@ -123,7 +130,7 @@ Module Module1
         If con.State = ConnectionState.Closed Then
             con.Open()
         End If
-        query = "Update usermonitor set selc = '" & Direction_guide.TextBox1.Text & "' where user_id = " & LOGIN.txtID.Text
+        query = "Update usermonitor SET selc = '" & Direction_guide.TextBox1.Text & "' Where user_id = " & LOGIN.txtID.Text
         cmd = New MySqlCommand(query, con)
         cmd.ExecuteNonQuery()
         con.Close()
@@ -146,7 +153,7 @@ Module Module1
 
         With cmd
             .Parameters.AddWithValue("@type", type)
-            .Parameters.AddWithValue("@id", uid)
+            .Parameters.AddWithValue("@id", Convert.ToDecimal(uid))
             .Parameters.AddWithValue("@lname", lname)
             .Parameters.AddWithValue("@fname", fname)
             .Parameters.AddWithValue("@m", mid)
@@ -272,10 +279,22 @@ Module Module1
             adpter.Fill(table)
             DisplayData.Dgvtbl.DataSource = table
             DisplayData.Dgvtbl.AutoResizeColumns()
+            If tbl = "accounts " Then
+                PrintRecord.CrystalReportViewer1.ReportSource = Nothing
+                Dim rp As New Accounts
+                rp.SetDataSource(table)
+                With PrintRecord
+                    .CrystalReportViewer1.ReportSource = rp
+                    .CrystalReportViewer1.Refresh()
+                End With
+            ElseIf tbl = "usermonitor" Then
+
+            End If
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
             con.Close()
+
         End Try
 
     End Sub
@@ -283,16 +302,32 @@ Module Module1
         query = "Select * from " & tbl & " Where usertype = " & "'" & types & "'"
         adpter = New MySqlDataAdapter(query, con)
         Try
-            With DisplayData.Dgvtbl
-                .Columns.Clear()
-                .Rows.Clear()
 
-            End With
             table = New DataTable
             adpter.Fill(table)
             DisplayData.Dgvtbl.DataSource = table
             DisplayData.Dgvtbl.AutoResizeColumns()
+            If tbl = "accounts" Then
+                Dim rp As New Accounts
+                PrintRecord.CrystalReportViewer1.ReportSource = Nothing
+                rp.SetDataSource(table)
+                With PrintRecord
+                    .CrystalReportViewer1.Refresh()
+                    .CrystalReportViewer1.ReportSource = rp
 
+                End With
+            ElseIf tbl = "usermonitor" Then
+                Dim rp As New UserMonitor
+                print.CrystalReportViewer1.ReportSource = Nothing
+                rp.SetDataSource(table)
+                With print
+                    .CrystalReportViewer1.Refresh()
+                    .CrystalReportViewer1.ReportSource = rp
+
+                End With
+            Else
+                MsgBox("Select Record First")
+            End If
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
@@ -307,6 +342,14 @@ Module Module1
             adpter.Fill(table)
             DisplayData.Dgvtbl.DataSource = table
             DisplayData.Dgvtbl.AllowUserToResizeRows = False
+            Dim rp As New UserMonitor
+            print.CrystalReportViewer1.ReportSource = Nothing
+            rp.SetDataSource(table)
+            With print
+                .CrystalReportViewer1.Refresh()
+                .CrystalReportViewer1.ReportSource = rp
+
+            End With
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
@@ -465,14 +508,14 @@ Module Module1
             Direction_guide.TextBox2.Text = "None"
         End Try
     End Sub
-    Public Sub adbuilding(num As String, name As String, events As String)
+    Public Sub adbuilding(name As String, events As String)
         '  con.Open()
         If con.State = ConnectionState.Closed Then
             con.Open()
         End If
-        query = "INSERT INTO room_building (num,room_building,event_warning) values (@num,@name,@event)"
+        query = "INSERT INTO room_building (room_building,event_warning) values (@name,@event)"
         cmd = New MySqlCommand(query, con)
-        cmd.Parameters.AddWithValue("@num", num)
+
         cmd.Parameters.AddWithValue("@name", name)
         cmd.Parameters.AddWithValue("@event", events)
         cmd.ExecuteNonQuery()
@@ -544,14 +587,19 @@ Module Module1
 
     End Sub
 
+
     Public Sub upimage()
         '   con.Open()
         If con.State = ConnectionState.Closed Then
             con.Open()
         End If
         query = "Update images set @images where NAME = '" & Direction_guide.TextBox1.Text & "'"
+        ms = New System.IO.MemoryStream()
+        Direction_guide.PictureBox1.Image.Save(ms, Direction_guide.PictureBox1.Image.RawFormat)
         Try
             cmd = New MySqlCommand(query, con)
+            cmd.Parameters.Add("@image", MySqlDbType.LongBlob).Value = ms.ToArray()
+
             cmd.ExecuteNonQuery()
             MsgBox("Update Success ")
         Catch EX As Exception
@@ -568,11 +616,13 @@ Module Module1
             If con.State = ConnectionState.Closed Then
                 con.Open()
             End If
+
             read = cmd.ExecuteReader
             read.Read()
             Dim arry() As Byte = read.Item("image")
             Dim ms As New System.IO.MemoryStream(arry)
             Direction_guide.PictureBox1.Image = Image.FromStream(ms)
+
         Catch e As Exception
             MsgBox("Direction not Available")
         Finally
@@ -582,9 +632,6 @@ Module Module1
 
 
         End Try
-
-
-
     End Sub
 End Module
 

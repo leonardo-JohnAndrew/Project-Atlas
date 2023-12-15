@@ -2,16 +2,33 @@
 Public Class DisplayData
     Dim uid, type, ln, fn, m, add, con, fb, sel, dates, times, tbl As String
 
-    Private Sub Btngen_Click(sender As Object, e As EventArgs)
+    Dim num, name, events As String
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If cborec.SelectedItem = "Accounts" Then
+            PrintRecord.Show()
+        ElseIf cborec.SelectedItem = "Monitor User" Then
+            print.Show()
+        ElseIf cborec.SelectedItem = "Building And Room" Then
+            List.Show()
+
+        Else
+            MsgBox("Show Record First")
+        End If
+
     End Sub
 
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Create.Show()
+        Create.BtnExit2.Visible = False
+        clear()
 
+    End Sub
 
     Private Sub S(sender As Object, e As EventArgs)
 
     End Sub
 
-    Dim num, name, events As String
+
 
     Private Sub BtnExit2_Click(sender As Object, e As EventArgs) Handles BtnExit2.Click
         Me.Hide()
@@ -25,14 +42,14 @@ Public Class DisplayData
 
     Private Sub btndel_Click(sender As Object, e As EventArgs) Handles btndel.Click
         connection()
-        If cborec.SelectedItem = "Monitor Use" Then
+        If cborec.SelectedItem = "Monitor User" Then
             archivehistory(Calendar.Label1.Text, Calendar.Label2.Text, type, uid, ln, fn, m, sel, dates, times)
 
         End If
         archiveacc(uid, type, ln, fn, m, add, con, fb)
         If cborec.SelectedItem = "Accounts" Then
             tbl = "accounts"
-        ElseIf cborec.SelectedItem = "Monitor Use" Then
+        ElseIf cborec.SelectedItem = "Monitor User" Then
             tbl = "usermonitor"
         ElseIf cborec.SelectedItem = "Building And Room" Then
             delbuilding(num)
@@ -50,13 +67,15 @@ Public Class DisplayData
     End Sub
 
     Private Sub btnShow_Click(sender As Object, e As EventArgs) Handles btnShow.Click
-
         If cborec.SelectedItem = "Accounts" Then
             Btndate.Visible = False
             Label2.Visible = True
             cbosel.Visible = True
             btnadd.Visible = True
             btnUpdate.Visible = True
+            Button2.Visible = True
+            Button3.Visible = False
+            dgv("accounts")
             If cbosel.SelectedItem = "Student" Then
                 dgvtype("Student", "accounts")
             ElseIf cbosel.SelectedItem = "Teacher" Then
@@ -69,8 +88,9 @@ Public Class DisplayData
                 dgvtype("Visitor", "accounts")
             ElseIf cbosel.SelectedItem = "Professor" Then
                 dgvtype("Professor", "accounts")
-            ElseIf cbosel.SelectedItem = "" Then
+            ElseIf cbosel.SelectedItem = "All" Then
                 dgv("accounts")
+
             End If
 
 
@@ -81,7 +101,10 @@ Public Class DisplayData
             btnUpdate.Visible = False
             btndel.Location = New Point(498, 3)
             Label2.Visible = True
+            Button2.Visible = False
             cbosel.Visible = True
+            Button3.Visible = False
+            dgv("usermonitor")
             Dgvtbl.ClearSelection()
 
             If cbosel.SelectedItem = "Student" Then
@@ -96,15 +119,16 @@ Public Class DisplayData
                 dgvtype("Visitor", "usermonitor")
             ElseIf cbosel.SelectedItem = "Professor" Then
                 dgvtype("Professor", "usermonitor")
-            ElseIf cbosel.SelectedItem = "" Then
+            ElseIf cbosel.SelectedItem = "All" Then
                 dgv("usermonitor")
             End If
 
         ElseIf cborec.SelectedItem = "Building And Room" Then
             Label2.Visible = False
             cbosel.Visible = False
+            Button3.Visible = True
             dgv("room_building")
-        Else
+        ElseIf cborec.SelectedItem = "" Then
             MsgBox("Select Record")
         End If
         txtCount.Text = Dgvtbl.Rows.Count
@@ -121,23 +145,6 @@ Public Class DisplayData
         End If
     End Sub
 
-    Private Sub btnadd_Click(sender As Object, e As EventArgs) Handles btnadd.Click
-        If cborec.SelectedItem = "Accounts " Then
-            Create.Show()
-            Create.LABEL.Text = "REGISTRATION"
-            clear()
-            Create.lblid.Text = ""
-            Create.Button2.Visible = True
-            Create.btndelete.Visible = False
-            Create.btnUpdate.Visible = False
-            Me.Hide()
-        ElseIf cborec.SelectedItem = "Building And Room" Then
-            adbuilding(num, name, events)
-        Else
-            MsgBox("Select Record First")
-        End If
-
-    End Sub
 
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
         Try

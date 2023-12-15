@@ -6,9 +6,7 @@ Public Class Start
         connection()
         DYCIMAP.Button1.Visible = False
         Direction_guide.Button23.Visible = False
-        DYCIMAP.Btnview.Visible = False
         DYCIMAP.Button7.Visible = False
-        Direction_guide.Enabled = False
 
     End Sub
     Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles BtnExit.Click
@@ -22,13 +20,15 @@ Public Class Start
 
     End Sub
 
-    Private Sub BtnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
+    Private Sub BtnCreate_Click(sender As Object, e As EventArgs)
+        clear()
         Create.Show()
-        Create.LABEL.Text = "REGISTRATION"
         Create.lblid.Text = " "
         Create.Button2.Visible = True
-        Create.btndelete.Visible = False
-        Create.btnUpdate.Visible = False
+        Create.btndelete.Visible = True
+        Create.btnUpdate.Visible = True
+        Create.BtnExit2.Visible = True
+        Create.Button1.Visible = False
         Me.Hide()
 
     End Sub

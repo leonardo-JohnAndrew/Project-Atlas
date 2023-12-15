@@ -1,13 +1,23 @@
 ﻿Public Class Create
 
     Private Sub BtnExit2_Click(sender As Object, e As EventArgs) Handles BtnExit2.Click
+        Button2.Visible = False
+        btndelete.Visible = False
+        btnUpdate.Visible = False
+        BtnExit2.Visible = False
+        Button1.Visible = True
         Start.Show()
+
         Me.Hide()
 
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Register()
+        LOGIN.Show()
+        Me.Hide()
+
+
     End Sub
 
 
@@ -47,7 +57,7 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        clear()
+        Register()
         DisplayData.Show()
         Me.Hide()
 

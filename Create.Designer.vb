@@ -23,6 +23,7 @@ Partial Class Create
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.btndelete = New System.Windows.Forms.Button()
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
@@ -48,7 +49,6 @@ Partial Class Create
         Me.LABEL = New System.Windows.Forms.Button()
         Me.ofdup = New System.Windows.Forms.OpenFileDialog()
         Me.Btngen = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
@@ -66,6 +66,20 @@ Partial Class Create
         Me.Panel1.Size = New System.Drawing.Size(637, 37)
         Me.Panel1.TabIndex = 1
         '
+        'Button1
+        '
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Button1.Location = New System.Drawing.Point(63, 3)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(109, 28)
+        Me.Button1.TabIndex = 19
+        Me.Button1.Text = "&ADD"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'btndelete
         '
         Me.btndelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
@@ -73,12 +87,13 @@ Partial Class Create
         Me.btndelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btndelete.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btndelete.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btndelete.Location = New System.Drawing.Point(422, 0)
+        Me.btndelete.Location = New System.Drawing.Point(302, 0)
         Me.btndelete.Name = "btndelete"
         Me.btndelete.Size = New System.Drawing.Size(109, 28)
         Me.btndelete.TabIndex = 18
         Me.btndelete.Text = "&DELETE"
         Me.btndelete.UseVisualStyleBackColor = True
+        Me.btndelete.Visible = False
         '
         'btnUpdate
         '
@@ -87,12 +102,13 @@ Partial Class Create
         Me.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnUpdate.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnUpdate.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.btnUpdate.Location = New System.Drawing.Point(514, 0)
+        Me.btnUpdate.Location = New System.Drawing.Point(422, 0)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(109, 28)
         Me.btnUpdate.TabIndex = 17
         Me.btnUpdate.Text = "&UPDATE"
         Me.btnUpdate.UseVisualStyleBackColor = True
+        Me.btnUpdate.Visible = False
         '
         'Button2
         '
@@ -107,6 +123,7 @@ Partial Class Create
         Me.Button2.TabIndex = 15
         Me.Button2.Text = "&SAVE"
         Me.Button2.UseVisualStyleBackColor = True
+        Me.Button2.Visible = False
         '
         'BtnExit2
         '
@@ -279,7 +296,7 @@ Partial Class Create
         Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label1.Font = New System.Drawing.Font("Bernard MT Condensed", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(161, 18)
+        Me.Label1.Location = New System.Drawing.Point(412, 18)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(59, 20)
         Me.Label1.TabIndex = 9
@@ -290,7 +307,7 @@ Partial Class Create
         Me.lblid.AutoSize = True
         Me.lblid.BackColor = System.Drawing.Color.White
         Me.lblid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblid.Location = New System.Drawing.Point(226, 22)
+        Me.lblid.Location = New System.Drawing.Point(477, 22)
         Me.lblid.Name = "lblid"
         Me.lblid.Size = New System.Drawing.Size(2, 15)
         Me.lblid.TabIndex = 10
@@ -305,9 +322,9 @@ Partial Class Create
         Me.LABEL.ForeColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
         Me.LABEL.Location = New System.Drawing.Point(7, 13)
         Me.LABEL.Name = "LABEL"
-        Me.LABEL.Size = New System.Drawing.Size(142, 35)
+        Me.LABEL.Size = New System.Drawing.Size(295, 35)
         Me.LABEL.TabIndex = 11
-        Me.LABEL.Text = "REGISTRATION"
+        Me.LABEL.Text = "INPUT INFORMATION"
         Me.LABEL.UseVisualStyleBackColor = False
         '
         'ofdup
@@ -323,26 +340,12 @@ Partial Class Create
         Me.Btngen.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btngen.Font = New System.Drawing.Font("Bernard MT Condensed", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Btngen.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Btngen.Location = New System.Drawing.Point(226, 44)
+        Me.Btngen.Location = New System.Drawing.Point(477, 44)
         Me.Btngen.Name = "Btngen"
         Me.Btngen.Size = New System.Drawing.Size(92, 21)
         Me.Btngen.TabIndex = 17
         Me.Btngen.Text = "Generate"
         Me.Btngen.UseVisualStyleBackColor = False
-        '
-        'Button1
-        '
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button1.Location = New System.Drawing.Point(3, 0)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(109, 28)
-        Me.Button1.TabIndex = 19
-        Me.Button1.Text = "&EXIT"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'Create
         '

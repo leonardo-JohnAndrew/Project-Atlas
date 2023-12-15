@@ -24,7 +24,6 @@ Partial Class LOGIN
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.BtnEdit = New System.Windows.Forms.Button()
         Me.btnLOGIN = New System.Windows.Forms.Button()
         Me.BtnExit2 = New System.Windows.Forms.Button()
         Me.txtID = New System.Windows.Forms.TextBox()
@@ -45,27 +44,12 @@ Partial Class LOGIN
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.BtnEdit)
         Me.Panel1.Controls.Add(Me.btnLOGIN)
         Me.Panel1.Controls.Add(Me.BtnExit2)
         Me.Panel1.Location = New System.Drawing.Point(0, 174)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(537, 32)
         Me.Panel1.TabIndex = 0
-        '
-        'BtnEdit
-        '
-        Me.BtnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.BtnEdit.FlatAppearance.BorderSize = 0
-        Me.BtnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnEdit.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnEdit.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnEdit.Location = New System.Drawing.Point(323, 1)
-        Me.BtnEdit.Name = "BtnEdit"
-        Me.BtnEdit.Size = New System.Drawing.Size(109, 28)
-        Me.BtnEdit.TabIndex = 5
-        Me.BtnEdit.Text = "&View Profile"
-        Me.BtnEdit.UseVisualStyleBackColor = True
         '
         'btnLOGIN
         '
@@ -248,7 +232,6 @@ Partial Class LOGIN
     Friend WithEvents Label3 As Label
     Friend WithEvents lblName As Label
     Friend WithEvents lblfullname As Label
-    Friend WithEvents BtnEdit As Button
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents lbltime As Label

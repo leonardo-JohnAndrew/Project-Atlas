@@ -22,6 +22,7 @@ Partial Class Direction_guide
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtTime = New System.Windows.Forms.TextBox()
@@ -38,12 +39,13 @@ Partial Class Direction_guide
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel2
@@ -183,6 +185,7 @@ Partial Class Direction_guide
         Me.Button23.TabIndex = 19
         Me.Button23.Text = "Modify "
         Me.Button23.UseVisualStyleBackColor = False
+        Me.Button23.Visible = False
         '
         'OFD
         '
@@ -219,6 +222,15 @@ Partial Class Direction_guide
         Me.TextBox2.Size = New System.Drawing.Size(138, 20)
         Me.TextBox2.TabIndex = 18
         '
+        'Panel1
+        '
+        Me.Panel1.AutoScroll = True
+        Me.Panel1.Controls.Add(Me.PictureBox1)
+        Me.Panel1.Location = New System.Drawing.Point(160, 46)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(505, 336)
+        Me.Panel1.TabIndex = 20
+        '
         'PictureBox1
         '
         Me.PictureBox1.Location = New System.Drawing.Point(-9, 3)
@@ -228,14 +240,10 @@ Partial Class Direction_guide
         Me.PictureBox1.TabIndex = 19
         Me.PictureBox1.TabStop = False
         '
-        'Panel1
+        'Timer1
         '
-        Me.Panel1.AutoScroll = True
-        Me.Panel1.Controls.Add(Me.PictureBox1)
-        Me.Panel1.Location = New System.Drawing.Point(160, 46)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(505, 336)
-        Me.Panel1.TabIndex = 20
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 1000
         '
         'Direction_guide
         '
@@ -252,12 +260,13 @@ Partial Class Direction_guide
         Me.Controls.Add(Me.Panel2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Direction_guide"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Direction_guide"
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel3.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -281,4 +290,5 @@ Partial Class Direction_guide
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents Timer1 As Timer
 End Class

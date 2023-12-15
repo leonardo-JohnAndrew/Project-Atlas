@@ -47,6 +47,7 @@ Partial Class DYCIMAP
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Btnview = New System.Windows.Forms.Button()
+        Me.BtnEdit = New System.Windows.Forms.Button()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -302,13 +303,27 @@ Partial Class DYCIMAP
         Me.Btnview.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btnview.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Btnview.ForeColor = System.Drawing.Color.White
-        Me.Btnview.Location = New System.Drawing.Point(679, 6)
+        Me.Btnview.Location = New System.Drawing.Point(679, 4)
         Me.Btnview.Name = "Btnview"
         Me.Btnview.Size = New System.Drawing.Size(109, 39)
         Me.Btnview.TabIndex = 14
         Me.Btnview.Text = "View Records"
         Me.Btnview.UseVisualStyleBackColor = False
-        Me.Btnview.Visible = False
+        '
+        'BtnEdit
+        '
+        Me.BtnEdit.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
+        Me.BtnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BtnEdit.FlatAppearance.BorderSize = 0
+        Me.BtnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnEdit.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnEdit.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.BtnEdit.Location = New System.Drawing.Point(679, 4)
+        Me.BtnEdit.Name = "BtnEdit"
+        Me.BtnEdit.Size = New System.Drawing.Size(109, 39)
+        Me.BtnEdit.TabIndex = 15
+        Me.BtnEdit.Text = "&View Profile"
+        Me.BtnEdit.UseVisualStyleBackColor = False
         '
         'DYCIMAP
         '
@@ -317,6 +332,7 @@ Partial Class DYCIMAP
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(183, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(800, 400)
+        Me.Controls.Add(Me.BtnEdit)
         Me.Controls.Add(Me.Btnview)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel3)
@@ -325,6 +341,7 @@ Partial Class DYCIMAP
         Me.Controls.Add(Me.Panel2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "DYCIMAP"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel1.ResumeLayout(False)
@@ -361,4 +378,5 @@ Partial Class DYCIMAP
     Friend WithEvents Button7 As Button
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents Btnview As Button
+    Friend WithEvents BtnEdit As Button
 End Class

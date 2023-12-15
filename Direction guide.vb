@@ -14,6 +14,7 @@
         Dim ANS As DialogResult = MessageBox.Show("Do you want to Save? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If ANS = DialogResult.Yes Then
             saveimage()
+            PictureBox1.Image = Nothing
         Else
         End If
 
@@ -38,18 +39,27 @@
         Dim ANS As DialogResult = MessageBox.Show("Do you want to Delete? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If ANS = DialogResult.Yes Then
             deletimage()
+            PictureBox1.Image = Nothing
         Else
         End If
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
-        Addevent.Show()
+    Private Sub Button6_Click_1(sender As Object, e As EventArgs) Handles Button6.Click
+        OFD.Filter = "Picture (* .jpg; * .png) | * .jpg; * .png"
+        OFD.ShowDialog()
+        PictureBox1.ImageLocation = OFD.FileName
+        Dim ANS As DialogResult = MessageBox.Show("Do you want to Delete? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If ans = DialogResult.Yes Then
+            upimage()
+            PictureBox1.Image = Nothing
+        Else
+        End If
 
     End Sub
 
-    Private Sub Button6_Click(sender As Object, e As EventArgs)
-
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        txtTime.Text = Date.Now.ToLongTimeString
+        txtDate.Text = Date.Now.ToString("yyyy-MM-dd")
     End Sub
-
 End Class
