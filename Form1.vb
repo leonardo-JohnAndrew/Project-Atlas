@@ -4,7 +4,11 @@ Public Class Start
     Private Sub Start_Load(sender As Object, e As EventArgs) Handles Me.Load
 
         connection()
-
+        DYCIMAP.Button1.Visible = False
+        Direction_guide.Button23.Visible = False
+        DYCIMAP.Btnview.Visible = False
+        DYCIMAP.Button7.Visible = False
+        Direction_guide.Enabled = False
 
     End Sub
     Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles BtnExit.Click

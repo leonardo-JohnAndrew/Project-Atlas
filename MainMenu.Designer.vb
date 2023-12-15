@@ -25,6 +25,7 @@ Partial Class DYCIMAP
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(DYCIMAP))
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Button7 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -43,13 +44,9 @@ Partial Class DYCIMAP
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.txtadd = New System.Windows.Forms.TextBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Btnview = New System.Windows.Forms.Button()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -72,6 +69,21 @@ Partial Class DYCIMAP
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(799, 34)
         Me.Panel2.TabIndex = 3
+        '
+        'Button7
+        '
+        Me.Button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button7.FlatAppearance.BorderSize = 0
+        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button7.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Button7.Location = New System.Drawing.Point(318, 0)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(161, 28)
+        Me.Button7.TabIndex = 17
+        Me.Button7.Text = "&Vicinity Map Change"
+        Me.Button7.UseVisualStyleBackColor = True
+        Me.Button7.Visible = False
         '
         'Button6
         '
@@ -272,65 +284,6 @@ Partial Class DYCIMAP
         Me.Panel4.Size = New System.Drawing.Size(486, 262)
         Me.Panel4.TabIndex = 13
         '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
-        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.White
-        Me.Button2.Location = New System.Drawing.Point(495, 9)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(99, 33)
-        Me.Button2.TabIndex = 16
-        Me.Button2.Text = "ADD NAME"
-        Me.Button2.UseVisualStyleBackColor = False
-        Me.Button2.Visible = False
-        '
-        'Button4
-        '
-        Me.Button4.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
-        Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button4.FlatAppearance.BorderSize = 0
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.ForeColor = System.Drawing.Color.White
-        Me.Button4.Location = New System.Drawing.Point(262, 9)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(114, 33)
-        Me.Button4.TabIndex = 17
-        Me.Button4.Text = "UPDATE NAME"
-        Me.Button4.UseVisualStyleBackColor = False
-        Me.Button4.Visible = False
-        '
-        'Button5
-        '
-        Me.Button5.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
-        Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button5.FlatAppearance.BorderSize = 0
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.ForeColor = System.Drawing.Color.White
-        Me.Button5.Location = New System.Drawing.Point(382, 9)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(107, 33)
-        Me.Button5.TabIndex = 18
-        Me.Button5.Text = "DELETE NAME"
-        Me.Button5.UseVisualStyleBackColor = False
-        Me.Button5.Visible = False
-        '
-        'txtadd
-        '
-        Me.txtadd.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.txtadd.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txtadd.Font = New System.Drawing.Font("Bell MT", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtadd.Location = New System.Drawing.Point(600, 16)
-        Me.txtadd.Name = "txtadd"
-        Me.txtadd.Size = New System.Drawing.Size(188, 21)
-        Me.txtadd.TabIndex = 13
-        Me.txtadd.Visible = False
-        '
         'PictureBox2
         '
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
@@ -341,19 +294,21 @@ Partial Class DYCIMAP
         Me.PictureBox2.TabIndex = 0
         Me.PictureBox2.TabStop = False
         '
-        'Button7
+        'Btnview
         '
-        Me.Button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button7.FlatAppearance.BorderSize = 0
-        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button7.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button7.Location = New System.Drawing.Point(318, 0)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(161, 28)
-        Me.Button7.TabIndex = 17
-        Me.Button7.Text = "&Vicinity Map Change"
-        Me.Button7.UseVisualStyleBackColor = True
+        Me.Btnview.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
+        Me.Btnview.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Btnview.FlatAppearance.BorderSize = 0
+        Me.Btnview.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Btnview.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btnview.ForeColor = System.Drawing.Color.White
+        Me.Btnview.Location = New System.Drawing.Point(679, 6)
+        Me.Btnview.Name = "Btnview"
+        Me.Btnview.Size = New System.Drawing.Size(109, 39)
+        Me.Btnview.TabIndex = 14
+        Me.Btnview.Text = "View Records"
+        Me.Btnview.UseVisualStyleBackColor = False
+        Me.Btnview.Visible = False
         '
         'DYCIMAP
         '
@@ -362,10 +317,7 @@ Partial Class DYCIMAP
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(183, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(800, 400)
-        Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.txtadd)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.Btnview)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Label2)
@@ -404,12 +356,9 @@ Partial Class DYCIMAP
     Friend WithEvents Label5 As Label
     Friend WithEvents txtTime As TextBox
     Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button5 As Button
-    Friend WithEvents txtadd As TextBox
     Friend WithEvents Button6 As Button
     Friend WithEvents Button7 As Button
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
+    Friend WithEvents Btnview As Button
 End Class

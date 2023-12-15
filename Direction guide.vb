@@ -3,9 +3,7 @@
 
     Private Sub Direction_guide_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         connection()
-        eventdis()
-        display()
-
+        
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button5.Click
@@ -29,6 +27,9 @@
 
     Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles BtnExit.Click
         Me.Hide()
+        PictureBox1.Image = Nothing
+        TextBox1.Text = ""
+        TextBox2.Text = ""
         DYCIMAP.Show()
 
     End Sub
@@ -42,7 +43,7 @@
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
         Addevent.Show()
 
     End Sub

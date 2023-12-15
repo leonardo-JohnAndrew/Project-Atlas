@@ -48,24 +48,6 @@
         saveinfo()
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        If TextBox2.Text = "" Then
-            MsgBox("Input Name First ")
-        Else
-            addname()
-        End If
-
-    End Sub
-
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        nameupdate()
-
-    End Sub
-
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        deletename()
-    End Sub
-
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         If String.IsNullOrEmpty(TextBox1.Text) = False Then
             ComboBox1.Text = ""
@@ -79,12 +61,16 @@
             Sel = TextBox1.Text
             Direction_guide.TextBox1.Text = Sel
         End If
+        display()
+        eventdis()
         Direction_guide.Show()
         Me.Hide()
 
     End Sub
 
-    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
 
+    Private Sub Btnview_Click(sender As Object, e As EventArgs) Handles Btnview.Click
+        DisplayData.Show()
+        Me.Hide()
     End Sub
 End Class

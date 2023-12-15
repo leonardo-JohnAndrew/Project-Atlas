@@ -88,7 +88,7 @@ Partial Class Start
         Me.btnCreate.Name = "btnCreate"
         Me.btnCreate.Size = New System.Drawing.Size(166, 28)
         Me.btnCreate.TabIndex = 1
-        Me.btnCreate.Text = "REGISTRATION"
+        Me.btnCreate.Text = "Use  As Visitor"
         Me.btnCreate.UseVisualStyleBackColor = False
         '
         'btnLogin

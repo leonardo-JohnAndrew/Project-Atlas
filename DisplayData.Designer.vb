@@ -22,8 +22,8 @@ Partial Class DisplayData
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Btndate = New System.Windows.Forms.Button()
         Me.btndel = New System.Windows.Forms.Button()
@@ -31,7 +31,6 @@ Partial Class DisplayData
         Me.btnShow = New System.Windows.Forms.Button()
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.BtnExit2 = New System.Windows.Forms.Button()
-        Me.cborec = New System.Windows.Forms.ComboBox()
         Me.cbosel = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -39,6 +38,8 @@ Partial Class DisplayData
         Me.Dgvtbl = New System.Windows.Forms.DataGridView()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtCount = New System.Windows.Forms.TextBox()
+        Me.cborec = New System.Windows.Forms.ComboBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.Dgvtbl, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -53,9 +54,9 @@ Partial Class DisplayData
         Me.Panel1.Controls.Add(Me.btnUpdate)
         Me.Panel1.Controls.Add(Me.BtnExit2)
         Me.Panel1.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Panel1.Location = New System.Drawing.Point(0, 357)
+        Me.Panel1.Location = New System.Drawing.Point(0, 365)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(802, 46)
+        Me.Panel1.Size = New System.Drawing.Size(802, 35)
         Me.Panel1.TabIndex = 2
         '
         'Btndate
@@ -66,7 +67,7 @@ Partial Class DisplayData
         Me.Btndate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btndate.Font = New System.Drawing.Font("Bernard MT Condensed", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Btndate.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Btndate.Location = New System.Drawing.Point(585, 3)
+        Me.Btndate.Location = New System.Drawing.Point(585, 4)
         Me.Btndate.Name = "Btndate"
         Me.Btndate.Size = New System.Drawing.Size(109, 28)
         Me.Btndate.TabIndex = 20
@@ -143,17 +144,6 @@ Partial Class DisplayData
         Me.BtnExit2.Text = "&EXIT"
         Me.BtnExit2.UseVisualStyleBackColor = True
         '
-        'cborec
-        '
-        Me.cborec.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cborec.Font = New System.Drawing.Font("Bernard MT Condensed", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cborec.FormattingEnabled = True
-        Me.cborec.Items.AddRange(New Object() {"Accounts", "Monitor Use"})
-        Me.cborec.Location = New System.Drawing.Point(148, 34)
-        Me.cborec.Name = "cborec"
-        Me.cborec.Size = New System.Drawing.Size(110, 24)
-        Me.cborec.TabIndex = 4
-        '
         'cbosel
         '
         Me.cbosel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -202,23 +192,23 @@ Partial Class DisplayData
         Me.Dgvtbl.AllowUserToOrderColumns = True
         Me.Dgvtbl.AllowUserToResizeColumns = False
         Me.Dgvtbl.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
-        Me.Dgvtbl.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
+        Me.Dgvtbl.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
         Me.Dgvtbl.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(183, Byte), Integer), CType(CType(49, Byte), Integer))
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Dgvtbl.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Dgvtbl.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.Dgvtbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Dgvtbl.GridColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Dgvtbl.Location = New System.Drawing.Point(48, 74)
+        Me.Dgvtbl.Location = New System.Drawing.Point(66, 64)
         Me.Dgvtbl.Name = "Dgvtbl"
-        Me.Dgvtbl.Size = New System.Drawing.Size(695, 277)
+        Me.Dgvtbl.Size = New System.Drawing.Size(618, 281)
         Me.Dgvtbl.TabIndex = 3
         '
         'Label4
@@ -239,6 +229,27 @@ Partial Class DisplayData
         Me.txtCount.Size = New System.Drawing.Size(112, 21)
         Me.txtCount.TabIndex = 10
         '
+        'cborec
+        '
+        Me.cborec.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cborec.Font = New System.Drawing.Font("Bernard MT Condensed", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cborec.FormattingEnabled = True
+        Me.cborec.Items.AddRange(New Object() {"Accounts", "Monitor User", "Building And Room"})
+        Me.cborec.Location = New System.Drawing.Point(148, 34)
+        Me.cborec.Name = "cborec"
+        Me.cborec.Size = New System.Drawing.Size(110, 24)
+        Me.cborec.TabIndex = 4
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.ForeColor = System.Drawing.Color.Blue
+        Me.Label5.Location = New System.Drawing.Point(156, 16)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(498, 13)
+        Me.Label5.TabIndex = 11
+        Me.Label5.Text = "* IN UPDATE AND DELETE ALWAYS SELECT THE USER ID  BEFORE DELETING AND UPDATING" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
         'DisplayData
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -247,6 +258,7 @@ Partial Class DisplayData
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(183, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(800, 400)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.txtCount)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
@@ -258,7 +270,7 @@ Partial Class DisplayData
         Me.Controls.Add(Me.Panel1)
         Me.Cursor = System.Windows.Forms.Cursors.Arrow
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "DisplayData"
+        Me.name = "DisplayData"
         Me.Text = "DisplayData"
         Me.Panel1.ResumeLayout(False)
         CType(Me.Dgvtbl, System.ComponentModel.ISupportInitialize).EndInit()
@@ -270,7 +282,6 @@ Partial Class DisplayData
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnUpdate As Button
     Friend WithEvents BtnExit2 As Button
-    Friend WithEvents cborec As ComboBox
     Friend WithEvents cbosel As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
@@ -282,4 +293,6 @@ Partial Class DisplayData
     Friend WithEvents txtCount As TextBox
     Friend WithEvents Btndate As Button
     Friend WithEvents btndel As Button
+    Friend WithEvents cborec As ComboBox
+    Friend WithEvents Label5 As Label
 End Class

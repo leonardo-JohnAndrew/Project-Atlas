@@ -2,9 +2,21 @@
 Public Class DisplayData
     Dim uid, type, ln, fn, m, add, con, fb, sel, dates, times, tbl As String
 
+    Private Sub Btngen_Click(sender As Object, e As EventArgs)
+    End Sub
+
+
+
+    Private Sub S(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Dim num, name, events As String
+
     Private Sub BtnExit2_Click(sender As Object, e As EventArgs) Handles BtnExit2.Click
         Me.Hide()
-        LOGIN.Show()
+        DYCIMAP.Show()
+
 
     End Sub
 
@@ -22,6 +34,10 @@ Public Class DisplayData
             tbl = "accounts"
         ElseIf cborec.SelectedItem = "Monitor Use" Then
             tbl = "usermonitor"
+        ElseIf cborec.SelectedItem = "Building And Room" Then
+            delbuilding(num)
+        Else
+            MsgBox("Select Record First ")
         End If
         delteaccount(tbl, uid)
 
@@ -37,6 +53,10 @@ Public Class DisplayData
 
         If cborec.SelectedItem = "Accounts" Then
             Btndate.Visible = False
+            Label2.Visible = True
+            cbosel.Visible = True
+            btnadd.Visible = True
+            btnUpdate.Visible = True
             If cbosel.SelectedItem = "Student" Then
                 dgvtype("Student", "accounts")
             ElseIf cbosel.SelectedItem = "Teacher" Then
@@ -54,11 +74,14 @@ Public Class DisplayData
             End If
 
 
-        ElseIf cborec.SelectedItem = "Monitor Use" Then
+        ElseIf cborec.SelectedItem = "Monitor User" Then
+
             Btndate.Visible = True
             btnadd.Visible = False
             btnUpdate.Visible = False
             btndel.Location = New Point(498, 3)
+            Label2.Visible = True
+            cbosel.Visible = True
             Dgvtbl.ClearSelection()
 
             If cbosel.SelectedItem = "Student" Then
@@ -77,6 +100,10 @@ Public Class DisplayData
                 dgv("usermonitor")
             End If
 
+        ElseIf cborec.SelectedItem = "Building And Room" Then
+            Label2.Visible = False
+            cbosel.Visible = False
+            dgv("room_building")
         Else
             MsgBox("Select Record")
         End If
@@ -95,30 +122,41 @@ Public Class DisplayData
     End Sub
 
     Private Sub btnadd_Click(sender As Object, e As EventArgs) Handles btnadd.Click
-        Create.Show()
-        Create.LABEL.Text = "REGISTRATION"
-        clear()
-        Create.lblid.Text = ""
-        Create.Button2.Visible = True
-        Create.btndelete.Visible = False
-        Create.btnUpdate.Visible = False
-        Me.Hide()
-
+        If cborec.SelectedItem = "Accounts " Then
+            Create.Show()
+            Create.LABEL.Text = "REGISTRATION"
+            clear()
+            Create.lblid.Text = ""
+            Create.Button2.Visible = True
+            Create.btndelete.Visible = False
+            Create.btnUpdate.Visible = False
+            Me.Hide()
+        ElseIf cborec.SelectedItem = "Building And Room" Then
+            adbuilding(num, name, events)
+        Else
+            MsgBox("Select Record First")
+        End If
 
     End Sub
 
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
-        connection()
-        updateaccount(uid, type, ln, fn, m, add, con, fb)
-        '   Modify()
-
+        Try
+            If cborec.SelectedItem = "Accounts" Then
+                updateaccount(uid, type, ln, fn, m, add, con, fb)
+            ElseIf cborec.SelectedItem = "Building And Room" Then
+                upbuilding(num, name, events)
+            Else
+                MsgBox("Select Record First")
+            End If
+        Catch S As Exception
+            MsgBox(S.Message)
+        End Try
     End Sub
 
     Private Sub Dgvtbl_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles Dgvtbl.CellClick
         If cborec.SelectedItem = "Accounts" Then
             Try
-
-                Index = e.RowIndex
+                index = e.RowIndex
                 Dim row As DataGridViewRow
                 row = Dgvtbl.Rows(index)
                 uid = row.Cells(0).Value
@@ -129,6 +167,20 @@ Public Class DisplayData
                 add = row.Cells(5).Value
                 con = row.Cells(6).Value
                 fb = row.Cells(7).Value
+
+                MsgBox(uid)
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        ElseIf cborec.SelectedItem = "Building And Room" Then
+            Try
+
+                index = e.RowIndex
+                Dim row As DataGridViewRow
+                row = Dgvtbl.Rows(index)
+                num = row.Cells(0).Value
+                name = row.Cells(1).Value.ToString
+                events = row.Cells(2).Value.ToString
 
             Catch ex As Exception
                 MsgBox(ex.Message)

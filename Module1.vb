@@ -8,7 +8,6 @@ Module Module1
     Dim profile As New System.IO.MemoryStream
     Dim uid, sort, sel, events As String
     Dim ms As New System.IO.MemoryStream
-    Dim arry() As Byte
     Dim con As New MySqlConnection
     Dim cmd As New MySqlCommand
     Dim read As MySqlDataReader
@@ -67,10 +66,11 @@ Module Module1
                 End With
 
                 If type = "Administrator" Then
-                    LOGIN.Btnview.Visible = True
+
                     DYCIMAP.Button1.Visible = True
                     Direction_guide.Button23.Visible = True
-                    Direction_guide.Button1.Visible = True
+                    DYCIMAP.Btnview.Visible = True
+                    DYCIMAP.Button7.Visible = True
                     Direction_guide.Enabled = True
 
                 End If
@@ -94,7 +94,9 @@ Module Module1
         Catch x As Exception
             MsgBox(x.Message, query)
         Finally
-            con.Open()
+            If con.State = ConnectionState.Closed Then
+                con.Open()
+            End If
 
             read.Close()
             query = "Insert Into usermonitor (usertype,user_id, lastname, firstname, middle,selc,date,time)VALUES(@type,@uid,@ln,@fn,@m,@sel,@date,@time)"
@@ -118,10 +120,14 @@ Module Module1
 
     End Sub
     Public Sub monitor()
-
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
         query = "Update usermonitor set selc = '" & Direction_guide.TextBox1.Text & "' where user_id = " & LOGIN.txtID.Text
         cmd = New MySqlCommand(query, con)
         cmd.ExecuteNonQuery()
+        con.Close()
+
 
     End Sub
     Public Sub Register()
@@ -309,18 +315,21 @@ Module Module1
     End Sub
 
     Public Sub updateaccount(id As String, usertype As String, ln As String, fn As String, m As String, ad As String, cot As String, FB As String)
-        query = "UPDATE accounts set user_id = @id ,usertype = @type, lastname = @lt, firstname = @ft, middle = @m , address = @add, contact = @con, fbaccount = @fb where ( user_id = @id)"
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
+        query = "UPDATE accounts SET usertype = @type, lastname = @ln , Firstname = @fn , middle = @m , address = @add , contact = @con , fbaccount = @fb where (user_id = @id)"
         cmd = New MySqlCommand(query, con)
         Try
             With cmd
+                .Parameters.AddWithValue("@id", id)
                 .Parameters.AddWithValue("@type", usertype)
-                .Parameters.AddWithValue("@lt", ln)
-                .Parameters.AddWithValue("@ft", fn)
+                .Parameters.AddWithValue("@ln", ln)
+                .Parameters.AddWithValue("@fn", fn)
                 .Parameters.AddWithValue("@m", m)
                 .Parameters.AddWithValue("@add", ad)
                 .Parameters.AddWithValue("@con", cot)
                 .Parameters.AddWithValue("@fb", FB)
-                .Parameters.AddWithValue("@id", id)
                 .ExecuteNonQuery()
                 MsgBox("Update success")
             End With
@@ -333,6 +342,9 @@ Module Module1
         End Try
     End Sub
     Public Sub delteaccount(tbl As String, id As String)
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
         query = "DELETE from accounts where user_id = @id"
         Try
             Using CMD As New MySqlCommand(query, con)
@@ -410,10 +422,10 @@ Module Module1
         While read.Read()
             data.Add(read.GetString(0))
             DYCIMAP.TextBox1.AutoCompleteCustomSource = data
-            DYCIMAP.txtadd.AutoCompleteCustomSource = data
             Direction_guide.TextBox1.AutoCompleteCustomSource = data
 
         End While
+        read.Close()
         con.Close()
 
     End Sub
@@ -432,47 +444,14 @@ Module Module1
         write.Close()
 
     End Sub
-    Public Sub addname()
-        ' con.Open()
-        query = "Insert into room_building (room_building) values(@Added)"
-        cmd = New MySqlCommand(query, con)
-        With cmd
-            .Parameters.AddWithValue("@Added", DYCIMAP.txtadd.Text)
-            .ExecuteNonQuery()
-            MsgBox("Add Success")
-        End With
-    End Sub
-    Public Sub nameupdate()
-        ' con.Open()
-        query = "Update room_building set room_building  = '" & DYCIMAP.txtadd.Text & "' " & " Where room_building = '" & DYCIMAP.TextBox1.Text & "'"
-        cmd = New MySqlCommand(query, con)
-        Try
-            With cmd
-                .ExecuteNonQuery()
-                MsgBox("Update Success")
-            End With
-        Catch e As Exception
-            MsgBox(e.Message)
-        End Try
 
-    End Sub
-    Public Sub deletename()
-        '  con.Open()
-        query = "Delete from room_building where room_building = '" & DYCIMAP.txtadd.Text & ""
-        cmd = New MySqlCommand(query, con)
-        Try
-
-            cmd.ExecuteNonQuery()
-            Direction_guide.PictureBox1.Image = Nothing
-            MsgBox("Delete Success")
-        Catch e As Exception
-            MsgBox(e.Message)
-        End Try
-
-    End Sub
 
     Public Sub eventdis()
         '  con.Open()
+
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
         query = "Select event_warning from room_building where room_building = '" & Direction_guide.TextBox1.Text & "'"
         cmd = New MySqlCommand(query, con)
         Try
@@ -484,31 +463,52 @@ Module Module1
             End If
         Catch ex As Exception
             Direction_guide.TextBox2.Text = "None"
-            MsgBox(ex.Message)
         End Try
     End Sub
-    Public Sub adevent()
+    Public Sub adbuilding(num As String, name As String, events As String)
         '  con.Open()
-        query = "Update room_building set event_warning = '" & Addevent.TextBox1.Text & Direction_guide.TextBox2.Text & "'"
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
+        query = "INSERT INTO room_building (num,room_building,event_warning) values (@num,@name,@event)"
         cmd = New MySqlCommand(query, con)
+        cmd.Parameters.AddWithValue("@num", num)
+        cmd.Parameters.AddWithValue("@name", name)
+        cmd.Parameters.AddWithValue("@event", events)
         cmd.ExecuteNonQuery()
 
     End Sub
-    Public Sub upevent()
+    Public Sub upbuilding(num As String, name As String, events As String)
         ' con.Open()
-        query = "Update room_building set event_warning = '" & Addevent.TextBox1.Text & "'"
-        cmd = New MySqlCommand(query, con)
-        cmd.ExecuteNonQuery()
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
+        Try
+            query = "Update room_building Set num = @num , room_building = @name, event_warning = @events WHERE (num = @num)"
+            cmd = New MySqlCommand(query, con)
+            cmd.Parameters.AddWithValue("@num", num)
+            cmd.Parameters.AddWithValue("@name", name)
+            cmd.Parameters.AddWithValue("@events", events)
+            cmd.ExecuteNonQuery()
+        Catch e As Exception
+            MsgBox(e.Message)
+        End Try
+
     End Sub
-    Public Sub delevent()
+    Public Sub delbuilding(num As String)
         '  con.Open()
-        query = "Delete event_warning  room_building WHere event_warning = '" & Addevent.TextBox1.Text & "'"
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
+        query = "Delete event_warning  room_building WHere num  = " & num & ""
         cmd = New MySqlCommand(query, con)
         cmd.ExecuteNonQuery()
 
     End Sub
     Public Sub saveimage()
-
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
         query = "Insert into images  (image,NAME) values(@image , @name)"
         ms = New System.IO.MemoryStream()
         Direction_guide.PictureBox1.Image.Save(ms, Direction_guide.PictureBox1.Image.RawFormat)
@@ -528,6 +528,9 @@ Module Module1
 
     End Sub
     Public Sub deletimage()
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
         query = "Delete from images where NAME = '" & Direction_guide.TextBox1.Text & "'"
 
         Try
@@ -543,6 +546,9 @@ Module Module1
 
     Public Sub upimage()
         '   con.Open()
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
         query = "Update images set @images where NAME = '" & Direction_guide.TextBox1.Text & "'"
         Try
             cmd = New MySqlCommand(query, con)
@@ -554,21 +560,24 @@ Module Module1
         End Try
     End Sub
     Public Sub display()
-        Try
 
+
+        Try
             query = "Select image from images where NAME = '" & Direction_guide.TextBox1.Text & "'"
             cmd = New MySqlCommand(query, con)
-            adpter = New MySqlDataAdapter(cmd)
-            Dim tabl As New DataTable()
-
-            adpter.Fill(tabl)
-            arry = table.Rows(0)(2)
-            ms = New SSY MemoryStream(arry)
+            If con.State = ConnectionState.Closed Then
+                con.Open()
+            End If
+            read = cmd.ExecuteReader
+            read.Read()
+            Dim arry() As Byte = read.Item("image")
+            Dim ms As New System.IO.MemoryStream(arry)
             Direction_guide.PictureBox1.Image = Image.FromStream(ms)
-
         Catch e As Exception
-            MsgBox(e.Message & query)
+            MsgBox("Direction not Available")
         Finally
+            con.Close()
+
             read.Close()
 
 

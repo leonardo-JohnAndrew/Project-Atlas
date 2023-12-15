@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class LOGIN
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,11 +20,10 @@ Partial Class LOGIN
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Btnview = New System.Windows.Forms.Button()
         Me.BtnEdit = New System.Windows.Forms.Button()
         Me.btnLOGIN = New System.Windows.Forms.Button()
         Me.BtnExit2 = New System.Windows.Forms.Button()
@@ -46,7 +45,6 @@ Partial Class LOGIN
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.Btnview)
         Me.Panel1.Controls.Add(Me.BtnEdit)
         Me.Panel1.Controls.Add(Me.btnLOGIN)
         Me.Panel1.Controls.Add(Me.BtnExit2)
@@ -54,20 +52,6 @@ Partial Class LOGIN
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(537, 32)
         Me.Panel1.TabIndex = 0
-        '
-        'Btnview
-        '
-        Me.Btnview.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Btnview.FlatAppearance.BorderSize = 0
-        Me.Btnview.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Btnview.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btnview.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Btnview.Location = New System.Drawing.Point(186, 1)
-        Me.Btnview.Name = "Btnview"
-        Me.Btnview.Size = New System.Drawing.Size(109, 28)
-        Me.Btnview.TabIndex = 6
-        Me.Btnview.Text = "View Records"
-        Me.Btnview.UseVisualStyleBackColor = True
         '
         'BtnEdit
         '
@@ -271,5 +255,4 @@ Partial Class LOGIN
     Friend WithEvents lbldate As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Timer1 As Timer
-    Friend WithEvents Btnview As Button
 End Class

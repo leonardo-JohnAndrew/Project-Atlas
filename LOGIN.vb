@@ -34,9 +34,6 @@
 
     End Sub
 
-    Private Sub Btnview_Click(sender As Object, e As EventArgs) Handles Btnview.Click
-        DisplayData.Show
-    End Sub
 
 
 
