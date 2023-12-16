@@ -36,6 +36,9 @@ Module Module1
         End If
     End Sub
     Public Sub Log_in()
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
         uid = LOGIN.txtID.Text
         query = ("Select * from accounts where user_id  = @id")
         cmd = New MySqlCommand(query, con)
@@ -62,8 +65,6 @@ Module Module1
                 Create.txtFB.Text = fb
                 With LOGIN
                     .lblfullname.Text = (lname & ", " & fname & ", " & mid).ToString
-                    .lbltime.Text = Date.Now.ToLongTimeString
-                    .lbldate.Text = Date.Now.ToString("yyyy-MM-dd")
                 End With
 
                 If type = "Administrator" Then
@@ -89,28 +90,8 @@ Module Module1
                 End If
                 With LOGIN
                     .lblfullname.Text = ""
-                    .lbldate.Text = ""
-                    .lbltime.Text = ""
-
                 End With
-                If con.State = ConnectionState.Closed Then
-                    con.Open()
-                End If
 
-                query = "Insert Into usermonitor (usertype,user_id, lastname, firstname, middle,selc,date,time)VALUES(@type,@uid,@ln,@fn,@m,@sel,@date,@time)"
-                cmd = New MySqlCommand(query, con)
-                With cmd
-                    .Parameters.AddWithValue("@type", type)
-                    .Parameters.AddWithValue("@uid", uid)
-                    .Parameters.AddWithValue("@ln", lname)
-                    .Parameters.AddWithValue("@fn", fname)
-                    .Parameters.AddWithValue("@m", mid)
-                    .Parameters.AddWithValue("@date", Date.Now.ToString("yyyy-MM-dd"))
-                    .Parameters.AddWithValue("@time", Date.Now.ToLongTimeString)
-                    .Parameters.AddWithValue("@sel", Direction_guide.TextBox1.Text)
-                    .ExecuteNonQuery()
-                End With
-                con.Close()
 
             Else
                 MsgBox("INVALID ID")
@@ -130,14 +111,27 @@ Module Module1
         If con.State = ConnectionState.Closed Then
             con.Open()
         End If
-        query = "Update usermonitor SET selc = '" & Direction_guide.TextBox1.Text & "' Where user_id = " & LOGIN.txtID.Text
-        cmd = New MySqlCommand(query, con)
-        cmd.ExecuteNonQuery()
-        con.Close()
 
+        query = "Insert Into usermonitor (usertype,user_id, lastname, firstname, middle,selc,date,time)VALUES(@type,@uid,@ln,@fn,@m,@sel,@date,@time)"
+        cmd = New MySqlCommand(query, con)
+        With cmd
+            .Parameters.AddWithValue("@type", type)
+            .Parameters.AddWithValue("@uid", uid)
+            .Parameters.AddWithValue("@ln", lname)
+            .Parameters.AddWithValue("@fn", fname)
+            .Parameters.AddWithValue("@m", mid)
+            .Parameters.AddWithValue("@date", Date.Now.ToString("yyyy-MM-dd"))
+            .Parameters.AddWithValue("@time", Date.Now.ToLongTimeString)
+            .Parameters.AddWithValue("@sel", Direction_guide.TextBox1.Text)
+            .ExecuteNonQuery()
+        End With
+        con.Close()
 
     End Sub
     Public Sub Register()
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
         fname = Create.txtFirstName.Text
         lname = Create.txtLastName.Text
         mid = Create.txtMiddle.Text
@@ -181,6 +175,9 @@ Module Module1
         End Try
     End Sub
     Public Sub Modify()
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
         fname = Create.txtFirstName.Text
         lname = Create.txtLastName.Text
         mid = Create.txtMiddle.Text

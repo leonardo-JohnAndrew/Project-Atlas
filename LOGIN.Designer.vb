@@ -28,15 +28,8 @@ Partial Class LOGIN
         Me.BtnExit2 = New System.Windows.Forms.Button()
         Me.txtID = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.lblName = New System.Windows.Forms.Label()
         Me.lblfullname = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.lbltime = New System.Windows.Forms.Label()
-        Me.lbldate = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -97,95 +90,25 @@ Partial Class LOGIN
         Me.Label1.TabIndex = 6
         Me.Label1.Text = "USER ID"
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(295, 108)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(0, 13)
-        Me.Label2.TabIndex = 7
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(240, 54)
+        Me.Label3.Location = New System.Drawing.Point(240, 79)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(51, 19)
         Me.Label3.TabIndex = 8
         Me.Label3.Text = "Name :"
         '
-        'lblName
-        '
-        Me.lblName.AutoSize = True
-        Me.lblName.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblName.Location = New System.Drawing.Point(240, 140)
-        Me.lblName.Name = "lblName"
-        Me.lblName.Size = New System.Drawing.Size(0, 19)
-        Me.lblName.TabIndex = 9
-        '
         'lblfullname
         '
         Me.lblfullname.AutoSize = True
         Me.lblfullname.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblfullname.Location = New System.Drawing.Point(181, 75)
+        Me.lblfullname.Location = New System.Drawing.Point(183, 114)
         Me.lblfullname.Name = "lblfullname"
         Me.lblfullname.Size = New System.Drawing.Size(0, 19)
         Me.lblfullname.TabIndex = 14
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(203, 108)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(37, 19)
-        Me.Label4.TabIndex = 15
-        Me.Label4.Text = "Date"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(246, 108)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(33, 19)
-        Me.Label5.TabIndex = 16
-        Me.Label5.Text = "And"
-        '
-        'lbltime
-        '
-        Me.lbltime.AutoSize = True
-        Me.lbltime.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbltime.ForeColor = System.Drawing.Color.Black
-        Me.lbltime.Location = New System.Drawing.Point(308, 140)
-        Me.lbltime.Name = "lbltime"
-        Me.lbltime.Size = New System.Drawing.Size(0, 19)
-        Me.lbltime.TabIndex = 17
-        '
-        'lbldate
-        '
-        Me.lbldate.AutoSize = True
-        Me.lbldate.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbldate.ForeColor = System.Drawing.Color.Black
-        Me.lbldate.Location = New System.Drawing.Point(181, 140)
-        Me.lbldate.Name = "lbldate"
-        Me.lbldate.Size = New System.Drawing.Size(0, 19)
-        Me.lbldate.TabIndex = 18
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
-        Me.Label8.Location = New System.Drawing.Point(289, 108)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(40, 19)
-        Me.Label8.TabIndex = 19
-        Me.Label8.Text = "Time"
         '
         'Timer1
         '
@@ -199,15 +122,8 @@ Partial Class LOGIN
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(183, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(532, 205)
-        Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.lbldate)
-        Me.Controls.Add(Me.lbltime)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.lblfullname)
-        Me.Controls.Add(Me.lblName)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtID)
         Me.Controls.Add(Me.Panel1)
@@ -228,14 +144,7 @@ Partial Class LOGIN
     Friend WithEvents btnLOGIN As Button
     Friend WithEvents txtID As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents lblName As Label
     Friend WithEvents lblfullname As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label5 As Label
-    Friend WithEvents lbltime As Label
-    Friend WithEvents lbldate As Label
-    Friend WithEvents Label8 As Label
     Friend WithEvents Timer1 As Timer
 End Class

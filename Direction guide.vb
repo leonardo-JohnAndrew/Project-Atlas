@@ -29,7 +29,6 @@
     Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles BtnExit.Click
         Me.Hide()
         PictureBox1.Image = Nothing
-        TextBox1.Text = ""
         TextBox2.Text = ""
         DYCIMAP.Show()
 

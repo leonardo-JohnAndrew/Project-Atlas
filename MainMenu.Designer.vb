@@ -32,7 +32,6 @@ Partial Class DYCIMAP
         Me.txtTime = New System.Windows.Forms.TextBox()
         Me.txtDate = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.BtnExit = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -44,10 +43,11 @@ Partial Class DYCIMAP
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Btnview = New System.Windows.Forms.Button()
         Me.BtnEdit = New System.Windows.Forms.Button()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.BtnExit = New System.Windows.Forms.Button()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -150,20 +150,6 @@ Partial Class DYCIMAP
         Me.Label4.Size = New System.Drawing.Size(45, 19)
         Me.Label4.TabIndex = 11
         Me.Label4.Text = "Date :"
-        '
-        'BtnExit
-        '
-        Me.BtnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.BtnExit.FlatAppearance.BorderSize = 0
-        Me.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnExit.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnExit.Location = New System.Drawing.Point(690, 3)
-        Me.BtnExit.Name = "BtnExit"
-        Me.BtnExit.Size = New System.Drawing.Size(109, 28)
-        Me.BtnExit.TabIndex = 1
-        Me.BtnExit.Text = "&LOG OUT"
-        Me.BtnExit.UseVisualStyleBackColor = True
         '
         'Button3
         '
@@ -285,16 +271,6 @@ Partial Class DYCIMAP
         Me.Panel4.Size = New System.Drawing.Size(486, 262)
         Me.Panel4.TabIndex = 13
         '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(-8, -10)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(567, 322)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 0
-        Me.PictureBox2.TabStop = False
-        '
         'Btnview
         '
         Me.Btnview.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
@@ -324,6 +300,30 @@ Partial Class DYCIMAP
         Me.BtnEdit.TabIndex = 15
         Me.BtnEdit.Text = "&View Profile"
         Me.BtnEdit.UseVisualStyleBackColor = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
+        Me.PictureBox2.Location = New System.Drawing.Point(-8, -10)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(567, 322)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 0
+        Me.PictureBox2.TabStop = False
+        '
+        'BtnExit
+        '
+        Me.BtnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.BtnExit.FlatAppearance.BorderSize = 0
+        Me.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnExit.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.BtnExit.Location = New System.Drawing.Point(690, 3)
+        Me.BtnExit.Name = "BtnExit"
+        Me.BtnExit.Size = New System.Drawing.Size(109, 28)
+        Me.BtnExit.TabIndex = 1
+        Me.BtnExit.Text = "&LOG OUT"
+        Me.BtnExit.UseVisualStyleBackColor = True
         '
         'DYCIMAP
         '
@@ -356,7 +356,6 @@ Partial Class DYCIMAP
     End Sub
 
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents BtnExit As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label1 As Label
@@ -379,4 +378,5 @@ Partial Class DYCIMAP
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents Btnview As Button
     Friend WithEvents BtnEdit As Button
+    Friend WithEvents BtnExit As Button
 End Class
