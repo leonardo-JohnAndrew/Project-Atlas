@@ -23,9 +23,8 @@
 
     Private Sub Btngen_Click(sender As Object, e As EventArgs) Handles Btngen.Click
         Dim num As New Random
-        Dim id As Integer
-        id = (num.Next(10000000))
-        lblid.Text = id
+        lblid.Text = (num.Next(10000000))
+
     End Sub
 
 
@@ -57,5 +56,11 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Register()
+        clear()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        DYCIMAP.Show()
+        Me.Hide()
     End Sub
 End Class

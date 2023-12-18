@@ -14,9 +14,13 @@
      Senior High and Junior High School
      
      Second Floor 
-     COLLEGE OF HEALTH SCIENCE
-     College Classroom and Laboratories
-
+     COLLEGE OF HEALTH SCIENCE 
+     College of Health Science Office
+     College of Health Science Amphitheater
+     College of Health Science Anatomy Lab
+     College of Health Science Skills Lab A
+     College of Health Science Skills Lab B
+     
 4. SENIOR HIGH SCHOOL GROUNDS
     Magis Hall
     Shs Faculty
@@ -31,11 +35,14 @@
     AND TOURISM BUILDING 
     
     First Floor 
-    College Classrooms
+    College of Hospitality Management and Tourism
+    Room 302
+    College of Hospitality Management and Tourism
+    Room 303
     
     Second Floor
     OFFICE OF THE VICE PRESIDENT FOR
-     ADMINISTRAION
+    ADMINISTRAION
      
     OFFICE OF THE EXECUTIVE DIRECTOR FOR 
     EXTERNAL AFFAIRS

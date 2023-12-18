@@ -1,6 +1,6 @@
 ﻿
 Public Class DisplayData
-    Dim uid, type, ln, fn, m, add, con, fb, sel, dates, times, tbl As String
+    Dim uid, type, ln, fn, m, add, con, fb, selc, dates, times, tbl As String
 
     Dim num, name, events As String
 
@@ -17,8 +17,7 @@ Public Class DisplayData
         ElseIf cborec.SelectedItem = "Monitor User" Then
             print.Show()
         ElseIf cborec.SelectedItem = "Building And Room" Then
-            List.Show()
-
+            Building.Show()
         Else
             MsgBox("Show Record First")
         End If
@@ -62,7 +61,7 @@ Public Class DisplayData
             archiveacc(uid, type, ln, fn, m, add, con, fb)
             delteaccount(tbl, uid)
         ElseIf cborec.SelectedItem = "Monitor User" Then
-            archivehistory(Calendar.Label1.Text, Calendar.Label2.Text, type, uid, ln, fn, m, sel, dates, times)
+            archivehistory(Calendar.Label1.Text, Calendar.Label2.Text, type, uid, ln, fn, m, selc, dates, times)
             delmonitor(num)
 
         ElseIf cborec.SelectedItem = "Building And Room" Then
@@ -202,7 +201,7 @@ Public Class DisplayData
             row = Dgvtbl.Rows(index)
             num = row.Cells(0).Value
             name = row.Cells(1).Value
-            events = row.Cells(2).Value
+            events = row.Cells(2).Value.ToString
 
         ElseIf cborec.Text = "Monitor User" Then
 
@@ -215,7 +214,7 @@ Public Class DisplayData
                 ln = row.Cells(3).Value
                 fn = row.Cells(4).Value
                 m = row.Cells(5).Value
-                sel = row.Cells(6).Value
+            selc = row.Cells(6).Value
             dates = row.Cells(7).Value.ToString
             times = row.Cells(8).Value.ToString
 

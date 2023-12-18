@@ -2,8 +2,9 @@
 
 
     Private Sub Direction_guide_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         connection()
-        
+    
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button5.Click
@@ -61,4 +62,6 @@
         txtTime.Text = Date.Now.ToLongTimeString
         txtDate.Text = Date.Now.ToString("yyyy-MM-dd")
     End Sub
+
+
 End Class

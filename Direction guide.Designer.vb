@@ -59,9 +59,10 @@ Partial Class Direction_guide
         Me.Panel2.Controls.Add(Me.Button5)
         Me.Panel2.Controls.Add(Me.Button6)
         Me.Panel2.Controls.Add(Me.Button7)
-        Me.Panel2.Location = New System.Drawing.Point(0, 388)
+        Me.Panel2.Location = New System.Drawing.Point(0, 478)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(799, 34)
+        Me.Panel2.Size = New System.Drawing.Size(1065, 42)
         Me.Panel2.TabIndex = 4
         '
         'Label5
@@ -69,24 +70,27 @@ Partial Class Direction_guide
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label5.Location = New System.Drawing.Point(156, 8)
+        Me.Label5.Location = New System.Drawing.Point(208, 10)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(48, 19)
+        Me.Label5.Size = New System.Drawing.Size(58, 24)
         Me.Label5.TabIndex = 14
         Me.Label5.Text = "Time :"
         '
         'txtTime
         '
-        Me.txtTime.Location = New System.Drawing.Point(207, 7)
+        Me.txtTime.Location = New System.Drawing.Point(276, 9)
+        Me.txtTime.Margin = New System.Windows.Forms.Padding(4)
         Me.txtTime.Name = "txtTime"
-        Me.txtTime.Size = New System.Drawing.Size(60, 20)
+        Me.txtTime.Size = New System.Drawing.Size(79, 22)
         Me.txtTime.TabIndex = 13
         '
         'txtDate
         '
-        Me.txtDate.Location = New System.Drawing.Point(60, 8)
+        Me.txtDate.Location = New System.Drawing.Point(80, 10)
+        Me.txtDate.Margin = New System.Windows.Forms.Padding(4)
         Me.txtDate.Name = "txtDate"
-        Me.txtDate.Size = New System.Drawing.Size(90, 20)
+        Me.txtDate.Size = New System.Drawing.Size(119, 22)
         Me.txtDate.TabIndex = 12
         '
         'Label4
@@ -94,9 +98,10 @@ Partial Class Direction_guide
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label4.Location = New System.Drawing.Point(9, 8)
+        Me.Label4.Location = New System.Drawing.Point(12, 10)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(45, 19)
+        Me.Label4.Size = New System.Drawing.Size(55, 24)
         Me.Label4.TabIndex = 11
         Me.Label4.Text = "Date :"
         '
@@ -107,9 +112,10 @@ Partial Class Direction_guide
         Me.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnExit.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnExit.Location = New System.Drawing.Point(687, 1)
+        Me.BtnExit.Location = New System.Drawing.Point(916, 1)
+        Me.BtnExit.Margin = New System.Windows.Forms.Padding(4)
         Me.BtnExit.Name = "BtnExit"
-        Me.BtnExit.Size = New System.Drawing.Size(109, 28)
+        Me.BtnExit.Size = New System.Drawing.Size(145, 34)
         Me.BtnExit.TabIndex = 1
         Me.BtnExit.Text = "&Exit"
         Me.BtnExit.UseVisualStyleBackColor = True
@@ -119,9 +125,10 @@ Partial Class Direction_guide
         Me.Button5.BackColor = System.Drawing.Color.White
         Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.Button5.Font = New System.Drawing.Font("Bernard MT Condensed", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Location = New System.Drawing.Point(468, 3)
+        Me.Button5.Location = New System.Drawing.Point(624, 4)
+        Me.Button5.Margin = New System.Windows.Forms.Padding(4)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(68, 23)
+        Me.Button5.Size = New System.Drawing.Size(91, 28)
         Me.Button5.TabIndex = 13
         Me.Button5.Text = "Add"
         Me.Button5.UseVisualStyleBackColor = False
@@ -132,9 +139,10 @@ Partial Class Direction_guide
         Me.Button6.BackColor = System.Drawing.Color.White
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.Button6.Font = New System.Drawing.Font("Bernard MT Condensed", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(542, 3)
+        Me.Button6.Location = New System.Drawing.Point(723, 4)
+        Me.Button6.Margin = New System.Windows.Forms.Padding(4)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(68, 23)
+        Me.Button6.Size = New System.Drawing.Size(91, 28)
         Me.Button6.TabIndex = 14
         Me.Button6.Text = "Update"
         Me.Button6.UseVisualStyleBackColor = False
@@ -145,9 +153,10 @@ Partial Class Direction_guide
         Me.Button7.BackColor = System.Drawing.Color.White
         Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.Button7.Font = New System.Drawing.Font("Bernard MT Condensed", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.Location = New System.Drawing.Point(616, 3)
+        Me.Button7.Location = New System.Drawing.Point(821, 4)
+        Me.Button7.Margin = New System.Windows.Forms.Padding(4)
         Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(68, 23)
+        Me.Button7.Size = New System.Drawing.Size(91, 28)
         Me.Button7.TabIndex = 15
         Me.Button7.Text = "Delete"
         Me.Button7.UseVisualStyleBackColor = False
@@ -159,9 +168,10 @@ Partial Class Direction_guide
         Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(183, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.Label2.Font = New System.Drawing.Font("Bernard MT Condensed", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(12, 9)
+        Me.Label2.Location = New System.Drawing.Point(16, 11)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(133, 25)
+        Me.Label2.Size = New System.Drawing.Size(172, 31)
         Me.Label2.TabIndex = 12
         Me.Label2.Text = "Direction Guide"
         '
@@ -169,9 +179,10 @@ Partial Class Direction_guide
         '
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
         Me.Panel3.Controls.Add(Me.Button23)
-        Me.Panel3.Location = New System.Drawing.Point(616, 9)
+        Me.Panel3.Location = New System.Drawing.Point(821, 11)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(172, 31)
+        Me.Panel3.Size = New System.Drawing.Size(229, 38)
         Me.Panel3.TabIndex = 15
         '
         'Button23
@@ -179,9 +190,10 @@ Partial Class Direction_guide
         Me.Button23.BackColor = System.Drawing.Color.White
         Me.Button23.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.Button23.Font = New System.Drawing.Font("Bernard MT Condensed", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button23.Location = New System.Drawing.Point(48, 2)
+        Me.Button23.Location = New System.Drawing.Point(64, 2)
+        Me.Button23.Margin = New System.Windows.Forms.Padding(4)
         Me.Button23.Name = "Button23"
-        Me.Button23.Size = New System.Drawing.Size(86, 23)
+        Me.Button23.Size = New System.Drawing.Size(115, 28)
         Me.Button23.TabIndex = 19
         Me.Button23.Text = "Modify "
         Me.Button23.UseVisualStyleBackColor = False
@@ -198,34 +210,38 @@ Partial Class Direction_guide
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(183, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.Label1.Font = New System.Drawing.Font("Bernard MT Condensed", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(355, 9)
+        Me.Label1.Location = New System.Drawing.Point(473, 11)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(143, 25)
+        Me.Label1.Size = New System.Drawing.Size(183, 31)
         Me.Label1.TabIndex = 17
         Me.Label1.Text = "Warning / Event"
         '
         'TextBox2
         '
         Me.TextBox2.Enabled = False
-        Me.TextBox2.Location = New System.Drawing.Point(494, 13)
+        Me.TextBox2.Location = New System.Drawing.Point(659, 16)
+        Me.TextBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(116, 20)
+        Me.TextBox2.Size = New System.Drawing.Size(153, 22)
         Me.TextBox2.TabIndex = 18
         '
         'Panel1
         '
         Me.Panel1.AutoScroll = True
         Me.Panel1.Controls.Add(Me.PictureBox1)
-        Me.Panel1.Location = New System.Drawing.Point(160, 46)
+        Me.Panel1.Location = New System.Drawing.Point(213, 57)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(505, 336)
+        Me.Panel1.Size = New System.Drawing.Size(673, 414)
         Me.Panel1.TabIndex = 20
         '
         'PictureBox1
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(-9, 3)
+        Me.PictureBox1.Location = New System.Drawing.Point(-12, 4)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(511, 431)
+        Me.PictureBox1.Size = New System.Drawing.Size(681, 744)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 19
         Me.PictureBox1.TabStop = False
@@ -240,17 +256,18 @@ Partial Class Direction_guide
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.Enabled = False
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(160, 13)
+        Me.ComboBox1.Location = New System.Drawing.Point(213, 16)
+        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(189, 21)
+        Me.ComboBox1.Size = New System.Drawing.Size(251, 24)
         Me.ComboBox1.TabIndex = 21
         '
         'Direction_guide
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(183, Byte), Integer), CType(CType(49, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(800, 418)
+        Me.ClientSize = New System.Drawing.Size(1067, 514)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.TextBox2)
@@ -259,6 +276,7 @@ Partial Class Direction_guide
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Panel2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Direction_guide"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Direction_guide"

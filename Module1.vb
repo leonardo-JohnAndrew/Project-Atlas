@@ -16,7 +16,7 @@ Module Module1
     Dim data As New AutoCompleteStringCollection
     Dim host, uname, pwd, dbname, query As String
     Dim ans As DialogResult
-    Dim filepath As String = "C:\\Users\\GADGETCORE\\source\\repos\\Project-Atlas1\\info.txt"
+    Dim filepath As String = "C:\\Users\\maure\\source\\repos\\Project-Atlas\\info.txt"
 
     Public Sub connection()
         host = "127.0.0.1"
@@ -68,7 +68,8 @@ Module Module1
                 End With
 
                 If type = "Administrator" Then
-
+                    Create.Button1.Visible = True
+                    Create.Button3.Visible = False
                     DYCIMAP.Button1.Visible = True
                     Direction_guide.Button23.Visible = True
                     DYCIMAP.Btnview.Visible = True
@@ -80,6 +81,9 @@ Module Module1
                     DYCIMAP.TextBox2.Enabled = True
                     DYCIMAP.Button3.Visible = True
                 Else
+                    DYCIMAP.Button7.Visible = False
+                    Create.Button3.Visible = True
+                    Create.Button1.Visible = False
                     DYCIMAP.BtnEdit.Visible = True
                     DYCIMAP.Btnview.Visible = False
                     DYCIMAP.Button1.Visible = False
@@ -120,6 +124,8 @@ Module Module1
         read.Close()
         query = "Insert Into usermonitor (usertype,user_id, lastname, firstname, middle,selc,date,time)VALUES(@type,@uid,@ln,@fn,@m,@sel,@date,@time)"
         cmd = New MySqlCommand(query, con)
+
+
         With cmd
             .Parameters.AddWithValue("@type", type)
             .Parameters.AddWithValue("@uid", uid)
@@ -304,6 +310,16 @@ Module Module1
                     .CrystalReportViewer1.ReportSource = rp
                     .CrystalReportViewer1.Refresh()
                 End With
+            ElseIf tbl = "room_building" Then
+                Building.CrystalReportViewer1.ReportSource = Nothing
+                Dim rp As New Building_name
+                rp.SetDataSource(table)
+                With Building
+                    .CrystalReportViewer1.ReportSource = rp
+                    .CrystalReportViewer1.Refresh()
+                End With
+            Else
+
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -341,7 +357,7 @@ Module Module1
 
                 End With
             Else
-                MsgBox("Select Record First")
+                MsgBox("Records Accounts and Monitor ")
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -438,6 +454,9 @@ Module Module1
     End Sub
 
     Public Sub archiveacc(id As String, usertype As String, ln As String, fn As String, m As String, ad As String, cot As String, FB As String)
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
         query = "Insert Into archiveaccount (usertype,user_id, lastname, firstname, middle,address,contact,fbaccount)VALUES(@type,@uid,@ln,@fn,@m,@add,@con,@fb)"
         cmd = New MySqlCommand(query, con)
         With cmd
@@ -601,6 +620,8 @@ Module Module1
         End Try
     End Sub
     Public Sub saveimage()
+        read.Close()
+
         query = "Insert into images  (image,NAME) values(@image , @name)"
         ms = New System.IO.MemoryStream()
         Direction_guide.PictureBox1.Image.Save(ms, Direction_guide.PictureBox1.Image.RawFormat)
@@ -623,6 +644,7 @@ Module Module1
         If con.State = ConnectionState.Closed Then
             con.Open()
         End If
+        read.Close()
         query = "Delete from images where NAME = '" & Direction_guide.ComboBox1.Text & "'"
 
         Try
@@ -642,6 +664,8 @@ Module Module1
         If con.State = ConnectionState.Closed Then
             con.Open()
         End If
+        read.Close()
+
         query = "Update images set @images where NAME = '" & Direction_guide.ComboBox1.Text & "'"
         ms = New System.IO.MemoryStream()
         Direction_guide.PictureBox1.Image.Save(ms, Direction_guide.PictureBox1.Image.RawFormat)
@@ -660,6 +684,7 @@ Module Module1
         If con.State = ConnectionState.Closed Then
             con.Open()
         End If
+        read.Close()
 
         Try
             query = "Select image from images where NAME = '" & Direction_guide.ComboBox1.Text & "'"
