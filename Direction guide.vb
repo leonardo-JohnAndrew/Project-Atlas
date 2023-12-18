@@ -7,7 +7,7 @@
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        OFD.Filter = "Picture (* .jpg; * .png) | * .jpg; * .png"
+        OFD.Filter = "Picture (* .jpg; * .png *.pdf) | * .jpg; * .png ; * .pdf "
         OFD.ShowDialog()
         PictureBox1.ImageLocation = OFD.FileName
 
@@ -48,7 +48,7 @@
         OFD.Filter = "Picture (* .jpg; * .png) | * .jpg; * .png"
         OFD.ShowDialog()
         PictureBox1.ImageLocation = OFD.FileName
-        Dim ANS As DialogResult = MessageBox.Show("Do you want to Delete? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        Dim ANS As DialogResult = MessageBox.Show("Do you want to Update? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If ans = DialogResult.Yes Then
             upimage()
             PictureBox1.Image = Nothing

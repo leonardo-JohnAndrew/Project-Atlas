@@ -3,6 +3,14 @@ Public Class DisplayData
     Dim uid, type, ln, fn, m, add, con, fb, sel, dates, times, tbl As String
 
     Dim num, name, events As String
+
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs)
+
+        Addevent.Show()
+
+    End Sub
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If cborec.SelectedItem = "Accounts" Then
             PrintRecord.Show()
@@ -18,9 +26,17 @@ Public Class DisplayData
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Create.Show()
-        Create.BtnExit2.Visible = False
-        clear()
+        If cborec.SelectedItem = "Accounts" Then
+            Create.Show()
+            Create.BtnExit2.Visible = True
+            Create.lblid.Text = ""
+            clear()
+        ElseIf cborec.SelectedItem = "Building And Room" Then
+            Addevent.Show
+
+        End If
+
+
 
     End Sub
 
@@ -41,28 +57,25 @@ Public Class DisplayData
 
 
     Private Sub btndel_Click(sender As Object, e As EventArgs) Handles btndel.Click
-        connection()
-        If cborec.SelectedItem = "Monitor User" Then
-            archivehistory(Calendar.Label1.Text, Calendar.Label2.Text, type, uid, ln, fn, m, sel, dates, times)
-
-        End If
-        archiveacc(uid, type, ln, fn, m, add, con, fb)
         If cborec.SelectedItem = "Accounts" Then
             tbl = "accounts"
+            archiveacc(uid, type, ln, fn, m, add, con, fb)
+            delteaccount(tbl, uid)
         ElseIf cborec.SelectedItem = "Monitor User" Then
-            tbl = "usermonitor"
+            archivehistory(Calendar.Label1.Text, Calendar.Label2.Text, type, uid, ln, fn, m, sel, dates, times)
+            delmonitor(num)
+
         ElseIf cborec.SelectedItem = "Building And Room" Then
             delbuilding(num)
-        Else
-            MsgBox("Select Record First ")
         End If
-        delteaccount(tbl, uid)
 
     End Sub
 
     Private Sub DisplayData_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         connection()
         Btndate.Visible = False
+        btndel.Visible = True
 
     End Sub
 
@@ -71,10 +84,13 @@ Public Class DisplayData
             Btndate.Visible = False
             Label2.Visible = True
             cbosel.Visible = True
-            btnadd.Visible = True
+            btndel.Location = New Point(690, 4)
             btnUpdate.Visible = True
             Button2.Visible = True
-            Button3.Visible = False
+            Btndate.Visible = False
+            Label5.Text = "*IN UPDATE AND DELETE ALWAYS SELECT THE USER ID CELL AFTER CLICK THE DATA GRID"
+
+
             dgv("accounts")
             If cbosel.SelectedItem = "Student" Then
                 dgvtype("Student", "accounts")
@@ -95,15 +111,14 @@ Public Class DisplayData
 
 
         ElseIf cborec.SelectedItem = "Monitor User" Then
-
+            Label5.Text = "*IN DELETE ALWAYS SELECT THE NUMBER CELL AFTER CLICK THE DATA GRID"
             Btndate.Visible = True
-            btnadd.Visible = False
             btnUpdate.Visible = False
             btndel.Location = New Point(498, 3)
             Label2.Visible = True
             Button2.Visible = False
             cbosel.Visible = True
-            Button3.Visible = False
+
             dgv("usermonitor")
             Dgvtbl.ClearSelection()
 
@@ -124,9 +139,13 @@ Public Class DisplayData
             End If
 
         ElseIf cborec.SelectedItem = "Building And Room" Then
+            Label5.Text = "*IN UPDATE AND DELETE ALWAYS SELECT THE NUMBER CELL AFTER CLICK THE DATA GRID"
             Label2.Visible = False
+            Btndate.Visible = False
             cbosel.Visible = False
-            Button3.Visible = True
+            btndel.Location = New Point(690, 4)
+            btnUpdate.Visible = True
+            Button2.Visible = True
             dgv("room_building")
         ElseIf cborec.SelectedItem = "" Then
             MsgBox("Select Record")
@@ -162,36 +181,44 @@ Public Class DisplayData
 
     Private Sub Dgvtbl_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles Dgvtbl.CellClick
         If cborec.SelectedItem = "Accounts" Then
-            Try
-                index = e.RowIndex
-                Dim row As DataGridViewRow
-                row = Dgvtbl.Rows(index)
-                uid = row.Cells(0).Value
-                type = row.Cells(1).Value
-                ln = row.Cells(2).Value
-                fn = row.Cells(3).Value
-                m = row.Cells(4).Value
-                add = row.Cells(5).Value
-                con = row.Cells(6).Value
-                fb = row.Cells(7).Value
 
-                MsgBox(uid)
-            Catch ex As Exception
-                MsgBox(ex.Message)
-            End Try
-        ElseIf cborec.SelectedItem = "Building And Room" Then
-            Try
 
-                index = e.RowIndex
+            index = e.RowIndex
+            Dim row As DataGridViewRow
+            row = Dgvtbl.Rows(index)
+            uid = row.Cells(0).Value
+            type = row.Cells(1).Value
+            ln = row.Cells(2).Value
+            fn = row.Cells(3).Value
+            m = row.Cells(4).Value
+            add = row.Cells(5).Value
+            con = row.Cells(6).Value
+            fb = row.Cells(7).Value
+        ElseIf cborec.Text = "Building And Room" Then
+
+
+            index = e.RowIndex
+            Dim row As DataGridViewRow
+            row = Dgvtbl.Rows(index)
+            num = row.Cells(0).Value
+            name = row.Cells(1).Value
+            events = row.Cells(2).Value
+
+        ElseIf cborec.Text = "Monitor User" Then
+
+            index = e.RowIndex
                 Dim row As DataGridViewRow
                 row = Dgvtbl.Rows(index)
                 num = row.Cells(0).Value
-                name = row.Cells(1).Value.ToString
-                events = row.Cells(2).Value.ToString
+                type = row.Cells(1).Value
+                uid = row.Cells(2).Value
+                ln = row.Cells(3).Value
+                fn = row.Cells(4).Value
+                m = row.Cells(5).Value
+                sel = row.Cells(6).Value
+            dates = row.Cells(7).Value.ToString
+            times = row.Cells(8).Value.ToString
 
-            Catch ex As Exception
-                MsgBox(ex.Message)
-            End Try
 
         End If
 

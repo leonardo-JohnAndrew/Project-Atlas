@@ -73,7 +73,7 @@ Partial Class Create
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button1.Location = New System.Drawing.Point(63, 3)
+        Me.Button1.Location = New System.Drawing.Point(71, 3)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(109, 28)
         Me.Button1.TabIndex = 19
@@ -132,7 +132,7 @@ Partial Class Create
         Me.BtnExit2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnExit2.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnExit2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnExit2.Location = New System.Drawing.Point(0, 3)
+        Me.BtnExit2.Location = New System.Drawing.Point(525, 3)
         Me.BtnExit2.Name = "BtnExit2"
         Me.BtnExit2.Size = New System.Drawing.Size(109, 28)
         Me.BtnExit2.TabIndex = 2

@@ -4,11 +4,10 @@
         Button2.Visible = False
         btndelete.Visible = False
         btnUpdate.Visible = False
-        BtnExit2.Visible = False
-        Button1.Visible = True
-        Start.Show()
-
+        BtnExit2.Visible = True
+        DisplayData.Show()
         Me.Hide()
+
 
     End Sub
 
@@ -58,8 +57,5 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Register()
-        DisplayData.Show()
-        Me.Hide()
-
     End Sub
 End Class

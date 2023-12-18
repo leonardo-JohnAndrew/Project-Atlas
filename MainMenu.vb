@@ -1,10 +1,12 @@
 ﻿Public Class DYCIMAP
-    Dim Sel, PATH As String
-
+    Dim Sel As String
+    Dim path As String = "C:\\Users\\GADGETCORE\\source\\repos\\Project-Atlas1\\image.png"
     Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If PictureBox2.Image Is Nothing Then
+        Try
             PictureBox2.ImageLocation = PATH
-        End If
+        Catch a As Exception
+            MsgBox("Choose Vicinity Map")
+        End Try
         connection()
         selection()
         Search()
@@ -35,14 +37,8 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        saveinfo()
 
-        TextBox2.ReadOnly = False
-        Button3.Visible = True
-
-        TextBox2.Visible = True
-        MsgBox("Search First On Search box before update name ")
-        ComboBox1.Visible = False
-        Label3.Visible = False
 
     End Sub
 
@@ -54,14 +50,14 @@
         If String.IsNullOrEmpty(TextBox1.Text) = False Then
             ComboBox1.Text = ""
             Sel = TextBox1.Text
-            Direction_guide.TextBox1.Text = Sel
+            Direction_guide.ComboBox1.Text = Sel
         ElseIf String.IsNullOrEmpty(ComboBox1.Text) = False Then
             TextBox1.Text = ""
             Sel = ComboBox1.Text
-            Direction_guide.TextBox1.Text = Sel
+            Direction_guide.ComboBox1.Text = Sel
         Else
             Sel = TextBox1.Text
-            Direction_guide.TextBox1.Text = Sel
+            Direction_guide.ComboBox1.Text = Sel
         End If
         display()
         eventdis()
@@ -90,8 +86,11 @@
         OpenFileDialog1.ShowDialog()
         PictureBox2.ImageLocation = OpenFileDialog1.FileName
         'save
-        PATH = "C:\\Users\\GADGETCORE\\source\\repos\\Project-Atlas\\image.png"
-        PictureBox2.Image.Save(PATH)
+        Dim ANS As DialogResult = MessageBox.Show("Do you want to Save? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If ANS = DialogResult.Yes Then
 
+            PictureBox2.Image.Save(PATH)
+        Else
+        End If
     End Sub
 End Class

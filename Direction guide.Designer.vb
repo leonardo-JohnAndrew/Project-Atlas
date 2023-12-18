@@ -36,12 +36,12 @@ Partial Class Direction_guide
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Button23 = New System.Windows.Forms.Button()
         Me.OFD = New System.Windows.Forms.OpenFileDialog()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -192,23 +192,13 @@ Partial Class Direction_guide
         Me.OFD.Filter = "JPEG Files | * .jpg"
         Me.OFD.Title = "Upload Picure"
         '
-        'TextBox1
-        '
-        Me.TextBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.TextBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.TextBox1.Enabled = False
-        Me.TextBox1.Location = New System.Drawing.Point(151, 12)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(129, 20)
-        Me.TextBox1.TabIndex = 16
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(183, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.Label1.Font = New System.Drawing.Font("Bernard MT Condensed", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(286, 9)
+        Me.Label1.Location = New System.Drawing.Point(355, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(143, 25)
         Me.Label1.TabIndex = 17
@@ -217,9 +207,9 @@ Partial Class Direction_guide
         'TextBox2
         '
         Me.TextBox2.Enabled = False
-        Me.TextBox2.Location = New System.Drawing.Point(435, 12)
+        Me.TextBox2.Location = New System.Drawing.Point(494, 13)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(138, 20)
+        Me.TextBox2.Size = New System.Drawing.Size(116, 20)
         Me.TextBox2.TabIndex = 18
         '
         'Panel1
@@ -245,16 +235,26 @@ Partial Class Direction_guide
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.Enabled = False
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(160, 13)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(189, 21)
+        Me.ComboBox1.TabIndex = 21
+        '
         'Direction_guide
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(183, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(800, 418)
+        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Panel2)
@@ -285,10 +285,10 @@ Partial Class Direction_guide
     Friend WithEvents Button6 As Button
     Friend WithEvents Button5 As Button
     Friend WithEvents Button23 As Button
-    Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents ComboBox1 As ComboBox
 End Class

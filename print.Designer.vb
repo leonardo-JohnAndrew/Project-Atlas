@@ -24,6 +24,7 @@ Partial Class print
     Private Sub InitializeComponent()
         Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.UserMonitor1 = New Project_Atlas.UserMonitor()
+        Me.UserMonitor2 = New Project_Atlas.UserMonitor()
         Me.SuspendLayout()
         '
         'CrystalReportViewer1
@@ -33,18 +34,20 @@ Partial Class print
         Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
         Me.CrystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CrystalReportViewer1.Location = New System.Drawing.Point(0, 0)
+        Me.CrystalReportViewer1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
-        Me.CrystalReportViewer1.ReportSource = Me.UserMonitor1
-        Me.CrystalReportViewer1.Size = New System.Drawing.Size(800, 450)
+        Me.CrystalReportViewer1.ReportSource = Me.UserMonitor2
+        Me.CrystalReportViewer1.Size = New System.Drawing.Size(1067, 554)
         Me.CrystalReportViewer1.TabIndex = 0
         Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
         'print
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(1067, 554)
         Me.Controls.Add(Me.CrystalReportViewer1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "print"
         Me.Text = "print"
         Me.ResumeLayout(False)
@@ -53,4 +56,5 @@ Partial Class print
 
     Friend WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
     Friend WithEvents UserMonitor1 As UserMonitor
+    Friend WithEvents UserMonitor2 As UserMonitor
 End Class

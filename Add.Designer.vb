@@ -27,6 +27,7 @@ Partial Class Add
         Me.Button8 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'TextBox2
@@ -55,13 +56,12 @@ Partial Class Add
         Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button8.Font = New System.Drawing.Font("Bernard MT Condensed", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button8.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button8.Location = New System.Drawing.Point(255, 162)
+        Me.Button8.Location = New System.Drawing.Point(12, 162)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(79, 23)
         Me.Button8.TabIndex = 19
         Me.Button8.Text = "Add"
         Me.Button8.UseVisualStyleBackColor = False
-        Me.Button8.Visible = False
         '
         'TextBox1
         '
@@ -83,12 +83,27 @@ Partial Class Add
         Me.Label2.TabIndex = 17
         Me.Label2.Text = "ROOM/BUILDING NAME"
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Bernard MT Condensed", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Button1.Location = New System.Drawing.Point(255, 162)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(79, 23)
+        Me.Button1.TabIndex = 22
+        Me.Button1.Text = "Exit"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'Add
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(183, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(346, 197)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button8)
@@ -107,4 +122,5 @@ Partial Class Add
     Friend WithEvents Button8 As Button
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label2 As Label
+    Friend WithEvents Button1 As Button
 End Class

@@ -149,6 +149,18 @@
     <Compile Include="Addevent.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="AllAccounts.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AllAccounts.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AllMonitoring.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AllMonitoring.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Calendar.Designer.vb">
       <DependentUpon>Calendar.vb</DependentUpon>
     </Compile>
@@ -250,6 +262,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Addevent.resx">
       <DependentUpon>Addevent.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AllAccounts.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>AllAccounts.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AllMonitoring.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>AllMonitoring.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Calendar.resx">
       <DependentUpon>Calendar.vb</DependentUpon>

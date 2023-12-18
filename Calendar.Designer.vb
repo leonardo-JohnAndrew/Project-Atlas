@@ -83,7 +83,7 @@ Partial Class Calendar
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button1.Location = New System.Drawing.Point(118, 235)
+        Me.Button1.Location = New System.Drawing.Point(118, 225)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(69, 24)
         Me.Button1.TabIndex = 28

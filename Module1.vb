@@ -16,7 +16,7 @@ Module Module1
     Dim data As New AutoCompleteStringCollection
     Dim host, uname, pwd, dbname, query As String
     Dim ans As DialogResult
-    Dim filepath As String = "C:\\Users\\GADGETCORE\\source\\repos\\Project-Atlas\\info.txt"
+    Dim filepath As String = "C:\\Users\\GADGETCORE\\source\\repos\\Project-Atlas1\\info.txt"
 
     Public Sub connection()
         host = "127.0.0.1"
@@ -73,12 +73,18 @@ Module Module1
                     Direction_guide.Button23.Visible = True
                     DYCIMAP.Btnview.Visible = True
                     DYCIMAP.Button7.Visible = True
-                    Direction_guide.TextBox1.Enabled = True
+                    Direction_guide.ComboBox1.Enabled = True
                     DYCIMAP.Btnview.Visible = True
                     DYCIMAP.BtnEdit.Visible = False
+                    DYCIMAP.Button1.Visible = True
+                    DYCIMAP.TextBox2.Enabled = True
+                    DYCIMAP.Button3.Visible = True
                 Else
                     DYCIMAP.BtnEdit.Visible = True
                     DYCIMAP.Btnview.Visible = False
+                    DYCIMAP.Button1.Visible = False
+                    DYCIMAP.TextBox2.Enabled = False
+                    DYCIMAP.Button3.Visible = False
                 End If
                 Dim ANS As DialogResult = MessageBox.Show("Do you want to go next ? " & LOGIN.lblfullname.Text, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 If ANS = DialogResult.Yes Then
@@ -111,7 +117,7 @@ Module Module1
         If con.State = ConnectionState.Closed Then
             con.Open()
         End If
-
+        read.Close()
         query = "Insert Into usermonitor (usertype,user_id, lastname, firstname, middle,selc,date,time)VALUES(@type,@uid,@ln,@fn,@m,@sel,@date,@time)"
         cmd = New MySqlCommand(query, con)
         With cmd
@@ -122,7 +128,7 @@ Module Module1
             .Parameters.AddWithValue("@m", mid)
             .Parameters.AddWithValue("@date", Date.Now.ToString("yyyy-MM-dd"))
             .Parameters.AddWithValue("@time", Date.Now.ToLongTimeString)
-            .Parameters.AddWithValue("@sel", Direction_guide.TextBox1.Text)
+            .Parameters.AddWithValue("@sel", Direction_guide.ComboBox1.Text)
             .ExecuteNonQuery()
         End With
         con.Close()
@@ -234,6 +240,9 @@ Module Module1
 
     End Sub
     Public Sub delete()
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
         query = "DELETE from accounts where user_id = @id "
         Try
             Using CMD As New MySqlCommand(query, con)
@@ -250,7 +259,9 @@ Module Module1
 
     End Sub
     Public Sub archive()
-
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
         query = "Insert Into archiveaccount (usertype,user_id, lastname, firstname, middle,address,contact,fbaccount)VALUES(@type,@uid,@ln,@fn,@m,@add,@con,@fb)"
         cmd = New MySqlCommand(query, con)
         With cmd
@@ -274,18 +285,25 @@ Module Module1
 
             table = New DataTable
             adpter.Fill(table)
+            DisplayData.Dgvtbl.Rows.GetRowsHeight(100)
             DisplayData.Dgvtbl.DataSource = table
             DisplayData.Dgvtbl.AutoResizeColumns()
             If tbl = "accounts " Then
                 PrintRecord.CrystalReportViewer1.ReportSource = Nothing
-                Dim rp As New Accounts
+                Dim rp As New AllAccounts
                 rp.SetDataSource(table)
                 With PrintRecord
                     .CrystalReportViewer1.ReportSource = rp
                     .CrystalReportViewer1.Refresh()
                 End With
             ElseIf tbl = "usermonitor" Then
-
+                print.CrystalReportViewer1.ReportSource = Nothing
+                Dim rp As New AllMonitoring
+                rp.SetDataSource(table)
+                With print
+                    .CrystalReportViewer1.ReportSource = rp
+                    .CrystalReportViewer1.Refresh()
+                End With
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -305,7 +323,7 @@ Module Module1
             DisplayData.Dgvtbl.DataSource = table
             DisplayData.Dgvtbl.AutoResizeColumns()
             If tbl = "accounts" Then
-                Dim rp As New Accounts
+                Dim rp As New AllAccounts
                 PrintRecord.CrystalReportViewer1.ReportSource = Nothing
                 rp.SetDataSource(table)
                 With PrintRecord
@@ -314,7 +332,7 @@ Module Module1
 
                 End With
             ElseIf tbl = "usermonitor" Then
-                Dim rp As New UserMonitor
+                Dim rp As New AllMonitoring
                 print.CrystalReportViewer1.ReportSource = Nothing
                 rp.SetDataSource(table)
                 With print
@@ -339,7 +357,7 @@ Module Module1
             adpter.Fill(table)
             DisplayData.Dgvtbl.DataSource = table
             DisplayData.Dgvtbl.AllowUserToResizeRows = False
-            Dim rp As New UserMonitor
+            Dim rp As New AllMonitoring
             print.CrystalReportViewer1.ReportSource = Nothing
             rp.SetDataSource(table)
             With print
@@ -358,6 +376,7 @@ Module Module1
         If con.State = ConnectionState.Closed Then
             con.Open()
         End If
+
         query = "UPDATE accounts SET usertype = @type, lastname = @ln , Firstname = @fn , middle = @m , address = @add , contact = @con , fbaccount = @fb where (user_id = @id)"
         cmd = New MySqlCommand(query, con)
         Try
@@ -394,11 +413,30 @@ Module Module1
             End Using
             MsgBox("DELETION Successfull!", vbInformation, "DELETE MESSAGE")
         Catch ex As Exception
-            MsgBox("Error " & ex.Message, vbInformation, "ERROR MESSAGE")
+            MsgBox("Select ID Cell " & ex.Message, vbInformation, "ERROR MESSAGE")
         Finally
             clear()
         End Try
     End Sub
+    Public Sub delmonitor(num As String)
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
+        query = "DELETE from usermonitor where Number = @num"
+        Try
+            Using CMD As New MySqlCommand(query, con)
+                CMD.Parameters.AddWithValue("@num", num)
+                CMD.ExecuteNonQuery()
+
+            End Using
+            MsgBox("DELETION Successfull!", vbInformation, "DELETE MESSAGE")
+        Catch ex As Exception
+            MsgBox("Select Number Cell " & ex.Message, vbInformation, "ERROR MESSAGE")
+        Finally
+            clear()
+        End Try
+    End Sub
+
     Public Sub archiveacc(id As String, usertype As String, ln As String, fn As String, m As String, ad As String, cot As String, FB As String)
         query = "Insert Into archiveaccount (usertype,user_id, lastname, firstname, middle,address,contact,fbaccount)VALUES(@type,@uid,@ln,@fn,@m,@add,@con,@fb)"
         cmd = New MySqlCommand(query, con)
@@ -416,6 +454,9 @@ Module Module1
         End With
     End Sub
     Public Sub archivehistory(startdate As String, enddate As String, type As String, id As String, ln As String, ft As String, M As String, sel As String, dates As String, times As String)
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
         query = "Insert Into archiveusermonitor (usertype,user_id, lastname, firstname, middle,selc,date,time)VALUES(@type,@uid,@ln,@fn,@m,@sel,@date,@time)"
         cmd = New MySqlCommand(query, con)
         With cmd
@@ -434,7 +475,6 @@ Module Module1
             Using CMD As New MySqlCommand(query, con)
                 CMD.ExecuteNonQuery()
             End Using
-            MsgBox("DELETION Successfull!", vbInformation, "DELETE MESSAGE")
         Catch ex As Exception
             MsgBox("Error: " & ex.Message, vbInformation, "ERROR MESSAGE")
         Finally
@@ -450,7 +490,10 @@ Module Module1
         With DYCIMAP.ComboBox1
             .DataSource = table
             .DisplayMember = "room_building"
+
         End With
+        Direction_guide.ComboBox1.DataSource = table
+        Direction_guide.ComboBox1.DisplayMember = "room_building"
     End Sub
 
     Public Sub Search()
@@ -458,16 +501,18 @@ Module Module1
         cmd = New MySqlCommand(query, con)
         read = cmd.ExecuteReader()
         data = New AutoCompleteStringCollection()
+        Try
+            While read.Read()
+                data.Add(read.GetString(0))
+                DYCIMAP.TextBox1.AutoCompleteCustomSource = data
 
-        While read.Read()
-            data.Add(read.GetString(0))
-            DYCIMAP.TextBox1.AutoCompleteCustomSource = data
-            Direction_guide.TextBox1.AutoCompleteCustomSource = data
+            End While
+        Catch e As Exception
 
-        End While
-        read.Close()
-        con.Close()
-
+        Finally
+            read.Close()
+            con.Close()
+        End Try
     End Sub
     Public Sub Info()
         Dim file As String
@@ -492,7 +537,7 @@ Module Module1
         If con.State = ConnectionState.Closed Then
             con.Open()
         End If
-        query = "Select event_warning from room_building where room_building = '" & Direction_guide.TextBox1.Text & "'"
+        query = "Select event_warning from room_building where room_building = '" & Direction_guide.ComboBox1.Text & "'"
         cmd = New MySqlCommand(query, con)
         Try
             read = cmd.ExecuteReader
@@ -510,12 +555,17 @@ Module Module1
         If con.State = ConnectionState.Closed Then
             con.Open()
         End If
-        query = "INSERT INTO room_building (room_building,event_warning) values (@name,@event)"
-        cmd = New MySqlCommand(query, con)
+        Try
+            query = "INSERT INTO room_building (room_building,event_warning) values (@name,@event)"
+            cmd = New MySqlCommand(query, con)
 
-        cmd.Parameters.AddWithValue("@name", name)
-        cmd.Parameters.AddWithValue("@event", events)
-        cmd.ExecuteNonQuery()
+            cmd.Parameters.AddWithValue("@name", name)
+            cmd.Parameters.AddWithValue("@event", events)
+            cmd.ExecuteNonQuery()
+            MsgBox("Add Success")
+        Catch e As Exception
+
+        End Try
 
     End Sub
     Public Sub upbuilding(num As String, name As String, events As String)
@@ -530,8 +580,9 @@ Module Module1
             cmd.Parameters.AddWithValue("@name", name)
             cmd.Parameters.AddWithValue("@events", events)
             cmd.ExecuteNonQuery()
+            MsgBox("Update Success")
         Catch e As Exception
-            MsgBox(e.Message)
+            MsgBox("Select Number Cell")
         End Try
 
     End Sub
@@ -540,24 +591,24 @@ Module Module1
         If con.State = ConnectionState.Closed Then
             con.Open()
         End If
-        query = "Delete event_warning  room_building WHere num  = " & num & ""
-        cmd = New MySqlCommand(query, con)
-        cmd.ExecuteNonQuery()
-
+        Try
+            query = "Delete event_warning  room_building WHere num  = " & num & ""
+            cmd = New MySqlCommand(query, con)
+            cmd.ExecuteNonQuery()
+            MsgBox("Delete Success")
+        Catch e As Exception
+            MsgBox("Select Number Cell")
+        End Try
     End Sub
     Public Sub saveimage()
-        If con.State = ConnectionState.Closed Then
-            con.Open()
-        End If
         query = "Insert into images  (image,NAME) values(@image , @name)"
         ms = New System.IO.MemoryStream()
         Direction_guide.PictureBox1.Image.Save(ms, Direction_guide.PictureBox1.Image.RawFormat)
-
         ms.Close()
         Try
             cmd = New MySqlCommand(query, con)
             cmd.Parameters.Add("@image", MySqlDbType.LongBlob).Value = ms.ToArray()
-            cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = Direction_guide.TextBox1.Text
+            cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = Direction_guide.ComboBox1.Text
             cmd.ExecuteNonQuery()
             MsgBox("Add Success ")
         Catch EX As Exception
@@ -566,12 +617,13 @@ Module Module1
         End Try
 
 
+
     End Sub
     Public Sub deletimage()
         If con.State = ConnectionState.Closed Then
             con.Open()
         End If
-        query = "Delete from images where NAME = '" & Direction_guide.TextBox1.Text & "'"
+        query = "Delete from images where NAME = '" & Direction_guide.ComboBox1.Text & "'"
 
         Try
             cmd = New MySqlCommand(query, con)
@@ -590,7 +642,7 @@ Module Module1
         If con.State = ConnectionState.Closed Then
             con.Open()
         End If
-        query = "Update images set @images where NAME = '" & Direction_guide.TextBox1.Text & "'"
+        query = "Update images set @images where NAME = '" & Direction_guide.ComboBox1.Text & "'"
         ms = New System.IO.MemoryStream()
         Direction_guide.PictureBox1.Image.Save(ms, Direction_guide.PictureBox1.Image.RawFormat)
         Try
@@ -605,10 +657,12 @@ Module Module1
         End Try
     End Sub
     Public Sub display()
-
+        If con.State = ConnectionState.Closed Then
+            con.Open()
+        End If
 
         Try
-            query = "Select image from images where NAME = '" & Direction_guide.TextBox1.Text & "'"
+            query = "Select image from images where NAME = '" & Direction_guide.ComboBox1.Text & "'"
             cmd = New MySqlCommand(query, con)
             If con.State = ConnectionState.Closed Then
                 con.Open()
@@ -623,10 +677,8 @@ Module Module1
         Catch e As Exception
             MsgBox("Direction not Available")
         Finally
-            con.Close()
-
             read.Close()
-
+            con.Close()
 
         End Try
     End Sub
