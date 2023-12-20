@@ -43,10 +43,10 @@ Partial Class DYCIMAP
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Btnview = New System.Windows.Forms.Button()
         Me.BtnEdit = New System.Windows.Forms.Button()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -65,10 +65,9 @@ Partial Class DYCIMAP
         Me.Panel2.Controls.Add(Me.txtDate)
         Me.Panel2.Controls.Add(Me.Label4)
         Me.Panel2.Controls.Add(Me.BtnExit)
-        Me.Panel2.Location = New System.Drawing.Point(0, 452)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel2.Location = New System.Drawing.Point(0, 367)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1065, 42)
+        Me.Panel2.Size = New System.Drawing.Size(799, 34)
         Me.Panel2.TabIndex = 3
         '
         'Button7
@@ -78,10 +77,9 @@ Partial Class DYCIMAP
         Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button7.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button7.Location = New System.Drawing.Point(424, 0)
-        Me.Button7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button7.Location = New System.Drawing.Point(318, 0)
         Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(215, 34)
+        Me.Button7.Size = New System.Drawing.Size(161, 28)
         Me.Button7.TabIndex = 17
         Me.Button7.Text = "&Vicinity Map Change"
         Me.Button7.UseVisualStyleBackColor = True
@@ -94,10 +92,9 @@ Partial Class DYCIMAP
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button6.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button6.Location = New System.Drawing.Point(647, 1)
-        Me.Button6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button6.Location = New System.Drawing.Point(485, 1)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(145, 34)
+        Me.Button6.Size = New System.Drawing.Size(109, 28)
         Me.Button6.TabIndex = 16
         Me.Button6.Text = "SHOW DIRECTIONS"
         Me.Button6.UseVisualStyleBackColor = True
@@ -109,10 +106,9 @@ Partial Class DYCIMAP
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button1.Location = New System.Drawing.Point(789, 1)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button1.Location = New System.Drawing.Point(592, 1)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(145, 34)
+        Me.Button1.Size = New System.Drawing.Size(109, 28)
         Me.Button1.TabIndex = 15
         Me.Button1.Text = "Save Info"
         Me.Button1.UseVisualStyleBackColor = True
@@ -123,27 +119,26 @@ Partial Class DYCIMAP
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label5.Location = New System.Drawing.Point(208, 10)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label5.Location = New System.Drawing.Point(156, 8)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(58, 24)
+        Me.Label5.Size = New System.Drawing.Size(48, 19)
         Me.Label5.TabIndex = 14
         Me.Label5.Text = "Time :"
         '
         'txtTime
         '
-        Me.txtTime.Location = New System.Drawing.Point(276, 9)
-        Me.txtTime.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtTime.Enabled = False
+        Me.txtTime.Location = New System.Drawing.Point(207, 7)
         Me.txtTime.Name = "txtTime"
-        Me.txtTime.Size = New System.Drawing.Size(79, 22)
+        Me.txtTime.Size = New System.Drawing.Size(60, 20)
         Me.txtTime.TabIndex = 13
         '
         'txtDate
         '
-        Me.txtDate.Location = New System.Drawing.Point(80, 10)
-        Me.txtDate.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtDate.Enabled = False
+        Me.txtDate.Location = New System.Drawing.Point(60, 8)
         Me.txtDate.Name = "txtDate"
-        Me.txtDate.Size = New System.Drawing.Size(119, 22)
+        Me.txtDate.Size = New System.Drawing.Size(90, 20)
         Me.txtDate.TabIndex = 12
         '
         'Label4
@@ -151,10 +146,9 @@ Partial Class DYCIMAP
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label4.Location = New System.Drawing.Point(12, 10)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Location = New System.Drawing.Point(9, 8)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(55, 24)
+        Me.Label4.Size = New System.Drawing.Size(45, 19)
         Me.Label4.TabIndex = 11
         Me.Label4.Text = "Date :"
         '
@@ -165,10 +159,9 @@ Partial Class DYCIMAP
         Me.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnExit.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnExit.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnExit.Location = New System.Drawing.Point(916, 0)
-        Me.BtnExit.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.BtnExit.Location = New System.Drawing.Point(687, 0)
         Me.BtnExit.Name = "BtnExit"
-        Me.BtnExit.Size = New System.Drawing.Size(145, 34)
+        Me.BtnExit.Size = New System.Drawing.Size(109, 28)
         Me.BtnExit.TabIndex = 1
         Me.BtnExit.Text = "&LOG OUT"
         Me.BtnExit.UseVisualStyleBackColor = True
@@ -180,10 +173,9 @@ Partial Class DYCIMAP
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button3.Location = New System.Drawing.Point(209, 2501)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button3.Location = New System.Drawing.Point(157, 2032)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(145, 34)
+        Me.Button3.Size = New System.Drawing.Size(109, 28)
         Me.Button3.TabIndex = 16
         Me.Button3.Text = "SAVE"
         Me.Button3.UseVisualStyleBackColor = True
@@ -195,10 +187,9 @@ Partial Class DYCIMAP
         Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(183, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.Label2.Font = New System.Drawing.Font("Bernard MT Condensed", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(97, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(15, 11)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Location = New System.Drawing.Point(11, 9)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(196, 31)
+        Me.Label2.Size = New System.Drawing.Size(150, 25)
         Me.Label2.TabIndex = 11
         Me.Label2.Text = "DYCI CAMPUS MAP" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
@@ -207,10 +198,9 @@ Partial Class DYCIMAP
         Me.TextBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.TextBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.TextBox1.Font = New System.Drawing.Font("Bell MT", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(227, 14)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TextBox1.Location = New System.Drawing.Point(170, 11)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(268, 24)
+        Me.TextBox1.Size = New System.Drawing.Size(202, 21)
         Me.TextBox1.TabIndex = 9
         '
         'Label1
@@ -218,10 +208,9 @@ Partial Class DYCIMAP
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label1.Location = New System.Drawing.Point(16, 15)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(12, 12)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(189, 24)
+        Me.Label1.Size = New System.Drawing.Size(152, 19)
         Me.Label1.TabIndex = 10
         Me.Label1.Text = "Search Room/Building"
         '
@@ -232,10 +221,9 @@ Partial Class DYCIMAP
         Me.Panel1.Controls.Add(Me.ComboBox1)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.TextBox1)
-        Me.Panel1.Location = New System.Drawing.Point(0, 63)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel1.Location = New System.Drawing.Point(0, 51)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1065, 50)
+        Me.Panel1.Size = New System.Drawing.Size(799, 41)
         Me.Panel1.TabIndex = 4
         '
         'Label3
@@ -243,10 +231,9 @@ Partial Class DYCIMAP
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label3.Location = New System.Drawing.Point(504, 15)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label3.Location = New System.Drawing.Point(378, 12)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(181, 24)
+        Me.Label3.Size = New System.Drawing.Size(145, 19)
         Me.Label3.TabIndex = 12
         Me.Label3.Text = "Select Room/Building"
         '
@@ -255,10 +242,9 @@ Partial Class DYCIMAP
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.Font = New System.Drawing.Font("Bell MT", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(700, 11)
-        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ComboBox1.Location = New System.Drawing.Point(525, 9)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(349, 27)
+        Me.ComboBox1.Size = New System.Drawing.Size(263, 22)
         Me.ComboBox1.TabIndex = 11
         '
         'Panel3
@@ -267,10 +253,9 @@ Partial Class DYCIMAP
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Panel3.Controls.Add(Me.Button3)
         Me.Panel3.Controls.Add(Me.TextBox2)
-        Me.Panel3.Location = New System.Drawing.Point(672, 121)
-        Me.Panel3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel3.Location = New System.Drawing.Point(504, 98)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(379, 324)
+        Me.Panel3.Size = New System.Drawing.Size(284, 263)
         Me.Panel3.TabIndex = 12
         '
         'TextBox2
@@ -279,11 +264,10 @@ Partial Class DYCIMAP
         Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox2.Font = New System.Drawing.Font("Bell MT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox2.ForeColor = System.Drawing.Color.White
-        Me.TextBox2.Location = New System.Drawing.Point(4, 0)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TextBox2.Location = New System.Drawing.Point(3, 0)
         Me.TextBox2.Multiline = True
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(355, 2535)
+        Me.TextBox2.Size = New System.Drawing.Size(266, 2060)
         Me.TextBox2.TabIndex = 0
         Me.TextBox2.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
@@ -296,11 +280,19 @@ Partial Class DYCIMAP
         '
         Me.Panel4.AutoScroll = True
         Me.Panel4.Controls.Add(Me.PictureBox2)
-        Me.Panel4.Location = New System.Drawing.Point(16, 122)
-        Me.Panel4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel4.Location = New System.Drawing.Point(12, 99)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(648, 322)
+        Me.Panel4.Size = New System.Drawing.Size(486, 262)
         Me.Panel4.TabIndex = 13
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Location = New System.Drawing.Point(-8, -10)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(567, 322)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 0
+        Me.PictureBox2.TabStop = False
         '
         'Btnview
         '
@@ -310,10 +302,9 @@ Partial Class DYCIMAP
         Me.Btnview.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btnview.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Btnview.ForeColor = System.Drawing.Color.White
-        Me.Btnview.Location = New System.Drawing.Point(905, 5)
-        Me.Btnview.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Btnview.Location = New System.Drawing.Point(679, 4)
         Me.Btnview.Name = "Btnview"
-        Me.Btnview.Size = New System.Drawing.Size(145, 48)
+        Me.Btnview.Size = New System.Drawing.Size(109, 39)
         Me.Btnview.TabIndex = 14
         Me.Btnview.Text = "View Records"
         Me.Btnview.UseVisualStyleBackColor = False
@@ -326,31 +317,20 @@ Partial Class DYCIMAP
         Me.BtnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnEdit.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnEdit.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.BtnEdit.Location = New System.Drawing.Point(905, 5)
-        Me.BtnEdit.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.BtnEdit.Location = New System.Drawing.Point(679, 4)
         Me.BtnEdit.Name = "BtnEdit"
-        Me.BtnEdit.Size = New System.Drawing.Size(145, 48)
+        Me.BtnEdit.Size = New System.Drawing.Size(109, 39)
         Me.BtnEdit.TabIndex = 15
         Me.BtnEdit.Text = "&View Profile"
         Me.BtnEdit.UseVisualStyleBackColor = False
         '
-        'PictureBox2
-        '
-        Me.PictureBox2.Location = New System.Drawing.Point(-11, -12)
-        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(4)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(756, 396)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 0
-        Me.PictureBox2.TabStop = False
-        '
         'DYCIMAP
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(183, Byte), Integer), CType(CType(49, Byte), Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ClientSize = New System.Drawing.Size(1067, 492)
+        Me.ClientSize = New System.Drawing.Size(800, 400)
         Me.Controls.Add(Me.BtnEdit)
         Me.Controls.Add(Me.Btnview)
         Me.Controls.Add(Me.Panel4)
@@ -359,7 +339,6 @@ Partial Class DYCIMAP
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "DYCIMAP"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Panel2.ResumeLayout(False)

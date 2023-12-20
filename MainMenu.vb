@@ -1,6 +1,6 @@
 ﻿Public Class DYCIMAP
     Dim Sel As String
-    Dim path As String = "C:\\Users\\maure\\source\\repos\\Project-Atlas\\image.png"
+    Dim path As String = "C:\\Users\\GADGETCORE\\source\\repos\\Project-Atlas\\image.png"
     Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             PictureBox2.ImageLocation = PATH
@@ -38,7 +38,7 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         saveinfo()
-
+        MsgBox("Update info success")
 
     End Sub
 

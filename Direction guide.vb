@@ -15,6 +15,7 @@
         Dim ANS As DialogResult = MessageBox.Show("Do you want to Save? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If ANS = DialogResult.Yes Then
             saveimage()
+            MsgBox("Add Success")
             PictureBox1.Image = Nothing
         Else
         End If
@@ -38,20 +39,24 @@
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
         Dim ANS As DialogResult = MessageBox.Show("Do you want to Delete? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If ANS = DialogResult.Yes Then
-            deletimage()
             PictureBox1.Image = Nothing
+            deletimage()
+            MsgBox("Delete Success")
+
         Else
         End If
 
     End Sub
 
     Private Sub Button6_Click_1(sender As Object, e As EventArgs) Handles Button6.Click
+        deletimage()
         OFD.Filter = "Picture (* .jpg; * .png) | * .jpg; * .png"
         OFD.ShowDialog()
         PictureBox1.ImageLocation = OFD.FileName
         Dim ANS As DialogResult = MessageBox.Show("Do you want to Update? ", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-        If ans = DialogResult.Yes Then
-            upimage()
+        If ANS = DialogResult.Yes Then
+            saveimage()
+            MsgBox("Update Success")
             PictureBox1.Image = Nothing
         Else
         End If

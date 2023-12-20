@@ -23,9 +23,10 @@ Partial Class PrintRecord
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        Me.AllAccounts1 = New Project_Atlas.AllAccounts()
         Me.Accounts1 = New Project_Atlas.Accounts()
         Me.Accounts2 = New Project_Atlas.Accounts()
-        Me.AllAccounts1 = New Project_Atlas.AllAccounts()
+        Me.UserMonitor1 = New Project_Atlas.UserMonitor()
         Me.SuspendLayout()
         '
         'CrystalReportViewer1
@@ -35,20 +36,18 @@ Partial Class PrintRecord
         Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
         Me.CrystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CrystalReportViewer1.Location = New System.Drawing.Point(0, 0)
-        Me.CrystalReportViewer1.Margin = New System.Windows.Forms.Padding(4)
         Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
-        Me.CrystalReportViewer1.ReportSource = Me.AllAccounts1
-        Me.CrystalReportViewer1.Size = New System.Drawing.Size(1067, 554)
+        Me.CrystalReportViewer1.ReportSource = Me.UserMonitor1
+        Me.CrystalReportViewer1.Size = New System.Drawing.Size(800, 450)
         Me.CrystalReportViewer1.TabIndex = 0
         Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
         'PrintRecord
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1067, 554)
+        Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.CrystalReportViewer1)
-        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "PrintRecord"
         Me.Text = "PrintRecord"
         Me.ResumeLayout(False)
@@ -59,4 +58,5 @@ Partial Class PrintRecord
     Friend WithEvents Accounts1 As Accounts
     Friend WithEvents Accounts2 As Accounts
     Friend WithEvents AllAccounts1 As AllAccounts
+    Friend WithEvents UserMonitor1 As UserMonitor
 End Class

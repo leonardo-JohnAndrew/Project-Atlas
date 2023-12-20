@@ -16,7 +16,7 @@ Module Module1
     Dim data As New AutoCompleteStringCollection
     Dim host, uname, pwd, dbname, query As String
     Dim ans As DialogResult
-    Dim filepath As String = "C:\\Users\\maure\\source\\repos\\Project-Atlas\\info.txt"
+    Dim filepath As String = "C:\\Users\\GADGETCORE\\source\\repos\\Project-Atlas\\info.txt"
 
     Public Sub connection()
         host = "127.0.0.1"
@@ -88,6 +88,7 @@ Module Module1
                     DYCIMAP.Btnview.Visible = False
                     DYCIMAP.Button1.Visible = False
                     DYCIMAP.TextBox2.Enabled = False
+                    Direction_guide.Button23.Visible = False
                     DYCIMAP.Button3.Visible = False
                 End If
                 Dim ANS As DialogResult = MessageBox.Show("Do you want to go next ? " & LOGIN.lblfullname.Text, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
@@ -166,7 +167,6 @@ Module Module1
             .Parameters.AddWithValue("@add", address)
             .Parameters.AddWithValue("@con", contact)
             .Parameters.AddWithValue("@fb", fb)
-            '.Parameters.AddWithValue("@pic", profile.ToArray)
 
         End With
         Try
@@ -295,26 +295,26 @@ Module Module1
             DisplayData.Dgvtbl.DataSource = table
             DisplayData.Dgvtbl.AutoResizeColumns()
             If tbl = "accounts " Then
-                PrintRecord.CrystalReportViewer1.ReportSource = Nothing
-                Dim rp As New AllAccounts
-                rp.SetDataSource(table)
-                With PrintRecord
-                    .CrystalReportViewer1.ReportSource = rp
-                    .CrystalReportViewer1.Refresh()
-                End With
-            ElseIf tbl = "usermonitor" Then
                 print.CrystalReportViewer1.ReportSource = Nothing
-                Dim rp As New AllMonitoring
+                Dim rp As New AllAccounts
                 rp.SetDataSource(table)
                 With print
                     .CrystalReportViewer1.ReportSource = rp
                     .CrystalReportViewer1.Refresh()
                 End With
-            ElseIf tbl = "room_building" Then
-                Building.CrystalReportViewer1.ReportSource = Nothing
-                Dim rp As New Building_name
+            ElseIf tbl = "usermonitor" Then
+                PrintRecord.CrystalReportViewer1.ReportSource = Nothing
+                Dim rp As New AllMonitoring
                 rp.SetDataSource(table)
-                With Building
+                With PrintRecord
+                    .CrystalReportViewer1.ReportSource = rp
+                    .CrystalReportViewer1.Refresh()
+                End With
+            ElseIf tbl = "room_building" Then
+                List.CrystalReportViewer1.ReportSource = Nothing
+                Dim rp As New NameList
+                rp.SetDataSource(table)
+                With List
                     .CrystalReportViewer1.ReportSource = rp
                     .CrystalReportViewer1.Refresh()
                 End With
@@ -339,19 +339,19 @@ Module Module1
             DisplayData.Dgvtbl.DataSource = table
             DisplayData.Dgvtbl.AutoResizeColumns()
             If tbl = "accounts" Then
-                Dim rp As New AllAccounts
-                PrintRecord.CrystalReportViewer1.ReportSource = Nothing
+                Dim rp As New Accounts
+                print.CrystalReportViewer1.ReportSource = Nothing
                 rp.SetDataSource(table)
-                With PrintRecord
+                With print
                     .CrystalReportViewer1.Refresh()
                     .CrystalReportViewer1.ReportSource = rp
 
                 End With
             ElseIf tbl = "usermonitor" Then
-                Dim rp As New AllMonitoring
-                print.CrystalReportViewer1.ReportSource = Nothing
+                Dim rp As New UserMonitor
+                PrintRecord.CrystalReportViewer1.ReportSource = Nothing
                 rp.SetDataSource(table)
-                With print
+                With PrintRecord
                     .CrystalReportViewer1.Refresh()
                     .CrystalReportViewer1.ReportSource = rp
 
@@ -374,9 +374,9 @@ Module Module1
             DisplayData.Dgvtbl.DataSource = table
             DisplayData.Dgvtbl.AllowUserToResizeRows = False
             Dim rp As New AllMonitoring
-            print.CrystalReportViewer1.ReportSource = Nothing
+            PrintRecord.CrystalReportViewer1.ReportSource = Nothing
             rp.SetDataSource(table)
-            With print
+            With PrintRecord
                 .CrystalReportViewer1.Refresh()
                 .CrystalReportViewer1.ReportSource = rp
 
@@ -588,7 +588,7 @@ Module Module1
 
     End Sub
     Public Sub upbuilding(num As String, name As String, events As String)
-        ' con.Open()
+
         If con.State = ConnectionState.Closed Then
             con.Open()
         End If
@@ -611,7 +611,7 @@ Module Module1
             con.Open()
         End If
         Try
-            query = "Delete event_warning  room_building WHere num  = " & num & ""
+            query = "Delete from room_building WHere num  = " & num & ""
             cmd = New MySqlCommand(query, con)
             cmd.ExecuteNonQuery()
             MsgBox("Delete Success")
@@ -631,7 +631,7 @@ Module Module1
             cmd.Parameters.Add("@image", MySqlDbType.LongBlob).Value = ms.ToArray()
             cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = Direction_guide.ComboBox1.Text
             cmd.ExecuteNonQuery()
-            MsgBox("Add Success ")
+
         Catch EX As Exception
             MsgBox(EX.Message)
 
@@ -650,7 +650,7 @@ Module Module1
         Try
             cmd = New MySqlCommand(query, con)
             cmd.ExecuteNonQuery()
-            MsgBox("Delete Success ")
+
         Catch EX As Exception
             MsgBox(EX.Message)
 
@@ -659,27 +659,7 @@ Module Module1
     End Sub
 
 
-    Public Sub upimage()
-        '   con.Open()
-        If con.State = ConnectionState.Closed Then
-            con.Open()
-        End If
-        read.Close()
 
-        query = "Update images set @images where NAME = '" & Direction_guide.ComboBox1.Text & "'"
-        ms = New System.IO.MemoryStream()
-        Direction_guide.PictureBox1.Image.Save(ms, Direction_guide.PictureBox1.Image.RawFormat)
-        Try
-            cmd = New MySqlCommand(query, con)
-            cmd.Parameters.Add("@image", MySqlDbType.LongBlob).Value = ms.ToArray()
-
-            cmd.ExecuteNonQuery()
-            MsgBox("Update Success ")
-        Catch EX As Exception
-            MsgBox(EX.Message)
-
-        End Try
-    End Sub
     Public Sub display()
         If con.State = ConnectionState.Closed Then
             con.Open()

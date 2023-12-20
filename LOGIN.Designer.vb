@@ -104,6 +104,7 @@ Partial Class LOGIN
         'lblfullname
         '
         Me.lblfullname.AutoSize = True
+        Me.lblfullname.Enabled = False
         Me.lblfullname.Font = New System.Drawing.Font("Bernard MT Condensed", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblfullname.Location = New System.Drawing.Point(183, 114)
         Me.lblfullname.Name = "lblfullname"

@@ -13,11 +13,11 @@ Public Class DisplayData
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If cborec.SelectedItem = "Accounts" Then
-            PrintRecord.Show()
-        ElseIf cborec.SelectedItem = "Monitor User" Then
             print.Show()
+        ElseIf cborec.SelectedItem = "Monitor User" Then
+            PrintRecord.Show()
         ElseIf cborec.SelectedItem = "Building And Room" Then
-            Building.Show()
+            List.Show()
         Else
             MsgBox("Show Record First")
         End If
