@@ -121,19 +121,7 @@
   <data name="385529872_3560089800931388_1600794123392506079_n" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\385529872_3560089800931388_1600794123392506079_n.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1) Frontline" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1) Frontline.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Intro" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Intro.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="2.2) College of Business and Accountancy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\Assigned ATLAS\2.2) College of Business and Accountancy.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="2.1) Guidance and Counseling Center" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\Assigned ATLAS\2.1) Guidance and Counseling Center.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="21" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\Assigned ATLAS\2.2) College of Business and Accountancy.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

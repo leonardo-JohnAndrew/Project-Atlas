@@ -5,10 +5,6 @@
         Me.Hide()
     End Sub
 
-    Private Sub Add_Load(sender As Object, e As EventArgs) Handles Me.Load
-
-    End Sub
-
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         DisplayData.Show()
